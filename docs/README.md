@@ -19,7 +19,7 @@ sufficient CSS styling:
 - [ ] Host Event
 - [ ] Join Event in your City
 - [ ] Dashboard of joined events/hosted events
-- [ ] Production README [production](docs/production_readme.md)
+- [ ] Production README
 
 ## Design Docs
 * [View Wireframes][wireframes]

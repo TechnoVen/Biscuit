@@ -3,7 +3,6 @@ class User < ApplicationRecord
     :email,
     :password_digest,
     :session_token,
-    :nickname,
     :first_name,
     :last_name,
     :pet_type,

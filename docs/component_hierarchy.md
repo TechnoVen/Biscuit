@@ -6,7 +6,6 @@
 **AppContainer**
  - App
   + NavBar
-  + HomeSplashHeader
   + HomeIndex
   + Footer
 
@@ -20,7 +19,6 @@
 
 **City Container**
  - City
-  + Splash Header
   + CityChange
   + EventCard
   + EventHost
@@ -29,14 +27,10 @@
  - Cities
   + CityCard
 
-**HostingOptIn Container**
- - HostingOptIn
-  + HostingSplashHeader
-  + HostingMain
-  + HostingForm
-
-**NewEvent Container**
- - Event Form
+**Hosting Container**
+ - Hosting
+  + HostingProfileForm
+  + NewEventForm
 
 **Host Container**
  - HostProfile
@@ -58,6 +52,6 @@
 | "/cities" | "CitiesContainer" |
 | "/cities/:cityName" | "CityContainer" |
 | "/cities/:cityName/host/:hostId" | "HostContainer" |
-| "/hosting" | "HostingOptInContainer"
-| "/hosting/new" | "NewEventContainer" |
+| "/hosting" | "HostingContainer"
+| "/hosting/new" | "NewEventForm" |
 | "/kibble_meets/:meetId" | "EventContainer" |

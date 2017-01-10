@@ -40,21 +40,22 @@ sufficient CSS styling:
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Events Model, API, and components (2 days)
+### Phase 2: Events Model, API, and Hosting components (2 days)
 
 **Objective:** Events can be created, read, edited and destroyed through
 the API.
 
-### Phase 3: Cities API, and components (3 days, W2 Wed 6pm)
+### Phase 3: Cities API, and components (2 days, W2 Tue 6pm)
 
 **Objective:**  Cities display all currently available places where events can be hosted/joined. Individual cities display event cards that can be join or waitlisted into.
 
-### Phase 4:  Dashboard of Joined/Past Events(2 days, W2 Fri 6pm)
+### Phase 4:  Dashboard of Joined/Past Events(2 days, W2 Thur 6pm)
 
 **Objective:** Toggle between past and currently joined events.
 
 ### Bonus Features (TBD)
 - [ ] Google Map API & Event Highlighting
 - [ ] Mobile-friendly
-- [ ] Set reminders on notes
+- [ ] Set reminders on events
+- [ ] Hosting opt-in
 - [ ] Suggestions based on events and profile details

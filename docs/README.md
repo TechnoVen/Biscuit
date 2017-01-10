@@ -29,9 +29,9 @@ sufficient CSS styling:
 * [Sample State][sample-state]
 
 [wireframes]: wireframes
-[components]: component-hierarchy.md
-[sample-state]: sample-state.md
-[api-endpoints]: api-endpoints.md
+[components]: component_hierarchy.md
+[sample-state]: sample_state.md
+[api-endpoints]: api_endpoints.md
 [schema]: schema.md
 
 ## Implementation Timeline

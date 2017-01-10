@@ -4,7 +4,9 @@
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-username        | string    | not null, indexed, unique
+nickname        | string    | not null, default: ""
+first_name      | string    | not null
+last_name       | string    | not null
 email           | string    | not null, indexed, unique
 pet_type        | string    | not null
 city_id         | integer   | not null, foreign key (references cities), indexed

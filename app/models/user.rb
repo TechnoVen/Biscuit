@@ -1,22 +1,36 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  nickname        :string           default(""), not null
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  pet_type        :string           not null
+#  city_id         :integer          not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates(
     :email,
     :password_digest,
     :session_token,
     :first_name,
-    :last_name,
-    :pet_type,
-    :city_id,
     presence: true
   )
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 8, allow_nil: true }
 
   attr_reader :password
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     return nil unless user && user.valid_password?(password)
     user
   end

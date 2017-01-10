@@ -7,6 +7,7 @@ id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
 pet_type        | string    | not null
+city_id         | integer   | not null, foreign key (references cities), indexed
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
@@ -26,6 +27,13 @@ host_id     | integer   | not null, foreign key (references hosts), indexed
 city_id     | integer   | not null, foreign key (references cities), indexed
 archived    | boolean   | not null, default: false
 
+## attendees
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references users), indexed
+event_id    | integer   | not null, foreign key (references events), indexed
+
 ## cities
 column name | data type | details
 ------------|-----------|-----------------------
@@ -37,7 +45,6 @@ image_url   | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-profile_pic | string    | not null
 desc_1      | string    | not null
 desc_2      | string    | not null
 desc_3      | string    | not null

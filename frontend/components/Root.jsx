@@ -2,13 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
-import App from './App';
+import AppContainer from './app/AppContainer';
 import SessionFormContainer from './session/SessionFormContainer.jsx';
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}>
+      <Route path="/" component={AppContainer}>
         <Route path="/signin" component={SessionFormContainer}/>
         <Route path="/signup" component={SessionFormContainer}/>
       </Route>

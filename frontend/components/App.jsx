@@ -1,9 +1,16 @@
 import React from 'react';
 
-export default class App extends React.Component{
-  render() {
-    return (
-      <h1>Tea With Strangers</h1>
-    );
-  }
-}
+const App = ({children}) => (
+  <div>
+    <Header />
+    { children }
+  </div>
+);
+
+export default App;
+
+const Header = () => (
+  <header>
+    <h1>Kibble With Strangers</h1>
+  </header>
+);

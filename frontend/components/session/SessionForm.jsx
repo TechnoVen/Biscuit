@@ -57,14 +57,21 @@ export default class SessionForm extends React.Component {
   render() {
     const {formType} = this.props;
     return (
-      <section className='session-form-container'>
-        <SessionFormItem
-          handleSubmit={this.handleSubmit}
-          handleUpdate={this.handleUpdate}
-          user={this.state}
-          formType={formType}
-        />
-      {this.navLink()}
+      <section className="container">
+        <div className="session-container">
+          <h1>Join a kibble meet</h1>
+          <p>
+            Thousands of strangers across the world have set up playdates with
+            friendly and playful pets. We can't wait for you to experience this.
+          </p>
+          <SessionFormItem
+            handleSubmit={this.handleSubmit}
+            handleUpdate={this.handleUpdate}
+            user={this.state}
+            formType={formType}
+            />
+          {this.navLink()}
+        </div>
       </section>
     );
   }

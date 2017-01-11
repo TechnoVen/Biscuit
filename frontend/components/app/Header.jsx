@@ -6,7 +6,7 @@ const Header = ({signedIn, handleSignOut}) => {
   return (
     <header>
       <div className="header-container">
-        <Link to='/'>Kibble With Strangers</Link>
+        <Link className="header-logo" to='/'>kibble with strangers</Link>
         <HeaderNavLinks signedIn={signedIn} handleSignOut={handleSignOut}/>
       </div>
     </header>

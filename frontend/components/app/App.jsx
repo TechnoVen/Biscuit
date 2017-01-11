@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 import Header from './Header';
+import Footer from './Footer';
 
 export default class App extends React.Component {
   constructor() {
@@ -11,15 +12,18 @@ export default class App extends React.Component {
 
   handleSignOut() {
     this.props.signout()
-      .then(hashHistory.push('/signin'));
+      .then(() => this.props.router.push('/signin'));
   }
 
   render() {
     const {children, signedIn} = this.props;
     return (
-      <div>
-        <Header signedIn={signedIn} handleSignOut={this.handleSignOut}/>
-        {children}
+      <div className="wrapper">
+        <div className="wrapper-container">
+          <Header signedIn={signedIn} handleSignOut={this.handleSignOut}/>
+          {children}
+        </div>
+        <Footer />
       </div>
     );
   }

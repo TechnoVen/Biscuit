@@ -15,7 +15,7 @@ const SessionFormItem = ({handleSubmit, handleUpdate, formType, user}) => {
 
   const submitButton = formType === 'signin' ? 'sign in' : 'meet kibble friends';
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="session-form" onSubmit={handleSubmit}>
       {nameField()}
       <input
         type="text"

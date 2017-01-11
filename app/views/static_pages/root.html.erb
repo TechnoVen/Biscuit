@@ -1,5 +1,4 @@
 <script id="bootstrap-current-user" type="text/javascript">
-  window.something = "aksdfsdf";
   <% if signed_in? %>
   	window.currentUser = <%= render('api/users/user.json.jbuilder',
   		user: current_user).html_safe %>

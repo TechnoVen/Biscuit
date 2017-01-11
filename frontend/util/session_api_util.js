@@ -12,7 +12,7 @@ export const signin = user => (
     data: {user}
   })
 );
-export const logout = () => (
+export const signout = () => (
   $.ajax({
     method: 'DELETE',
     url: '/api/sessions',

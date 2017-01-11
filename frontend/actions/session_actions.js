@@ -31,8 +31,8 @@ export const signin = user => dispatch => {
     errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
-export const logout = () => dispatch => {
-  return SessionAPIUtil.logout()
+export const signout = () => dispatch => {
+  return SessionAPIUtil.signout()
   .then(() => dispatch(clearUser()),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };

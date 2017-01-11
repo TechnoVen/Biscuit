@@ -5,7 +5,7 @@ export const signup = user => (
     data: {user}
   })
 );
-export const login = user => (
+export const signin = user => (
   $.ajax({
     method: 'POST',
     url: '/api/sessions',
@@ -25,3 +25,6 @@ export const update = (user) => (
     data: {user}
   })
 );
+
+window.signin = signin;
+window.signup = signup;

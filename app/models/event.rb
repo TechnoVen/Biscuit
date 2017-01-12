@@ -24,6 +24,6 @@ class Event < ApplicationRecord
 
   belongs_to :host
   belongs_to :city
-  has_many :attendees
-  has_many :users, through: :attendees
+  has_many :attendance
+  has_many :attendees, through: :attendance
 end

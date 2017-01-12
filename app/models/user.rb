@@ -25,9 +25,10 @@ class User < ApplicationRecord
   )
   validates :password, length: { minimum: 8, allow_nil: true }
 
-  has_many :attendees
+  has_many :attendances, foreign_key: :user_id, class_name: :Attendance
   has_one :host
-  has_many :events, through: :attendees
+  has_many :attended_events, through: :attendances
+  has_many :hosted_events, through: :host
 
   attr_reader :password
 

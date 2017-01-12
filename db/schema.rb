@@ -16,12 +16,8 @@ ActiveRecord::Schema.define(version: 20170111233720) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.integer "day",                         null: false
-    t.integer "month",                       null: false
-    t.integer "year",                        null: false
-    t.integer "hour",                        null: false
-    t.integer "minutes",                     null: false
-    t.integer "period",                      null: false
+    t.string  "date",                        null: false
+    t.string  "time",                        null: false
     t.integer "max_guests",                  null: false
     t.string  "description"
     t.integer "host_id",                     null: false

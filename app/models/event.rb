@@ -3,12 +3,8 @@
 # Table name: events
 #
 #  id          :integer          not null, primary key
-#  day         :integer          not null
-#  month       :integer          not null
-#  year        :integer          not null
-#  hour        :integer          not null
-#  minutes     :integer          not null
-#  period      :integer          not null
+#  date        :string           not null
+#  time        :string           not null
 #  max_guests  :integer          not null
 #  description :string
 #  host_id     :integer          not null
@@ -18,14 +14,9 @@
 
 class Event < ApplicationRecord
   validates(
-    :day,
-    :month,
-    :year,
-    :hour,
-    :minutes,
-    :period,
+    :date,
+    :time,
     :max_guests,
-    :description,
     :host_id,
     :city_id,
     presence: true

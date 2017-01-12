@@ -8,7 +8,12 @@
       firstname: "jackson",
       lastname: "law",
       pet_type: "dog",
-      events: [ //... ]
+      attended_events: [ //... ],
+      hosted_events: [ //... ],
+      host: {
+        desc1: "i like cats",
+        // ....
+      }
     },
     errors: [ //... ]
   },

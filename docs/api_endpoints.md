@@ -24,8 +24,6 @@
   - Single event
   - Host
   - All joined members
-- `GET /api/events`
-  - All events for a city
 - `POST /api/events`
 - `PATCH /api/events/:id`
 - `DELETE /api/events/:id`

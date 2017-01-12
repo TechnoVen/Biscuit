@@ -23,6 +23,7 @@ class User < ApplicationRecord
     :first_name,
     presence: true
   )
+  validates :email, uniqueness: :true
   validates :password, length: { minimum: 8, allow_nil: true }
 
   has_many :attendances, foreign_key: :user_id, class_name: :Attendance

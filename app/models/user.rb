@@ -3,11 +3,11 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  nickname        :string           default(""), not null
+#  nickname        :string
 #  first_name      :string           not null
-#  last_name       :string           not null
-#  pet_type        :string           not null
-#  city_id         :integer          not null
+#  last_name       :string
+#  pet_type        :string
+#  city_id         :integer
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null

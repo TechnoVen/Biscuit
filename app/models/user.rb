@@ -25,6 +25,10 @@ class User < ApplicationRecord
   )
   validates :password, length: { minimum: 8, allow_nil: true }
 
+  has_many :attendees
+  has_one :host
+  has_many :events, through: :attendees
+
   attr_reader :password
 
   after_initialize :ensure_session_token

@@ -21,4 +21,9 @@ class Event < ApplicationRecord
     :city_id,
     presence: true
   )
+
+  belongs_to :host
+  belongs_to :city
+  has_many :attendees
+  has_many :users, through: :attendees
 end

@@ -15,3 +15,36 @@ User.create!(
   email: 'guest_user@kibblewstrangers.com',
   password: 'guest_kibble'
 )
+User.create!(
+  nickname: 'Serenity',
+  first_name: 'Lori',
+  last_name: 'S',
+  pet_type: 'dog',
+  city_id: 1,
+  email: 'lss@gmail.com',
+  password: 'password'
+)
+User.create!(
+  nickname: 'Penny',
+  first_name: 'Payne',
+  last_name: 'Z',
+  pet_type: 'cat',
+  city_id: 1,
+  email: 'pz@gmail.com',
+  password: 'password'
+)
+
+Host.create!(
+  user_id: 1
+)
+
+Event.create!([
+  {date: "2/1/17", time: "18:30", host_id: 1, city_id: 1, max_guests: 5},
+  {date: "2/10/17", time: "18:30", host_id: 1, city_id: 1, max_guests: 5},
+  {date: "2/14/17", time: "18:30", host_id: 1, city_id: 1, max_guests: 5},
+  ])
+
+Attendance.create!([
+  {user_id: 2, event_id: 1},
+  {user_id: 3, event_id: 1}
+])

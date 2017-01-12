@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112033405) do
+ActiveRecord::Schema.define(version: 20170112041705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendees", force: :cascade do |t|
+  create_table "attendances", force: :cascade do |t|
     t.integer "user_id",  null: false
     t.integer "event_id", null: false
-    t.index ["event_id"], name: "index_attendees_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_attendees_on_user_id", using: :btree
+    t.index ["event_id"], name: "index_attendances_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_attendances_on_user_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|

@@ -1,11 +1,17 @@
 import * as EventAPIUtil from '../actions/event_actions';
 
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
+export const RECEIVE_EVENTS = 'RECEIVE_EVENT';
 export const REMOVE_EVENT = 'REMOVE_EVENT';
 
 export const receiveEvent = (event) => ({
   type: RECEIVE_EVENT,
   event
+});
+
+export const receiveEvents = (events) => ({
+  type: RECEIVE_EVENTS,
+  events
 });
 
 export const removeEvent = (event) => ({
@@ -23,7 +29,7 @@ export const updateEvent = (event) => (dispatch) => (
     .then(response => dispatch(receiveEvent(response)))
 );
 
-export const fetchEvent = (eventId) => (dispatch) => (
+export const fetchEvents = (eventId) => (dispatch) => (
   EventAPIUtil.fetchEvent(eventId)
     .then(response => dispatch(receiveEvent(response)))
 );

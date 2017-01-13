@@ -16,6 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
 
   const main = document.getElementById('main');
-  // ReactDOM.render(<Root store={store}/>, main);
-  ReactDOM.render(<EventForm/>, main);
+  ReactDOM.render(<Root store={store}/>, main);
 });

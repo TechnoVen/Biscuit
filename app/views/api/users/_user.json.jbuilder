@@ -13,6 +13,7 @@ user,
 
 json.hosting_profile do
   if user.host
+    json.host_id user.host.id
     json.desc_1 user.host.desc_1
     json.desc_2 user.host.desc_2
     json.desc_3 user.host.desc_3

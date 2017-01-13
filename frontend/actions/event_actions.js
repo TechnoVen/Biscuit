@@ -1,4 +1,4 @@
-import * as EventAPIUtil from '../actions/event_actions';
+import * as EventAPIUtil from '../util/event_api_util';
 
 export const RECEIVE_EVENT = 'RECEIVE_EVENT';
 export const RECEIVE_EVENTS = 'RECEIVE_EVENT';
@@ -21,7 +21,7 @@ export const removeEvent = (event) => ({
 
 export const createEvent = (event) => (dispatch) => (
   EventAPIUtil.createEvent(event)
-    .then(response => dispatch(receiveEvent(response)))
+    .then(response => console.log(response))
 );
 
 export const updateEvent = (event) => (dispatch) => (

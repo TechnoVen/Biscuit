@@ -1,4 +1,4 @@
-import receiveCurrentUser from './session_actions';
+import {receiveCurrentUser} from './session_actions';
 import * as HostAPIUtil from '../util/host_api_util';
 
 export const UPDATE_HOST_PROFILE = 'UPDATE_HOST_PROFILE';

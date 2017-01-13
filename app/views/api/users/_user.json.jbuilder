@@ -13,9 +13,11 @@ user,
 
 json.hosting_profile do
   if user.host
-    json.host_id user.host.id
-    json.detail1 user.host.detail1
-    json.detail2 user.host.detail2
-    json.detail3 user.host.detail3
+    json.id user.host.id
+    json.details do
+      json.detail1 user.host.detail1
+      json.detail2 user.host.detail2
+      json.detail3 user.host.detail3
+    end
   end
 end

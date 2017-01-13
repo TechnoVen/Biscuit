@@ -15,11 +15,11 @@ export default class HostingProfile extends React.Component {
     this.renderEditOrDisplay = this.renderEditOrDisplay.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
     this.updateInput = this.updateInput.bind(this);
+    this.updateHostProfile = this.updateHostProfile.bind(this);
   }
 
   componentDidMount() {
-    const details = this.props.hostingProfile;
-    delete details.host_id;
+    const details = this.props.details;
     this.setState({details});
   }
 
@@ -66,6 +66,11 @@ export default class HostingProfile extends React.Component {
     };
   }
 
+  updateHostProfile() {
+    const host = Object.assign({}, this.state.details);
+    this.props.updateProfile(host);
+  }
+
   render() {
     const renderHostProfile = Object.keys(this.state.details).map((d, id) => {
       return this.renderEditOrDisplay(d, id);
@@ -86,7 +91,7 @@ export default class HostingProfile extends React.Component {
         <ul>
           {renderHostProfile}
         </ul>
-        <button onClick={this.saveProfileDetails}>Save</button>
+        <button onClick={this.updateHostProfile}>Save</button>
       </div>
     );
   }

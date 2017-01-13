@@ -1,7 +1,7 @@
 export const updateProfile = (host) => (
   $.ajax({
-    method: 'POST',
-    url: 'api/hosts',
+    method: 'PATCH',
+    url: `api/hosts/${host.id}`,
     data: {host}
   })
 );

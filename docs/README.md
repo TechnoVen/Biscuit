@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: http://kibblewithstrangers.herokuapp.com
 [trello]: https://trello.com/
 
 ## Minimum Viable Product

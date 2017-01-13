@@ -17,14 +17,15 @@ html, body {
 }
 
 .wrapper-container {
-  background: $color5;
+  background: $background-accent;
   flex: 1;
 }
 
 header {
   width: 100%;
   height: auto;
-  background-color: $color1;
+  background-color: $primary-accent;
+  box-shadow: 0px 2px 2px 0px rgba(204,204,204,1);
 }
 
 .header-container {
@@ -70,7 +71,7 @@ header {
 footer {
   width: 100%;
   height: auto;
-  background: $color1;
+  background: $primary-accent;
 }
 
 .container {
@@ -149,7 +150,7 @@ footer {
   font-family: 'Work Sans', sans-serif;
   font-size: 2em;
   font-weight: 600;
-  color: $color2;
+  color: $secondary-accent;
 }
 
 .session-container > div > p {
@@ -164,7 +165,7 @@ footer {
   font-family: 'Work Sans', sans-serif;
   font-size: 1.125em;
   text-decoration: none;
-  color: $color2;
+  color: $secondary-accent;
 }
 
 .session-container > a:hover {
@@ -194,8 +195,8 @@ footer {
   font-weight: 600;
   text-transform: uppercase;
   color: #ffffff;
-  background: $color2;
-  border: $color2;
+  background: $secondary-accent;
+  border: $secondary-accent;
   border-radius: 10px;
   padding: 1em 0;
   margin-top: 10px;
@@ -203,8 +204,8 @@ footer {
 }
 
 .session-form > button:hover {
-  background: $color2_1;
-  border: $color2_1;
+  background: $secondary-accent-highlight;
+  border: $secondary-accent-highlight;
 }
 
 input:focus {
@@ -216,7 +217,7 @@ button:focus {
 }
 
 .session-container > p.form-errors {
-  color: $color6;
+  color: $error-accent;
   font-family: 'Work Sans', sans-serif;
   font-size: 1.125em;
 }

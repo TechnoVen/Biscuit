@@ -5,7 +5,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import AppContainer from './app/AppContainer';
 import SessionFormContainer from './session/SessionFormContainer.jsx';
 import HostingContainer from './hosting/HostingContainer';
-import HostingProfile from './hosting/HostingProfile';
+import HostingProfileContainer from './hosting/HostingProfileContainer';
 import EventFormContainer from './hosting/EventFormContainer';
 
 const Root = ({ store }) => (
@@ -15,7 +15,7 @@ const Root = ({ store }) => (
         <Route path="/signin" component={SessionFormContainer}/>
         <Route path="/signup" component={SessionFormContainer}/>
         <Route path="/hosting" component={HostingContainer}>
-          <IndexRoute component={HostingProfile}/>
+          <IndexRoute component={HostingProfileContainer}/>
           <Route path="/hosting/new" component={EventFormContainer}/>
         </Route>
       </Route>

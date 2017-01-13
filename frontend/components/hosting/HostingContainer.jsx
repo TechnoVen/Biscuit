@@ -3,8 +3,8 @@ import {createEvent} from '../../actions/event_actions';
 
 import Hosting from './Hosting';
 
-const mapStateToProps = ({currentUser}) => ({
-  currentUser: currentUser.host
+const mapStateToProps = ({session}) => ({
+  currentUser: currentUser.hosting_profile
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -36,9 +36,9 @@ User.create!(
 
 Host.create!(
   user_id: 1,
-  desc_1: 'i like cats',
-  desc_2: 'i like dogs',
-  desc_3: 'i like bunnies'
+  detail1: 'i like cats',
+  detail2: 'i like dogs',
+  detail3: 'i like bunnies'
 )
 
 Event.create!([

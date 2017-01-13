@@ -44,7 +44,7 @@ image_url   | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-desc_1      | string    |
-desc_2      | string    |
-desc_3      | string    |
+detail1      | string    |
+detail2      | string    |
+detail3      | string    |
 user_id     | integer   | not null, foreign key (references users), indexed

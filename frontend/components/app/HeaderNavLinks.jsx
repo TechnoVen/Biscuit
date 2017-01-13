@@ -13,7 +13,7 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
           <Link to="/">cities</Link>
         </li>
         <li>
-          <Link to="/">hosting</Link>
+          <Link to="/hosting">hosting</Link>
         </li>
         <li>
           <Link to="/">dashboard</Link>
@@ -30,7 +30,7 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
           <Link to="/">cities</Link>
         </li>
         <li>
-          <Link to="/">hosting</Link>
+          <Link to="/hosting">hosting</Link>
         </li>
         <li>
           <Link to="/">about</Link>

@@ -39,8 +39,15 @@ export default class SimpleSelectWrapper extends React.Component {
       );
   }
   render() {
-    const {placeholder, options, value, onTimeChange} = this.props;
+    const {
+      placeholder,
+      options,
+      value,
+      handleSelectChange,
+      defaultValue
+    } = this.props;
     const {search} = this.state;
+    const showDefault = defaultValue ? defaultValue : "";
     return (
       <SimpleSelect
           options={toObjArr(options, search)}
@@ -49,8 +56,9 @@ export default class SimpleSelectWrapper extends React.Component {
           onSearchChange={this.handleSearchChange}
           transitionEnter={true}
           transitionLeave={true}
-          onValueChange={onTimeChange(value)}
+          onValueChange={handleSelectChange(value)}
           renderOption={this.handleRenderOption}
+          defaultValue={showDefault}
       />
     );
   }

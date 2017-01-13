@@ -15,6 +15,6 @@ json.hosting_profile do
   if user.host
     json.desc_1 user.host.desc_1
     json.desc_2 user.host.desc_2
-    json.desc_3 usr.host.desc_3
+    json.desc_3 user.host.desc_3
   end
 end

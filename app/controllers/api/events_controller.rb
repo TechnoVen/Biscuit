@@ -33,6 +33,7 @@ class Api::EventsController < ApplicationController
     params.require(:event).permit(
       :date,
       :time,
+      :location,
       :max_guests,
       :description,
       :host_id,

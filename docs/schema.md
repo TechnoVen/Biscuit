@@ -19,7 +19,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 date        | string    | not null
 time        | string    | not null
-max_guests  | integer   | not null, default: 6
+max_guests  | integer   | not null, default: 5
+location    | string    | not null
 description | string    |
 host_id     | integer   | not null, foreign key (references hosts), indexed
 city_id     | integer   | not null, foreign key (references cities), indexed

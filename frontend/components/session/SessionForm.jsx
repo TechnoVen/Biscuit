@@ -79,7 +79,7 @@ export default class SessionForm extends React.Component {
       if (formType === 'signin') {
         return (
           <div>
-            <h1>Sign into your account</h1>
+            <h2>Sign into your account</h2>
             <p>
               We're glad to have you back.
             </p>
@@ -88,7 +88,7 @@ export default class SessionForm extends React.Component {
       } else {
         return (
           <div>
-            <h1>Join a kibble meet</h1>
+            <h2>Join a kibble meet</h2>
             <p>
               Thousands of strangers across the world have set up playdates with
               friendly and playful pets. We can't wait for you to experience this.

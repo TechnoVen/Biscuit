@@ -4,15 +4,17 @@ import {Link} from 'react-router';
 export default class HostingNavBar extends React.Component {
   render() {
     return (
-      <div className="hosting-nav">
-        <ul className="hosting-nav-links">
-          <Link to="/hosting">
-            <li>hosting profile</li>
-          </Link>
-          <Link to="/hosting/new">
-            <li>new event</li>
-          </Link>
-        </ul>
+      <div className="hosting-nav-container">
+        <div className="container hosting-nav">
+          <ul className="hosting-nav-links">
+            <li className="">
+              <Link to="/hosting" className="hvr-fade">hosting profile</Link>
+            </li>
+            <li>
+              <Link to="/hosting/new" className="hvr-fade">new event</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }

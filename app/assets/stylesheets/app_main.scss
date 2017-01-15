@@ -8,7 +8,13 @@ html, body {
 .wrapper h2 {
   font-size: 2em;
   font-weight: 600;
-  color: $secondary-accent;
+  color: $color-accent-1;
+}
+
+.wrapper h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .wrapper p {
@@ -35,7 +41,7 @@ html, body {
 header {
   width: 100%;
   height: auto;
-  background-color: $primary-accent;
+  background-color: $primary-color;
   box-shadow: 0px 2px 2px 0px rgba(204,204,204,1);
 }
 
@@ -88,10 +94,55 @@ header {
   cursor: pointer;
 }
 
+.home-container {
+  max-width: 100%;
+}
+
+.home-splash {
+  max-width: 100%;
+  min-height: calc(100vh - 76px);
+  background-image: linear-gradient(to bottom, $color-accent-2, $color-accent-2-fade),url(http://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1350,q_auto:eco/v1484463683/threepeople-livingroom-dogs_rclc0m.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-splash > span {
+  padding: 20px 0 40px 0;
+}
+
+.home-splash > button {
+  font-size: 1.125em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: $color-accent-3;
+  border: $color-accent-3;
+  border-radius: 10px;
+  padding: 16px 32px;
+  cursor: pointer;
+}
+
+.home-splash > button:hover,
+.home-splash > button:focus,
+.home-splash > button:active {
+  background: $color-accent-3-highlight;
+  border: $color-accent-3-highlight;
+}
+
+.home-splash > span {
+  font-size: 1.125em;
+  color: #ffffff;
+}
+
 footer {
   width: 100%;
   height: auto;
-  background: $primary-accent;
+  background: $primary-color;
 }
 
 .container {
@@ -175,7 +226,7 @@ footer {
 .session-container > a {
   font-size: 1.125em;
   text-decoration: none;
-  color: $secondary-accent;
+  color: $color-accent-1;
 }
 
 .session-container > a:hover {
@@ -204,8 +255,8 @@ footer {
   font-weight: 600;
   text-transform: uppercase;
   color: #ffffff;
-  background: $secondary-accent;
-  border: $secondary-accent;
+  background: $color-accent-1;
+  border: $color-accent-1;
   border-radius: 10px;
   padding: 1em 0;
   margin-top: 10px;
@@ -213,9 +264,20 @@ footer {
 }
 
 .session-form > button:hover {
-  background: $secondary-accent-highlight;
-  border: $secondary-accent-highlight;
+  background: $color-accent-1-highlight;
+  border: $color-accent-1-highlight;
 }
+
+.session-form > button:last-of-type {
+  background: $color-accent-3;
+  border: $color-accent-3;
+}
+
+.session-form > button:last-of-type:hover {
+  background: $color-accent-3-highlight;
+  border: $color-accent-3-highlight;
+}
+
 
 input:focus {
   outline: none;
@@ -235,8 +297,7 @@ button:focus {
 }
 
 .hosting-nav-container {
-  background: $primary-accent-light;
-
+  background: $color-accent-2;
 }
 
 .hosting-nav {
@@ -262,6 +323,13 @@ button:focus {
 
   padding: 14px 8px;
   border-radius: 3px;
+}
+
+.hosting-nav-links > li > a:hover,
+.hosting-nav-links > li > a:focus,
+.hosting-nav-links > li > a:active {
+  background-color: #ffffff;
+  color: $color-accent-1;
 }
 
 .hosting-nav-links > li:first-child {

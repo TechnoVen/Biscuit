@@ -2,10 +2,20 @@
 
 /* RGB */
 
+$primary-color: rgba(52, 74, 95, 1);
+$primary-color-fade: rgba(52, 74, 95, .85);
 
 $background-accent: rgba(255, 251, 248, 1);
-$primary-accent: rgba(165, 56, 96, 1);
+
 $primary-accent-light: rgba(188, 111, 142, 1); // paradise pink
-$secondary-accent: rgba(93, 87, 107, 1);
-$secondary-accent-highlight: rgba(93, 75, 107, 1);
+
+$color-accent-1: rgba(254, 144, 139, 1);
+$color-accent-1-highlight: rgba(255, 124, 117, 1);
+
+$color-accent-2: rgba(133, 214, 223, 1);
+$color-accent-2-fade: rgba(133, 214, 223, .85);
+
+$color-accent-3: rgba(255, 210, 122, 1);
+$color-accent-3-highlight: rgba(255, 202, 96, 1);
+
 $error-accent: rgba(220, 20, 60, 1);

@@ -14,10 +14,9 @@ export default class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.navLink = this.navLink.bind(this);
-    this.enterDemoAccount = this.enterDemoAccount.bind(this);
   }
 
-  componentDidMount() {
+  componentWillUpdate() {
     this.redirectIfLoggedIn();
   }
 
@@ -38,14 +37,6 @@ export default class SessionForm extends React.Component {
       delete user.first_name;
     }
     this.props.processForm(user).then(() => this.redirect());
-  }
-
-  enterDemoAccount() {
-    const demo = {
-      email: 'guest_user@kibblewstrangers.com',
-      password: "guest_kibble"
-    };
-    this.props.processForm(demo).then(() => this.redirect());
   }
 
   redirect() {
@@ -69,8 +60,9 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
-    const {formType, errors} = this.props;
+    const {formType, errors, enterDemoAccount} = this.props;
     const formErrors = () => {
+      debugger
       if (errors[0]) {
         return <p className="form-errors">{errors[0]}</p>;
       }
@@ -88,7 +80,7 @@ export default class SessionForm extends React.Component {
       } else {
         return (
           <div>
-            <h2>Join a kibble meet</h2>
+            <h2>Jon a playdate with the cutest pets</h2>
             <p>
               Thousands of strangers across the world have set up playdates with
               friendly and playful pets. We can't wait for you to experience this.
@@ -107,7 +99,7 @@ export default class SessionForm extends React.Component {
             handleUpdate={this.handleUpdate}
             user={this.state}
             formType={formType}
-            enterDemoAccount={this.enterDemoAccount}
+            enterDemoAccount={enterDemoAccount}
             />
           {this.navLink()}
         </div>

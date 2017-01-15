@@ -7,19 +7,19 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
     navLinks = (
       <ul className="header-nav-links">
         <li>
-          <Link to="/">bay area / sf</Link>
+          <Link className="hvr-fade" to="/">bay area / sf</Link>
         </li>
         <li>
-          <Link to="/">cities</Link>
+          <Link className="hvr-fade" to="/">cities</Link>
         </li>
         <li>
-          <Link to="/hosting">hosting</Link>
+          <Link className="hvr-fade" to="/hosting">hosting</Link>
         </li>
         <li>
-          <Link to="/">dashboard</Link>
+          <Link className="hvr-fade" to="/">dashboard</Link>
         </li>
         <li>
-          <span onClick={handleSignOut}>sign out</span>
+          <span className="hvr-fade" onClick={handleSignOut}>sign out</span>
         </li>
       </ul>
     );
@@ -27,19 +27,19 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
     navLinks = (
       <ul className="header-nav-links">
         <li>
-          <Link to="/">cities</Link>
+          <Link className="hvr-fade" to="/">cities</Link>
         </li>
         <li>
-          <Link to="/hosting">hosting</Link>
+          <Link className="hvr-fade" to="/hosting">hosting</Link>
         </li>
         <li>
-          <Link to="/">about</Link>
+          <Link className="hvr-fade" to="/">about</Link>
         </li>
         <li>
-          <Link to="/signin">sign in</Link>
+          <Link className="hvr-fade" to="/signin">sign in</Link>
         </li>
         <li>
-          <Link to="/signup">sign up</Link>
+          <Link className="hvr-fade"  to="/signup">sign up</Link>
         </li>
       </ul>
     );

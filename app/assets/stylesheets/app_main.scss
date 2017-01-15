@@ -88,10 +88,17 @@ header {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
+
+  border-radius: 12px;
+  padding: 12px;
 }
 
-.header-nav-links > li > *:hover {
-  cursor: pointer;
+.header-nav-links > li > *:hover,
+.header-nav-links > li > *:focus,
+.header-nav-links > li > *:active {
+  background-color: #ffffff;
+  color: $color-accent-1;
 }
 
 .home-container {

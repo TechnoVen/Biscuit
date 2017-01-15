@@ -62,7 +62,6 @@ export default class SessionForm extends React.Component {
   render() {
     const {formType, errors, enterDemoAccount} = this.props;
     const formErrors = () => {
-      debugger
       if (errors[0]) {
         return <p className="form-errors">{errors[0]}</p>;
       }

@@ -4,8 +4,8 @@
 
 [Trello link][trello]
 
-[heroku]: http://kibblewithstrangers.herokuapp.com
-[trello]: https://trello.com/
+[heroku]: http://biscuitapp.herokuapp.com
+[trello]: https://trello.com/b/OFsZIaaS/biscuit
 
 ## Minimum Viable Product
 

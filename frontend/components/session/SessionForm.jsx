@@ -16,16 +16,6 @@ export default class SessionForm extends React.Component {
     this.navLink = this.navLink.bind(this);
   }
 
-  componentWillUpdate() {
-    this.redirectIfLoggedIn();
-  }
-
-  redirectIfLoggedIn() {
-    if (this.props.loggedIn) {
-      this.redirect();
-    }
-  }
-
   handleUpdate(field) {
     return e => this.setState({[field]: e.target.value});
   }
@@ -36,11 +26,8 @@ export default class SessionForm extends React.Component {
     if (this.props.formType === 'signin') {
       delete user.first_name;
     }
-    this.props.processForm(user).then(() => this.redirect());
-  }
-
-  redirect() {
-    hashHistory.push('/');
+    this.props.processForm(user)
+      .then(() => hashHistory.push('/'));
   }
 
   navLink() {

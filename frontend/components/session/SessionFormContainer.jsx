@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { signin, signup, clearErrors } from '../../actions/session_actions';
+import {hashHistory} from 'react-router';
 import SessionForm from './SessionForm';
 
 const mapStateToProps = ({session}) => ({
@@ -17,7 +18,8 @@ const mapDispatchToProps = (dispatch, { location }) => {
   return {
     processForm: (user) => dispatch(processForm(user)),
     clearErrors: () => dispatch(clearErrors()),
-    enterDemoAccount: () => dispatch(signin(demo)),
+    enterDemoAccount: () => dispatch(signin(demo))
+                              .then(() => hashHistory.push('/')),
     formType
   };
 };

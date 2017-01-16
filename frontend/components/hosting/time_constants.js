@@ -1,5 +1,3 @@
-import {partitionString} from 'prelude-extension';
-
 export const months = [
   'January',
   'February',
@@ -22,7 +20,7 @@ const shortMonths = [
   'November'
 ];
 
-export const hours = (() => {
+export const time = (() => {
   const ha = [];
   for (let i = 9; i < 12; i++) {
     ha.push(`${i} : 00 AM`);
@@ -59,15 +57,3 @@ export const days = (month) => {
   }
   return d;
 };
-
-export const toObjArr = (ary, search) => (
-  ary.map((el) => {
-    return {
-      label: el,
-      value: el,
-      labelPartitions: partitionString(el, search)
-    };
-  })
-);
-
-export const years = ['2017', '2018'];

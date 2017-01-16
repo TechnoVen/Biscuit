@@ -140,15 +140,15 @@ header {
   padding: 20px 0 40px 0;
 }
 
-.home-splash > button {
+.home-splash button {
   background: $color-accent-3;
   border: $color-accent-3;
   padding: 16px 32px;
 }
 
-.home-splash > button:hover,
-.home-splash > button:focus,
-.home-splash > button:active {
+.home-splash button:hover,
+.home-splash button:focus,
+.home-splash button:active {
   background: $color-accent-3-highlight;
   border: $color-accent-3-highlight;
 }

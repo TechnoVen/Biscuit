@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Hosting from './Hosting';
 
 const mapStateToProps = ({session}) => ({
-  currentUser: session.currentUser
+  signedIn: Boolean(session.currentUser)
 });
 
 export default connect(

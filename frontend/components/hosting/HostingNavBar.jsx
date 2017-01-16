@@ -7,7 +7,7 @@ export default class HostingNavBar extends React.Component {
       <div className="hosting-nav-container">
         <div className="container hosting-nav">
           <ul className="hosting-nav-links">
-            <li className="">
+            <li>
               <Link to="/hosting" className="hvr-fade">hosting profile</Link>
             </li>
             <li>

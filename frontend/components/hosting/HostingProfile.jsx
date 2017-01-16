@@ -1,4 +1,5 @@
 import React from 'react';
+import TextareaAutosize from 'react-autosize-textarea';
 
 export default class HostingProfile extends React.Component {
   constructor() {
@@ -90,7 +91,7 @@ export default class HostingProfile extends React.Component {
             in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <ul className="hosting-profile-list">
+        <ul>
           {renderHostProfile}
         </ul>
         <button onClick={this.updateHostProfile}>Save</button>
@@ -107,18 +108,18 @@ const HostingProfileEditItem = ({
   question,
   description
 }) => (
-  <li>
-    <div>{question}</div>
-    <form onSubmit={toggleEditing(item)}>
-      <textarea
+  <li className="panel">
+    <div className="panel-header">{question}</div>
+    <div className="panel-form">
+      <TextareaAutosize
         autoFocus
         type="text"
         onChange={updateInput(item)}
         onBlur={toggleEditing(item)}
         value={description}
-      />
-    <button type="submit" onClick={toggleEditing(item)}>Save</button>
-    </form>
+        />
+      <div className="panel-input-border"></div>
+    </div>
   </li>
 );
 
@@ -128,8 +129,8 @@ const HostingProfileDisplayItem = ({
   question,
   description
 }) => (
-  <li onClick={toggleEditing(item)}>
-    <div>{question}</div>
-    <div>{description}</div>
+  <li className="panel" onClick={toggleEditing(item)}>
+    <div className="panel-header">{question}</div>
+    <div className="panel-desc">{description}</div>
   </li>
 );

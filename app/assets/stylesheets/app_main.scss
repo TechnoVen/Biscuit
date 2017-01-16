@@ -141,15 +141,9 @@ header {
 }
 
 .home-splash > button {
-  font-size: 1.125em;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
   background: $color-accent-3;
   border: $color-accent-3;
-  border-radius: 10px;
   padding: 16px 32px;
-  cursor: pointer;
 }
 
 .home-splash > button:hover,
@@ -273,24 +267,6 @@ footer {
   font-size: 1em;
   padding: 1em;
   margin-bottom: 14px;
-}
-
-.session-form > button {
-  font-size: 1.125em;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: $color-accent-1;
-  border: $color-accent-1;
-  border-radius: 10px;
-  padding: 1em 0;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.session-form > button:hover {
-  background: $color-accent-1-highlight;
-  border: $color-accent-1-highlight;
 }
 
 .session-form > button:last-of-type {

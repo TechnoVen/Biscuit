@@ -32,6 +32,7 @@
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-shallow-compare": "^15.4.2",
+    "react-autosize-textarea": "^0.3.4",
     "react-dates": "^4.3.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.1",

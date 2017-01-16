@@ -412,3 +412,120 @@ button:focus {
   width: calc(100% - 18px);
   margin-bottom: 8px;
 }
+
+.event-form-container {
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 38px;
+}
+
+.event-form-container > h2 {
+  align-self: flex-start;
+}
+
+.event-form-container > button {
+  align-self: flex-start;
+  padding: 1em;
+}
+
+.event-form-info {
+  padding-top: 22px;
+  font-size: 1em;
+  line-height: 1.25em;
+  align-self: flex-start;
+}
+
+.event-form-date-time {
+  align-self: flex-start;
+  padding-top: 22px;
+}
+
+.event-form-container h3 {
+  font-size: 1.5em;
+  color: #333333;
+  padding: 0 0 3px 3px;
+
+}
+
+.event-form-dt-input {
+  display: flex;
+}
+
+.event-form-dt-input div.dropdown-container:first-of-type {
+  width: 250px;
+}
+.event-form-dt-input div.dropdown-container:first-of-type > div.dropdown-display {
+  border: 2px solid #dddddd;
+  border-top-left-radius: 4px;
+}
+.event-form-dt-input div.dropdown-container:nth-of-type(2) {
+  width: 100px;
+}
+.event-form-dt-input div.dropdown-container:nth-of-type(2) > div.dropdown-display {
+  border-top: 2px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
+  border-right: none;
+  border-left: none;
+}
+.event-form-dt-input > div:nth-of-type(3) {
+  border: 2px solid #dddddd;
+  background-color: #ffffff;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125em;
+  border-top-right-radius: 4px;
+}
+
+.event-form-dt-input div.dropdown-container:nth-of-type(4) {
+  width: 200px;
+  margin-left: 15px;
+}
+.event-form-dt-input div.dropdown-container:nth-of-type(4) > div.dropdown-display {
+  border: 2px solid #dddddd;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.event-form-location {
+  width: 100%;
+  padding-top: 22px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-form-location > input {
+  height: 50px;
+  font-size: 1.125em;
+  width: 719px;
+  border: 2px solid #dddddd;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+.event-form-description {
+  padding-top: 22px;
+  height: 100%;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-form-description > textarea {
+  height: 100px;
+  box-sizing: border-box;
+  font-size: 1.125em;
+  width: 719px;
+  padding: 12px;
+  border: 2px solid #dddddd;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  resize: none;
+  overflow: auto;
+  outline: none;
+}

@@ -21,7 +21,7 @@ export const removeEvent = (event) => ({
 
 export const createEvent = (event) => (dispatch) => (
   EventAPIUtil.createEvent(event)
-    .then(response => console.log(response))
+    .then(response => dispatch(receiveEvent(response)))
 );
 
 export const updateEvent = (event) => (dispatch) => (
@@ -29,9 +29,9 @@ export const updateEvent = (event) => (dispatch) => (
     .then(response => dispatch(receiveEvent(response)))
 );
 
-export const fetchEvents = (eventId) => (dispatch) => (
-  EventAPIUtil.fetchEvent(eventId)
-    .then(response => dispatch(receiveEvent(response)))
+export const fetchEvents = () => (dispatch) => (
+  EventAPIUtil.fetchEvent()
+    .then(response => dispatch(receiveEvents(response)))
 );
 
 export const deleteEvent = (eventId) => (dispatch) => (

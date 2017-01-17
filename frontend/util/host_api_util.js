@@ -5,3 +5,10 @@ export const updateProfile = (host) => (
     data: {host}
   })
 );
+
+export const fetchHostProfile = (host) => (
+  $.ajax({
+      method: 'GET',
+      url: `api/hosts/${host.id}`
+  })
+);

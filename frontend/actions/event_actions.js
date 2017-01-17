@@ -30,7 +30,7 @@ export const updateEvent = (event) => (dispatch) => (
 );
 
 export const fetchEvents = () => (dispatch) => (
-  EventAPIUtil.fetchEvent()
+  EventAPIUtil.fetchEvents()
     .then(response => dispatch(receiveEvents(response)))
 );
 

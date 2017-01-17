@@ -8,7 +8,7 @@ export const createEvent = (event) => (
 
 export const fetchEvents = () => (
   $.ajax({
-    method: 'POST',
+    method: 'GET',
     url: '/api/events'
   })
 );
@@ -34,3 +34,7 @@ export const deleteEvent = (eventId) => (
     url: `/api/events/${eventId}`
   })
 );
+
+export const filterCurrentEvent = (events) => {
+
+};

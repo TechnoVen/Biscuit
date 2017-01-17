@@ -11,7 +11,7 @@ import EventFormContainer from './hosting/EventFormContainer';
 import HomeContainer from './home/HomeContainer';
 import DashboardContainer from './dashboard/DashboardContainer';
 import DashboardEventsContainer from './dashboard/DashboardEventsContainer';
-import DashboardHistory from './dashboard/DashboardHistory';
+import DashboardHistoryContainer from './dashboard/DashboardHistoryContainer';
 
 const Root = ({store}) => {
   const _ensureSignedIn = (nextState, replace) => {
@@ -58,7 +58,7 @@ const Root = ({store}) => {
           </Route>
           <Route path="dashboard" component={DashboardContainer}>
             <IndexRoute component={DashboardEventsContainer}/>
-            <Route path="history" component={DashboardHistory}/>
+            <Route path="history" component={DashboardHistoryContainer}/>
           </Route>
         </Route>
       </Router>

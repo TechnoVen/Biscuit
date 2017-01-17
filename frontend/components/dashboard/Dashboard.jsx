@@ -7,7 +7,6 @@ export default class Dashboard extends React.Component {
     return (
       <div className="dashboard-container">
         <DashboardNavBar pathName={pathName} />
-        <h1>Dashboard content goes here</h1>
         {this.props.children}
       </div>
     );

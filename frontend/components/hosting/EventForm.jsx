@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from './Dropdown';
 import {days, months, time} from './time_constants';
 import {hashHistory} from 'react-router';
+import {getMilitaryTime} from '../../util/event_api_util';
 
 export default class EventForm extends React.Component {
   constructor(props) {
@@ -30,11 +31,13 @@ export default class EventForm extends React.Component {
   }
 
   handleSubmit() {
-    const {location, description} = this.state;
-    const eventDate = this.formattedDateTime();
+    const {location, description, Time} = this.state;
+    const date = this.formattedDateTime();
+    const formatTime = getMilitaryTime(Time);
     const newEvent = Object.assign(
       {},
-      eventDate,
+      {date},
+      {time: formatTime},
       {location: location},
       {description: description}
     );
@@ -43,17 +46,8 @@ export default class EventForm extends React.Component {
   }
 
   formattedDateTime() {
-    const {Month, Day, year, Time} = this.state;
-    const timeAry = Time.split(" ");
-    const period = timeAry.pop();
-
-    if (period === 'PM' && timeAry[0] !== 12) {
-      timeAry[0] = parseInt(timeAry[0]) + 12;
-    } else if (period === 'AM' && parseInt(timeAry[0]) < 10) {
-      timeAry[0] = 0 + timeAry[0];
-    }
-
-    return {date: `${Month} ${Day}, ${year} ${timeAry.join('')}`};
+    const {Month, Day, year} = this.state;
+    return `${Month} ${Day}, ${year}`;
   }
 
   redirect() {

@@ -566,3 +566,13 @@ button:focus {
   background-color: #ffffff;
   color: $color-accent-1 !important;
 }
+
+
+.dashboard-events {
+  flex-direction: column;
+}
+
+.dashboard-events > ul {
+  display: flex;
+  flex-wrap: wrap;
+}

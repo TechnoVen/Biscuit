@@ -1,4 +1,5 @@
 import reduce from 'lodash/reduce';
+import moment from 'moment';
 
 export const createEvent = (event) => (
   $.ajax({
@@ -42,9 +43,9 @@ export const filterPastEvents = (events) => {
   const jsCurrentTime = new Date().getTime();
   return reduce(events, (result, value, key) => {
     const eventDate = value.date;
-    const nextDay = eventDate.slice(0, eventDate.length - 6);
-    const jsNextDay = new Date(nextDay).getTime() + (86400000);
+    const jsNextDay = new Date(eventDate).getTime() + (86400000);
     if (jsNextDay <= jsCurrentTime) {
+      value.archived = true;
       return result.concat(value);
     } else return result;
   }, []);
@@ -55,10 +56,18 @@ export const filterCurrentEvents = (events) => {
   const jsCurrentTime = new Date().getTime();
   return reduce(events, (result, value, key) => {
     const eventDate = value.date;
-    const nextDay = eventDate.slice(0, eventDate.length - 6);
-    const jsNextDay = new Date(nextDay).getTime() + (86400000);
+    const jsNextDay = new Date(eventDate).getTime() + (86400000);
     if (jsNextDay > jsCurrentTime) {
       return result.concat(value);
     } else return result;
   }, []);
+};
+
+export const getMilitaryTime = (time) => {
+  return moment(time, "h : mm A").format('HHmm');
+};
+
+export const getLocalTime = (date) => {
+  let time = date.slice(date.length - 5);
+  return moment(time, "hh mm").format('h:mm a');
 };

@@ -1,0 +1,16 @@
+@import 'palette';
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  height: 340px;
+  border: 1px solid black;
+}
+
+
+.event-card-profile-image > img {
+  width: 128px;
+  height: auto;
+}

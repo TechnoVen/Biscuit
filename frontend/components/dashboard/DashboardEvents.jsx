@@ -1,5 +1,6 @@
 import React from 'react';
 import {filterCurrentEvents} from '../../util/event_api_util';
+import EventCard from '../EventCard';
 
 export default class DashboardEvents extends React.Component {
   constructor() {
@@ -14,9 +15,7 @@ export default class DashboardEvents extends React.Component {
     const {events} = this.props;
     const renderEvents = filterCurrentEvents(events).map((event => (
       <li key={`db-current-event-${event.id}`}>
-        {event.date}
-        {event.location}
-        {event.description}
+        <EventCard event={event} />
       </li>
     )));
     return (

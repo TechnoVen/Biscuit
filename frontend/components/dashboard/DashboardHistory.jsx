@@ -1,5 +1,6 @@
 import React from 'react';
 import {filterPastEvents} from '../../util/event_api_util';
+import EventCard from '../EventCard.jsx';
 
 export default class DashboardHistory extends React.Component {
   constructor() {
@@ -14,9 +15,7 @@ export default class DashboardHistory extends React.Component {
     const {events} = this.props;
     const renderEvents = filterPastEvents(events).map((event => (
       <li key={`db-past-event-${event.id}`}>
-        {event.date}
-        {event.location}
-        {event.description}
+        <EventCard event={event} />
       </li>
     )));
     return (

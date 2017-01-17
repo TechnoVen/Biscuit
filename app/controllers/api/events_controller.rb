@@ -5,6 +5,8 @@ class Api::EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.host_id = current_user.id
+    @event.city_id = current_user.city_id
     if @event.save!
       render '/api/events/show.json.jbuilder'
     else
@@ -34,9 +36,7 @@ class Api::EventsController < ApplicationController
       :date,
       :location,
       :description,
-      :host_id,
-      :city_id,
-      :archived
+      :city_id
     )
   end
 end

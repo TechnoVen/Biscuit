@@ -1,6 +1,4 @@
 class Api::UsersController < ApplicationController
-  # before_action :require_signed_in!, only: [:update]
-
   def create
     @user = User.new(new_user_params)
 

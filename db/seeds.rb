@@ -40,11 +40,23 @@ Host.create!(
   detail2: 'i like dogs',
   detail3: 'i like bunnies'
 )
+Host.create!(
+  user_id: 2,
+  detail1: 'i like running with my dogs',
+  detail2: 'i like traveling with my dogs',
+  detail3: 'i like hiking with my pups'
+)
+Host.create!(
+  user_id: 3,
+  detail1: 'i like playing with my cat',
+  detail2: 'i like skating with my cat',
+  detail3: 'i like excercising with my cat'
+)
 
 Event.create!([
-  {date: "2/1/17", time: "18:30", host_id: 1, city_id: 1, max_guests: 5, location: "somewhere only we know"},
-  {date: "2/10/17", time: "18:30", host_id: 1, city_id: 1, max_guests: 5, location: "somewhere only we know"},
-  {date: "2/14/17", time: "18:30", host_id: 1, city_id: 1, max_guests: 5, location: "somewhere only we know"},
+  {date: "January 24, 2017 18:30", host_id: 1, city_id: 1, location: "somewhere only we know", description: "a blast from the past!"},
+  {date: "January 28, 2017 18:30", host_id: 1, city_id: 1, location: "fun place", description: "wow so fun with pets"},
+  {date: "February 14, 2017 09:30", host_id: 1, city_id: 1, location: "really fun place", description: "come join our event!"},
   ])
 
 Attendance.create!([

@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
-  def show
-    @event = Event.find_by_id(params[:id])
+  def index
+    @events = Event.where(host_id: current_user.id)
   end
 
   def create
@@ -32,9 +32,7 @@ class Api::EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :date,
-      :time,
       :location,
-      :max_guests,
       :description,
       :host_id,
       :city_id,

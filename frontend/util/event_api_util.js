@@ -6,6 +6,13 @@ export const createEvent = (event) => (
   })
 );
 
+export const fetchEvents = (event) => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/events'
+  })
+);
+
 export const fetchEvent = (eventId) => (
   $.ajax({
     method: 'GET',

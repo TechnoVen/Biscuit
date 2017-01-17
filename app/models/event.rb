@@ -15,8 +15,6 @@
 class Event < ApplicationRecord
   validates(
     :date,
-    :time,
-    :max_guests,
     :host_id,
     :city_id,
     presence: true

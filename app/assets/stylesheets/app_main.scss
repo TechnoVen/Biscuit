@@ -293,10 +293,6 @@ button:focus {
   font-size: 1.125em;
 }
 
-.hosting-container {
-  flex-direction: column;
-}
-
 .hosting-nav-container {
   background: $color-accent-2;
 }
@@ -528,4 +524,45 @@ button:focus {
   resize: none;
   overflow: auto;
   outline: none;
+}
+
+.dashboard-nav-container {
+  background: $color-accent-2;
+}
+
+.dashboard-nav {
+  justify-content: flex-start;
+  height: 60px;
+}
+
+.dashboard-nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-nav-links > li > a {
+  color: white;
+  font-size: 1.125em;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  padding: 14px 8px;
+  border-radius: 3px;
+}
+
+.dashboard-nav-links > li > a:hover,
+.dashboard-nav-links > li > a:focus,
+.dashboard-nav-links > li > a:active {
+  background-color: #ffffff;
+  color: $color-accent-1;
+}
+
+.dashboard-nav-links > li:first-child {
+  margin-right: 6px;
+}
+
+.selected-link {
+  background-color: #ffffff;
+  color: $color-accent-1 !important;
 }

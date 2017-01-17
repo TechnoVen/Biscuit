@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import fetchEvents from '../../actions/event_actions';
+import {fetchEvents} from '../../actions/event_actions';
 import DashboardEvents from './DashboardEvents';
 
 const mapStateToProps = ({session}) => ({

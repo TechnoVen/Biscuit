@@ -16,7 +16,7 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
           <Link className="hvr-fade" to="/hosting">hosting</Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/">dashboard</Link>
+          <Link className="hvr-fade" to="/dashboard">dashboard</Link>
         </li>
         <li>
           <span className="hvr-fade" onClick={handleSignOut}>sign out</span>

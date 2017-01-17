@@ -15,7 +15,7 @@ export default class EventForm extends React.Component {
       location: "",
       description: "",
       max_guests: "",
-      host_id: this.props.currentUser.hosting_profile.host_id,
+      host_id: this.props.currentUser.hosting_profile.id,
       city_id: this.props.currentUser.city_id
     };
 
@@ -33,12 +33,34 @@ export default class EventForm extends React.Component {
   }
 
   handleSubmit() {
-    const {Month, Day, year} = this.state;
-    const eventDate = {date: `${Month} ${Day}, ${year}`};
-    const newEvent = Object.assign({}, this.state, eventDate);
+    const {location, description, host_id, city_id} = this.state;
+    const eventDate = this.formattedDateTime();
+    const newEvent = Object.assign(
+      {},
+      eventDate,
+      {location: location},
+      {description: description},
+      {host_id: host_id},
+      {city_id: city_id}
+    );
+    console.log(this.props.currentUser.hosting_profile);
+    console.log(newEvent);
+    // this.props.createEvent(newEvent)
+    //   .then(()=> this.redirect());
+  }
 
-    this.props.createEvent(newEvent)
-      .then(()=> this.redirect());
+  formattedDateTime() {
+    const {Month, Day, year, Time} = this.state;
+    const timeAry = Time.split(" ");
+    const period = timeAry.pop();
+
+    if (period === 'PM' && timeAry[0] !== 12) {
+      timeAry[0] = parseInt(timeAry[0]) + 12;
+    } else if (period === 'AM' && parseInt(timeAry[0]) < 10) {
+      timeAry[0] = 0 + timeAry[0];
+    }
+
+    return {date: `${Month} ${Day}, ${year} ${timeAry.join('')}`};
   }
 
   redirect() {
@@ -54,7 +76,7 @@ export default class EventForm extends React.Component {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
           ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in 
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.

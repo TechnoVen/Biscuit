@@ -2,7 +2,9 @@ json.extract!(
   event,
   :id,
   :date,
+  :time,
   :description,
+  :location,
   :host_id,
   :city_id,
   :archived

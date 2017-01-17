@@ -54,9 +54,9 @@ Host.create!(
 )
 
 Event.create!([
-  {date: "January 24, 2017 18:30", host_id: 1, city_id: 1, location: "somewhere only we know", description: "a blast from the past!"},
-  {date: "January 28, 2017 18:30", host_id: 1, city_id: 1, location: "fun place", description: "wow so fun with pets"},
-  {date: "February 14, 2017 09:30", host_id: 1, city_id: 1, location: "really fun place", description: "come join our event!"},
+  {date: "January 24, 2017", time: "1030", host_id: 1, city_id: 1, location: "somewhere only we know", description: "a blast from the past!"},
+  {date: "January 28, 2017", time: "1130", host_id: 1, city_id: 1, location: "fun place", description: "wow so fun with pets"},
+  {date: "February 14, 2017", time: "1230", host_id: 1, city_id: 1, location: "really fun place", description: "come join our event!"},
   ])
 
 Attendance.create!([

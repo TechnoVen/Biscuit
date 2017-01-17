@@ -13,10 +13,7 @@ export default class EventForm extends React.Component {
       year: "2017",
       Time: "",
       location: "",
-      description: "",
-      max_guests: "",
-      host_id: this.props.currentUser.hosting_profile.id,
-      city_id: this.props.currentUser.city_id
+      description: ""
     };
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -33,20 +30,16 @@ export default class EventForm extends React.Component {
   }
 
   handleSubmit() {
-    const {location, description, host_id, city_id} = this.state;
+    const {location, description} = this.state;
     const eventDate = this.formattedDateTime();
     const newEvent = Object.assign(
       {},
       eventDate,
       {location: location},
-      {description: description},
-      {host_id: host_id},
-      {city_id: city_id}
+      {description: description}
     );
-    console.log(this.props.currentUser.hosting_profile);
-    console.log(newEvent);
-    // this.props.createEvent(newEvent)
-    //   .then(()=> this.redirect());
+    this.props.createEvent(newEvent)
+      .then(()=> this.redirect());
   }
 
   formattedDateTime() {
@@ -64,7 +57,7 @@ export default class EventForm extends React.Component {
   }
 
   redirect() {
-    hashHistory.push('/');
+    hashHistory.push('/dashboard');
   }
 
   render() {

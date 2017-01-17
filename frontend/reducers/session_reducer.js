@@ -39,7 +39,9 @@ const SessionReducer = (state = _nullSession, action) => {
       newState.hostProfile = action.hostProfile;
       return newState;
     case RECEIVE_EVENT:
-      newState.events[action.event.id] = action.event;
+      if (newState.events) {
+        newState.events[action.event.id] = action.event;
+      } else newState.events = action.event;
       return newState;
     case REMOVE_EVENT:
       delete newState.events[action.event.id];

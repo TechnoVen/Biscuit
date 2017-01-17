@@ -1,4 +1,4 @@
-export const updateProfile = (host) => (
+export const updateHostProfile = (host) => (
   $.ajax({
     method: 'PATCH',
     url: `api/hosts/${host.id}`,
@@ -6,9 +6,9 @@ export const updateProfile = (host) => (
   })
 );
 
-export const fetchHostProfile = (host) => (
+export const fetchHostProfile = () => (
   $.ajax({
       method: 'GET',
-      url: `api/hosts/${host.id}`
+      url: `api/hosts`
   })
 );

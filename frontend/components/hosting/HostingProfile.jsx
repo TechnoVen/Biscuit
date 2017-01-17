@@ -1,14 +1,16 @@
 import React from 'react';
-import TextareaAutosize from 'react-autosize-textarea';
+import HostingProfileEditItem from './HostingProfileEditItem';
+import HostingProfileDisplayItem from './HostingProfileDisplayItem';
 
 export default class HostingProfile extends React.Component {
   constructor() {
     super();
     this.state = {
-      details: {
+      hostProfile: {
         detail1: "",
         detail2: "",
-        detail3: ""
+        detail3: "",
+        id: null
       },
       editing: null
     };
@@ -20,39 +22,45 @@ export default class HostingProfile extends React.Component {
   }
 
   componentDidMount() {
-    const details = this.props.details;
-    this.setState({details});
+    this.props.fetchHostProfile();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const hostProfile = nextProps.hostProfile;
+    if (hostProfile) {
+      this.setState({hostProfile});
+    }
   }
 
   updateInput(field) {
     return e => {
-      const details = this.state.details;
-      details[field] = e.target.value;
-      this.setState({details});
+      const hostProfile = this.state.hostProfile;
+      hostProfile[field] = e.target.value;
+      this.setState({hostProfile});
     };
   }
 
-  renderEditOrDisplay(item, num) {
-    const {details} = this.state;
-    if (this.state.editing === item) {
+  renderEditOrDisplay(key, num) {
+    const {hostProfile} = this.state;
+    if (this.state.editing === key) {
       return (
         <HostingProfileEditItem
-          key={`${item}-${num}`}
-          item={item}
+          key={`${key}-${num}`}
+          item={key}
           toggleEditing={this.toggleEditing}
           question={`Profile Question ${num}:`}
-          description={details[item]}
+          description={hostProfile[key]}
           updateInput={this.updateInput}
         />
       );
     } else {
       return (
         <HostingProfileDisplayItem
-          key={`${item}-${num}`}
-          item={item}
+          key={`${key}-${num}`}
+          item={key}
           toggleEditing={this.toggleEditing}
           question={`Profile Question ${num}:`}
-          description={details[item]}
+          description={hostProfile[key]}
         />
       );
     }
@@ -68,14 +76,19 @@ export default class HostingProfile extends React.Component {
   }
 
   updateHostProfile() {
-    const host = Object.assign({}, this.state.details);
-    this.props.updateProfile(host);
+    const host = Object.assign({}, this.state.hostProfile);
+    this.props.updateHostProfile(host);
   }
 
   render() {
-    const renderHostProfile = Object.keys(this.state.details).map((d, id) => {
-      return this.renderEditOrDisplay(d, id);
-    });
+    const {hostProfile} = this.state;
+    const renderHostProfile = Object.keys(hostProfile).reduce((acc, key, idx) => {
+      if (key === 'id') {
+        return acc;
+      }
+      const item = this.renderEditOrDisplay(key, idx);
+      return acc.concat(item);
+    }, []);
 
     return (
       <div className="hosting-profile-container container">
@@ -99,38 +112,3 @@ export default class HostingProfile extends React.Component {
     );
   }
 }
-
-
-const HostingProfileEditItem = ({
-  item,
-  updateInput,
-  toggleEditing,
-  question,
-  description
-}) => (
-  <li className="panel">
-    <div className="panel-header">{question}</div>
-    <div className="panel-form">
-      <TextareaAutosize
-        autoFocus
-        type="text"
-        onChange={updateInput(item)}
-        onBlur={toggleEditing(item)}
-        value={description}
-        />
-      <div className="panel-input-border"></div>
-    </div>
-  </li>
-);
-
-const HostingProfileDisplayItem = ({
-  item,
-  toggleEditing,
-  question,
-  description
-}) => (
-  <li className="panel" onClick={toggleEditing(item)}>
-    <div className="panel-header">{question}</div>
-    <div className="panel-desc">{description}</div>
-  </li>
-);

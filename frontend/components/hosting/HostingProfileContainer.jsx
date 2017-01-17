@@ -1,15 +1,14 @@
 import {connect} from 'react-redux';
 import HostingProfile from './HostingProfile';
-import {updateProfile} from '../../actions/host_actions';
+import {updateHostProfile, fetchHostProfile} from '../../actions/host_actions';
 
-const mapStateToProps = ({session}) => {
-  if (session.currentUser) {
-    return { details: session.currentUser.hosting_profile.details };
-  } else return { details: "" };
-};
+const mapStateToProps = ({session}) => ({
+  hostProfile: session.hostProfile
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  updateProfile: (host) => dispatch(updateProfile(host))
+  fetchHostProfile: (host) => dispatch(fetchHostProfile(host)),
+  updateHostProfile: (host) => dispatch(updateHostProfile(host))
 });
 
 export default connect(

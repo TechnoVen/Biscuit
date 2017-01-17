@@ -9,6 +9,9 @@ import HostingProfileContainer from './hosting/HostingProfileContainer';
 import HostingInfo from './hosting/HostingInfo';
 import EventFormContainer from './hosting/EventFormContainer';
 import HomeContainer from './home/HomeContainer';
+import DashboardContainer from './dashboard/DashboardContainer';
+import DashboardEvents from './dashboard/DashboardEvents';
+import DashboardHistory from './dashboard/DashboardHistory';
 
 const Root = ({store}) => {
   const _ensureSignedIn = (nextState, replace) => {
@@ -52,6 +55,10 @@ const Root = ({store}) => {
             <IndexRoute component={HostingInfo} onEnter={_redirectHostingSignedIn}/>
             <Route path="profile" component={HostingProfileContainer} onEnter={_ensureSignedIn}/>
             <Route path="new" component={EventFormContainer} onEnter={_ensureSignedIn}/>
+          </Route>
+          <Route path="dashboard" component={DashboardContainer}>
+            <IndexRoute component={DashboardEvents}/>
+            <Route path="history" component={DashboardHistory}/>
           </Route>
         </Route>
       </Router>

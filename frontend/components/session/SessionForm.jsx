@@ -79,7 +79,7 @@ export default class SessionForm extends React.Component {
       } else {
         return (
           <div>
-            <h2>Jon a playdate with the cutest pets</h2>
+            <h2>Join a playdate with the cutest pets</h2>
             <p>
               Thousands of strangers across the world have set up playdates with
               friendly and playful pets. We can't wait for you to experience this.

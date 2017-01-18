@@ -13,7 +13,7 @@ export default class Cities extends React.Component {
       <CityCard key={`city-idx-${city.id}`} city={city} />
     ));
     return (
-      <div className="cities-container">
+      <div className="cities-container container">
         <h2>Set your home city</h2>
         <div>
           {renderCityCards}

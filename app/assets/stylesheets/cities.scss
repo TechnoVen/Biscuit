@@ -1,13 +1,26 @@
 @import 'palette';
 
 .cities-container {
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    padding: 28px 0;
+  }
 
   div {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-around;
+
     a {
       font-size: 1.5em;
       font-weight: 600;
       text-decoration: none;
       color: white;
+
+      margin-bottom: 14px;
 
       div {
         width: 300px;
@@ -16,8 +29,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-
       }
     }
   }

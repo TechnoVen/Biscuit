@@ -36,7 +36,7 @@ const SessionFormItem = ({
   const signUpSelectables = () => {
     if (formType !== 'signin') {
       return (
-        <div>
+        <div className="session-dropdown">
           <Dropdown
             list={petTypes}
             listType='Pet'

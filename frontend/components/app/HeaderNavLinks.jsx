@@ -30,9 +30,6 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
           <Link className="hvr-fade" to="/">cities</Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/hosting">hosting</Link>
-        </li>
-        <li>
           <Link className="hvr-fade" to="/">about</Link>
         </li>
         <li>

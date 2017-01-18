@@ -6,7 +6,6 @@ import AppContainer from './app/AppContainer';
 import SessionFormContainer from './session/SessionFormContainer.jsx';
 import HostingContainer from './hosting/HostingContainer';
 import HostingProfileContainer from './hosting/HostingProfileContainer';
-import HostingInfo from './hosting/HostingInfo';
 import EventFormContainer from './hosting/EventFormContainer';
 import HomeContainer from './home/HomeContainer';
 import DashboardContainer from './dashboard/DashboardContainer';
@@ -51,8 +50,7 @@ const Root = ({store}) => {
           <IndexRoute component={HomeContainer}/>
           <Route path="signin" component={SessionFormContainer} onEnter={_redirectIfSignedIn}/>
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfSignedIn}/>
-          <Route path="hosting" component={HostingContainer}>
-            <IndexRoute component={HostingInfo} onEnter={_redirectHostingSignedIn}/>
+          <Route path="hosting" component={HostingContainer} onEnter={_ensureSignedIn}>
             <Route path="profile" component={HostingProfileContainer} onEnter={_ensureSignedIn}/>
             <Route path="new" component={EventFormContainer} onEnter={_ensureSignedIn}/>
           </Route>

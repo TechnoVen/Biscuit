@@ -13,14 +13,17 @@ const EventCard = ({event, profileImage}) => {
     backgroundImage: 'url(' + 'https://res.cloudinary.com/dmmcusgxy/image/upload/v1484678989/dog_rxhbvr.png' + ')'
   };
 
-  const eventType = () => {
-    if (event.archived) {
-      return "";
-    } else return <button type="button">join biscuit meet</button>;
-  };
+  let toggleButtonElement, noButtonClass;
 
+    if (event.archived) {
+      toggleButtonElement = "";
+      noButtonClass = " no-event-button";
+    } else {
+      toggleButtonElement = <button type="button">join biscuit meet</button>;
+      noButtonClass = "";
+    }
   return (
-    <div className="event-card">
+    <div className={`event-card${noButtonClass}`}>
       <div>
         <span className="event-card-weekday">
           {weekDay}
@@ -42,7 +45,7 @@ const EventCard = ({event, profileImage}) => {
       <span className="event-card-description">
         {event.description}
       </span>
-      {eventType()}
+      {toggleButtonElement}
     </div>
   );
 };

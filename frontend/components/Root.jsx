@@ -1,6 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {Router, Route, hashHistory, IndexRoute, IndexRedirect} from 'react-router';
 
 import AppContainer from './app/AppContainer';
 import SessionFormContainer from './session/SessionFormContainer.jsx';
@@ -50,7 +50,8 @@ const Root = ({store}) => {
           <IndexRoute component={HomeContainer}/>
           <Route path="signin" component={SessionFormContainer} onEnter={_redirectIfSignedIn}/>
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfSignedIn}/>
-          <Route path="hosting" component={HostingContainer} onEnter={_ensureSignedIn}>
+          <Route path="hosting" component={HostingContainer}>
+            <IndexRedirect to="profile" />
             <Route path="profile" component={HostingProfileContainer} onEnter={_ensureSignedIn}/>
             <Route path="new" component={EventFormContainer} onEnter={_ensureSignedIn}/>
           </Route>

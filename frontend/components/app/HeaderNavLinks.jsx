@@ -10,7 +10,7 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
           <Link className="hvr-fade" to="/">bay area / sf</Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/">cities</Link>
+          <Link className="hvr-fade" to="/cities">cities</Link>
         </li>
         <li>
           <Link className="hvr-fade" to="/hosting">hosting</Link>
@@ -27,7 +27,7 @@ const HeaderNavLinks = ({signedIn, handleSignOut}) => {
     navLinks = (
       <ul className="header-nav-links">
         <li>
-          <Link className="hvr-fade" to="/">cities</Link>
+          <Link className="hvr-fade" to="/cities">cities</Link>
         </li>
         <li>
           <Link className="hvr-fade" to="/">about</Link>

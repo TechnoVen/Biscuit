@@ -11,6 +11,8 @@ import HomeContainer from './home/HomeContainer';
 import DashboardContainer from './dashboard/DashboardContainer';
 import DashboardEventsContainer from './dashboard/DashboardEventsContainer';
 import DashboardHistoryContainer from './dashboard/DashboardHistoryContainer';
+import CitiesContainer from './cities/CitiesContainer';
+import CityContainer from './cities/CityContainer';
 
 const Root = ({store}) => {
   const _ensureSignedIn = (nextState, replace) => {
@@ -58,6 +60,9 @@ const Root = ({store}) => {
           <Route path="dashboard" component={DashboardContainer}>
             <IndexRoute component={DashboardEventsContainer}/>
             <Route path="history" component={DashboardHistoryContainer}/>
+          </Route>
+          <Route path="cities" component={CitiesContainer}>
+            <Route path=":cityId" component={CityContainer}/>
           </Route>
         </Route>
       </Router>

@@ -1,0 +1,76 @@
+@import 'palette';
+
+.hosting-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 38px;
+}
+
+.hosting-profile-container > h2 {
+  align-self: flex-start;
+}
+
+.hosting-profile-container > button {
+  align-self: flex-end;
+  min-width: 25%;
+}
+
+.hosting-profile-about {
+  width: 100%;
+  line-height: 1.5em;
+  padding: 20px 4px;
+}
+
+.hosting-profile-container > ul {
+  width: 100%;
+}
+
+.panel {
+  width: inherit;
+  color: #444444;
+  border: 2px solid $color-accent-2;
+  border-radius: 3px;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.panel-header {
+  border-bottom: 2px solid $color-accent-2;
+  background-color: $color-accent-2-light;
+  padding: 12px 10px;
+}
+
+.panel-desc {
+  padding: 12px 10px;
+  line-height: normal;
+}
+
+.panel-form {
+  background: transparent;
+}
+
+.panel-form textarea {
+  border: 0;
+  position: relative;
+  background: inherit;
+  width: calc(100% - 22px);
+  outline: none;
+  box-shadow: none;
+  resize: none;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: normal;
+  padding: 12px 10px 0 10px;
+}
+
+.panel-input-border {
+  border-bottom: 1px solid #444444;
+  position: relative;
+  left: 8px;
+  width: calc(100% - 18px);
+  margin-bottom: 8px;
+}

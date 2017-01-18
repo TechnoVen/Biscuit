@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.session-container > p.form-errors {
+  color: $error-accent;
+  font-size: 1.125em;
+}
+
 .session-container > div {
   padding-bottom: 20px;
   display: flex;

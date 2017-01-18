@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import SessionFormItem from './SessionFormItem';
+import {cities} from '../hosting/time_constants';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -8,11 +9,14 @@ export default class SessionForm extends React.Component {
     this.state = {
       email: "",
       password: "",
-      first_name: ""
+      first_name: "",
+      Pet: "",
+      City: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.navLink = this.navLink.bind(this);
   }
 
@@ -22,12 +26,21 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    if (this.props.formType === 'signin') {
-      delete user.first_name;
+    const {email, password, first_name, Pet, City} = this.state;
+    const user = {};
+    user.email = email;
+    user.password = password;
+    if (this.props.formType !== 'signin') {
+      user.first_name = first_name;
+      user.pet_type = Pet;
+      user.city_id = cities.indexOf(City) + 1;
     }
     this.props.processForm(user)
       .then(() => hashHistory.push('/'));
+  }
+
+  handleSelectChange(listType, selection) {
+    this.setState({[listType]: selection});
   }
 
   navLink() {
@@ -86,6 +99,7 @@ export default class SessionForm extends React.Component {
             user={this.state}
             formType={formType}
             enterDemoAccount={enterDemoAccount}
+            handleSelectChange={this.handleSelectChange}
             />
           {this.navLink()}
         </div>

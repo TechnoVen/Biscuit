@@ -57,3 +57,19 @@ export const days = (month) => {
   }
   return d;
 };
+
+export const petTypes = [
+  'dog',
+  'cat',
+  'rabbit',
+  'other'
+];
+
+export const cities = [
+  'San Francisco / Bay Area',
+  'Los Angeles',
+  'New York City',
+  'Chicago',
+  'Philadelphia',
+  'San Diego'
+];

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Dropdown from '../hosting/Dropdown';
+import { petTypes, cities } from '../hosting/time_constants';
 
 const SessionFormItem = ({
   handleSubmit,
   handleUpdate,
   formType,
   user,
-  enterDemoAccount
+  enterDemoAccount,
+  handleSelectChange
 }) => {
   let nameField = () => {
     if (formType !== "signin") {
@@ -29,6 +32,25 @@ const SessionFormItem = ({
       );
     }
   };
+
+  const signUpSelectables = () => {
+    if (formType !== 'signin') {
+      return (
+        <div>
+          <Dropdown
+            list={petTypes}
+            listType='Pet'
+            handleSelectChange={handleSelectChange}
+          />
+          <Dropdown
+            list={cities}
+            listType='City'
+            handleSelectChange={handleSelectChange}
+          />
+        </div>
+      );
+    }
+  };
   return (
     <form className="session-form" onSubmit={handleSubmit}>
       {nameField()}
@@ -38,6 +60,7 @@ const SessionFormItem = ({
         value={user.email}
         onChange={handleUpdate('email')}
       />
+      {signUpSelectables()}
       <input
         type="password"
         placeholder="Password (at least 8 characters long!)"

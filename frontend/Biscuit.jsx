@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  // window.moment = moment;
-  // window.store = store;
+  window.moment = moment;
+  window.store = store;
 
   const main = document.getElementById('main');
   ReactDOM.render(<Root store={store}/>, main);

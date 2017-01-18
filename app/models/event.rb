@@ -4,12 +4,14 @@
 #
 #  id          :integer          not null, primary key
 #  date        :string           not null
-#  time        :string           not null
-#  max_guests  :integer          not null
 #  description :string
 #  host_id     :integer          not null
 #  city_id     :integer          not null
 #  archived    :boolean          default("false")
+#  location    :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  time        :string           not null
 #
 
 class Event < ApplicationRecord

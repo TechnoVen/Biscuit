@@ -67,7 +67,10 @@ export const getMilitaryTime = (time) => {
   return moment(time, "h : mm A").format('HHmm');
 };
 
-export const getLocalTime = (date) => {
-  let time = date.slice(date.length - 5);
-  return moment(time, "hh mm").format('h:mm a');
+export const getLocalTime = (time) => {
+  return moment(time, "hhmm").format('h:mm a');
+};
+
+export const getWeekDay = (date) => {
+  return moment(date, "MMMM D, YYYY").format('ddd');
 };

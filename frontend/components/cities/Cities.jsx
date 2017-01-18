@@ -15,9 +15,9 @@ export default class Cities extends React.Component {
     return (
       <div className="cities-container">
         <h2>Set your home city</h2>
-        <ul>
+        <div>
           {renderCityCards}
-        </ul>
+        </div>
       </div>
     );
   }
@@ -29,10 +29,10 @@ const CityCard = ({city}) => {
     backgroundImage: `url('${city.image_url}')`
   };
   return (
-    <li style={cardStyle}>
       <Link to={`/cities/${city.id}`}>
-        {name}
+        <div style={cardStyle}>
+          {city.name}
+        </div>
       </Link>
-    </li>
   );
 };

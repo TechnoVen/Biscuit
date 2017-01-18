@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create, :destroy]
     resources :events, only: [:show, :index, :create, :update, :destroy]
     resources :hosts, only: [:create, :index, :update]
+    resources :cities, only: [:show]
   end
 end

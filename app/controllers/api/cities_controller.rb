@@ -1,6 +1,6 @@
 class Api::CitiesController < ApplicationController
   def index
-    @cities = City.all
+    @cities = City.all.order(:id)
   end
 
   def show

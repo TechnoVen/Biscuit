@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {generate} from 'shortid';
+
 
 export default class Cities extends React.Component {
   componentDidMount() {
@@ -10,7 +12,7 @@ export default class Cities extends React.Component {
   render() {
     const {all, children} = this.props;
     const renderCityCards = all.map((city) => (
-      <CityCard key={`city-idx-${city.id}`} city={city} />
+      <CityCard key={`city-key-${generate()}`} city={city} />
     ));
     return (
       <div className="cities-container container">

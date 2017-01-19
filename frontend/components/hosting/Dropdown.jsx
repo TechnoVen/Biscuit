@@ -1,4 +1,5 @@
 import React from 'react';
+import {generate} from 'shortid';
 
 export default class Dropdown extends React.Component {
   constructor() {
@@ -39,7 +40,7 @@ export default class Dropdown extends React.Component {
     const {list} = this.props;
     return list.map((item, idx) => (
       <div
-        key={`${item}-${idx}`}
+        key={`${item}-${generate()}`}
         onClick={() => this.select(item)}
         className={this._selectedClass(item)}
       >

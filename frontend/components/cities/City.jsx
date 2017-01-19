@@ -1,5 +1,6 @@
 import React from 'react';
 import EventCard from '../EventCard';
+import {generate} from 'shortid';
 
 class City extends React.Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class City extends React.Component {
     }
 
     const renderEventCards = currentCity.events.map((event) => (
-      <EventCard key={`city-event-${event.id}`} event={event} />
+      <EventCard key={`city-event-${generate()}`} event={event} />
     ));
 
     return (

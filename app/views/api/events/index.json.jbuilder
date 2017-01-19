@@ -1,5 +1,7 @@
-@events.each do |event|
-  json.set! event.id do
-    json.partial! 'api/events/event', event: event
-  end
+json.current do
+  json.array! @current_events, partial: 'api/events/event', as: :event
+end
+
+json.past do
+  json.array! @past_events, partial: 'api/events/event', as: :event
 end

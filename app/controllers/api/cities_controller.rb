@@ -7,10 +7,11 @@ class Api::CitiesController < ApplicationController
     @city = City.find_by_id(params[:id])
     if @city
       if current_user
-        render '/api/cities/show_signed_in.json.jbuilder'
+        @city_events = @city.find_current_events_not_joined_by(current_user.id)
       else
-        render '/api/cities/show.json.jbuilder'
+        @city_events = @city.find_current_events
       end
+      render '/api/cities/show.json.jbuilder'
     else
       render json: { errors: ['Invalid city id'] }, status: 422
     end

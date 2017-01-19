@@ -1,6 +1,7 @@
 class Api::EventsController < ApplicationController
   def index
-    @events = Event.where(host_id: current_user.id)
+    @current_events = Event.find_current_user_events(1)
+    @past_events = Event.find_past_user_events(1)
   end
 
   def create
@@ -12,21 +13,6 @@ class Api::EventsController < ApplicationController
     else
       render json: { errors: @events.errors.full_messages }, status: 422
     end
-  end
-
-  def update
-    @event = Event.find_by_id(params[:id])
-    if @event.update(event_params)
-      render '/api/events/show.json.jbuilder'
-    else
-      render json: { errors: @events.errors.full_messages }, status: 422
-    end
-  end
-
-  def destroy
-    @event = Event.find_by_id(params[:id])
-    @event.destroy
-    render 'api/events/show.json.jbuilder'
   end
 
   private

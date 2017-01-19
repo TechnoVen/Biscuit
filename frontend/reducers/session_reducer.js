@@ -5,11 +5,7 @@ import {
   CLEAR_ERRORS
 } from '../actions/session_actions';
 import {RECEIVE_HOST_PROFILE} from '../actions/host_actions';
-import {
-  RECEIVE_EVENT,
-  RECEIVE_EVENTS,
-  REMOVE_EVENT
-} from '../actions/event_actions';
+import {RECEIVE_EVENTS} from '../actions/event_actions';
 
 
 import merge from 'lodash/merge';
@@ -17,7 +13,10 @@ import merge from 'lodash/merge';
 const _nullSession = {
   currentUser: null,
   hostProfile: null,
-  events: {},
+  events: {
+    current: [],
+    past: []
+  },
   errors: []
 };
 
@@ -41,14 +40,6 @@ const SessionReducer = (state = _nullSession, action) => {
     case RECEIVE_EVENTS:
       const events = action.events;
       return merge(newState, {events});
-    case RECEIVE_EVENT:
-      if (newState.events) {
-        newState.events[action.event.id] = action.event;
-      } else newState.events = action.event;
-      return newState;
-    case REMOVE_EVENT:
-      delete newState.events[action.event.id];
-      return newState;
     default:
       return state;
   }

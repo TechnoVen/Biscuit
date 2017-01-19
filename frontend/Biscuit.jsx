@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
       session: {
         currentUser: window.currentUser,
         hostProfile: null,
-        events: {},
+        events: {
+          current: [],
+          past: []
+        },
         errors: []
       },
       cities: {

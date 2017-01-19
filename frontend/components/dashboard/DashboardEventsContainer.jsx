@@ -3,7 +3,7 @@ import {fetchEvents} from '../../actions/event_actions';
 import DashboardEvents from './DashboardEvents';
 
 const mapStateToProps = ({session}) => ({
-  events: session.events
+  events: session.events.current
 });
 
 const mapDispatchToProps = (dispatch) => ({

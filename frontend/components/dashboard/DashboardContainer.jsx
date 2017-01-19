@@ -7,11 +7,7 @@ const mapStateToProps = ({session}, ownProps) => ({
   pathName: ownProps.location.pathname
 });
 
-const mapDispatchToProps = () => ({
-
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Dashboard);

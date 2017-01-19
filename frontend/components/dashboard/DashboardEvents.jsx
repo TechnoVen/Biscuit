@@ -13,7 +13,7 @@ export default class DashboardEvents extends React.Component {
 
   render() {
     const {events} = this.props;
-    const renderEvents = filterCurrentEvents(events).map((event => (
+    const renderEvents = events.map((event => (
       <li key={`db-current-event-${event.id}`}>
         <EventCard event={event} />
       </li>

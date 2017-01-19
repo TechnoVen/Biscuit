@@ -44,20 +44,17 @@ User.create!(
   password: 'password'
 )
 
-Host.create!(
-  user_id: 1,
+Host.find(1).update(
   detail1: 'i like cats',
   detail2: 'i like dogs',
   detail3: 'i like bunnies'
 )
-Host.create!(
-  user_id: 2,
+Host.find(2).update(
   detail1: 'i like running with my dogs',
   detail2: 'i like traveling with my dogs',
   detail3: 'i like hiking with my pups'
 )
-Host.create!(
-  user_id: 3,
+Host.find(3).update(
   detail1: 'i like playing with my cat',
   detail2: 'i like skating with my cat',
   detail3: 'i like excercising with my cat'

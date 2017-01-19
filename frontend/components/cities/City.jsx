@@ -2,14 +2,10 @@ import React from 'react';
 import EventCard from '../EventCard';
 import {generate} from 'shortid';
 
-class City extends React.Component {
-  componentDidMount() {
-    const {fetchCity} = this.props;
-    fetchCity();
-  }
+export default class City extends React.Component {
 
   render() {
-    const {currentCity} = this.props;
+    const {currentCity, signedIn, currentUser} = this.props;
     const splashStyle = {};
 
     if (currentCity.id) {
@@ -34,5 +30,3 @@ class City extends React.Component {
     );
   }
 }
-
-export default City;

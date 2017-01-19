@@ -50,7 +50,22 @@
     text-transform: uppercase;
   }
 
-  .cities-container {
+  .city-events-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
+    padding-top: 28px;
+
+    div.event-card {
+      margin-right: 14px;
+      margin-bottom: 24px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
   }
 }

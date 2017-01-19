@@ -18,7 +18,7 @@ class City extends React.Component {
     }
 
     const renderEventCards = currentCity.events.map((event) => (
-      <EventCard event={event} />
+      <EventCard key={`city-event-${event.id}`} event={event} />
     ));
 
     return (
@@ -26,7 +26,7 @@ class City extends React.Component {
         <div style={splashStyle} className="city-splash">
           {currentCity.name}
         </div>
-        <div className="city-container">
+        <div className="city-events-container">
           {renderEventCards}
         </div>
       </div>

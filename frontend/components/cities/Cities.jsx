@@ -8,7 +8,7 @@ export default class Cities extends React.Component {
   }
 
   render() {
-    const {all} = this.props;
+    const {all, children} = this.props;
     const renderCityCards = all.map((city) => (
       <CityCard key={`city-idx-${city.id}`} city={city} />
     ));
@@ -18,6 +18,7 @@ export default class Cities extends React.Component {
         <div>
           {renderCityCards}
         </div>
+        {children}
       </div>
     );
   }

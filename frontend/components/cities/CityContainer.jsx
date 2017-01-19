@@ -6,12 +6,9 @@ const mapStateToProps = ({cities}) => ({
   currentCity: cities.currentCity
 });
 
-const mapDispatchToProps = (dispatch, {location}) => {
-  debugger;
-  return {
-    fetchCity: (cityId) => dispatch(fetchCity(cityId))
-  };
-};
+const mapDispatchToProps = (dispatch, {params}) => ({
+    fetchCity: () => dispatch(fetchCity(params.cityId))
+});
 
 export default connect(
   mapStateToProps,

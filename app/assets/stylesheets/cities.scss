@@ -33,3 +33,24 @@
     }
   }
 }
+
+.city-wrapper {
+
+  .city-splash {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+
+    color: white;
+    font-size: 2.5em;
+    text-transform: uppercase;
+  }
+
+  .cities-container {
+
+  }
+}

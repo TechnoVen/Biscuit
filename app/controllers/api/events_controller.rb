@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
   def index
-    @current_events = Event.find_current_user_events(1)
-    @past_events = Event.find_past_user_events(1)
+    @current_events = Event.find_current_user_events(current_user.id)
+    @past_events = Event.find_past_user_events(current_user.id)
   end
 
   def create

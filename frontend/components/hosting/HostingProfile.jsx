@@ -12,7 +12,8 @@ export default class HostingProfile extends React.Component {
         detail3: "",
         id: null
       },
-      editing: null
+      editing: null,
+      saved: false
     };
 
     this.renderEditOrDisplay = this.renderEditOrDisplay.bind(this);
@@ -34,9 +35,9 @@ export default class HostingProfile extends React.Component {
 
   updateInput(field) {
     return e => {
-      const hostProfile = this.state.hostProfile;
+      const {hostProfile} = this.state;
       hostProfile[field] = e.target.value;
-      this.setState({hostProfile});
+      this.setState({hostProfile, saved: false});
     };
   }
 
@@ -78,10 +79,11 @@ export default class HostingProfile extends React.Component {
   updateHostProfile() {
     const host = Object.assign({}, this.state.hostProfile);
     this.props.updateHostProfile(host);
+    this.setState({saved: true});
   }
 
   render() {
-    const {hostProfile} = this.state;
+    const {hostProfile, saved} = this.state;
     const renderHostProfile = Object.keys(hostProfile).reduce((acc, key, idx) => {
       if (key === 'id') {
         return acc;
@@ -89,6 +91,12 @@ export default class HostingProfile extends React.Component {
       const item = this.renderEditOrDisplay(key, idx);
       return acc.concat(item);
     }, []);
+
+    const savedAlert = [];
+
+    if (saved) {
+      savedAlert.push("Your host profile has been saved!");
+    }
 
     return (
       <div className="hosting-profile-container container">
@@ -107,6 +115,9 @@ export default class HostingProfile extends React.Component {
         <ul>
           {renderHostProfile}
         </ul>
+        <div>
+          {savedAlert}
+        </div>
         <button onClick={this.updateHostProfile}>Save</button>
       </div>
     );

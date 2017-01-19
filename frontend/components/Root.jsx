@@ -61,9 +61,8 @@ const Root = ({store}) => {
             <IndexRoute component={DashboardEventsContainer}/>
             <Route path="history" component={DashboardHistoryContainer}/>
           </Route>
-          <Route path="cities" component={CitiesContainer}>
-            <Route path=":cityId" component={CityContainer}/>
-          </Route>
+          <Route path="cities" component={CitiesContainer} />
+          <Route path="cities/:cityId" component={CityContainer} />
         </Route>
       </Router>
     </Provider>

@@ -1,23 +1,45 @@
 import React from 'react';
+import {generate} from 'shortid';
 import {filterCurrentEvents} from '../../util/event_api_util';
 import EventCard from '../EventCard';
+
 
 export default class DashboardEvents extends React.Component {
   constructor() {
     super();
+
+    this.unattendEvent = this.unattendEvent.bind(this);
+    this.removeEvent = this.removeEvent.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchEvents();
+    const {fetchEvents} = this.props;
+    fetchEvents();
+  }
+
+  unattendEvent(id) {
+    const {deleteAttendance} = this.props;
+    deleteAttendance(id);
+  }
+
+  removeEvent(id) {
+    const {deleteEvent} = this.props;
+    deleteEvent(id);
   }
 
   render() {
-    const {events} = this.props;
-    const renderEvents = events.map((event => (
-      <li key={`db-current-event-${event.id}`}>
-        <EventCard event={event} />
-      </li>
-    )));
+    const {events, userId} = this.props;
+    const renderEvents = events.map((event => {
+      let eventAction = this.unattendEvent;
+      if (event.host_id === userId) {
+        eventAction = this.removeEvent;
+      }
+      return (
+        <li key={`db-current-event-${generate()}`}>
+          <EventCard event={event} eventAction={eventAction} userId={userId} />
+        </li>
+      );
+    }));
     return (
       <div className="dashboard-events container">
         <h2>Dashboard Events</h2>

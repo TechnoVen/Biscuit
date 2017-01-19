@@ -8,6 +8,7 @@ export default class City extends React.Component {
     super();
 
     this.updateUserCity = this.updateUserCity.bind(this);
+    this.createAttendance = this.createAttendance.bind(this);
   }
 
   updateUserCity() {
@@ -15,6 +16,16 @@ export default class City extends React.Component {
     const user = currentUser;
     user.city_id = currentCity.id;
     updateUser(user);
+  }
+
+  createAttendance(eventId) {
+    const {currentUser, createAttendance} = this.props;
+    const attendance = {
+      user_id: currentUser.id,
+      event_id: eventId
+    };
+
+    createAttendance(attendance);
   }
 
   render() {
@@ -28,7 +39,11 @@ export default class City extends React.Component {
     }
 
     const renderEventCards = currentCity.events.map((event) => (
-      <EventCard key={`city-event-${generate()}`} event={event} />
+      <EventCard
+        key={`city-event-${generate()}`}
+        event={event}
+        eventAction={this.createAttendance}
+      />
     ));
 
     return (

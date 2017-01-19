@@ -43,8 +43,8 @@ const SessionReducer = (state = _nullSession, action) => {
       newState.hostProfile = action.hostProfile;
       return newState;
     case RECEIVE_EVENTS:
-      const events = action.events;
-      return merge(newState, {events});
+      newState.events = action.events;
+      return newState;
     default:
       return state;
   }

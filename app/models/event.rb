@@ -70,6 +70,6 @@ class Event < ApplicationRecord
 
   belongs_to :host
   belongs_to :city
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
   has_many :attendees, through: :attendance
 end

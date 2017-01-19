@@ -16,3 +16,8 @@ export const fetchEvents = () => (dispatch) => (
   EventAPIUtil.fetchEvents()
     .then(response => dispatch(receiveEvents(response)))
 );
+
+export const deleteEvent = (id) => (dispatch) => (
+  EventAPIUtil.deleteEvent(id)
+    .then(response => dispatch(receiveEvents(response)))
+);

@@ -50,7 +50,6 @@ const HeaderNavLinks = ({signedIn, userCity, handleSignOut}) => {
         </li>
         <li>
           <span
-            activeClassName="header-active-link"
             className="hvr-fade"
             onClick={handleSignOut}
           >

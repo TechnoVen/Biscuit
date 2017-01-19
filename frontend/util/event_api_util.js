@@ -16,6 +16,13 @@ export const fetchEvents = () => (
   })
 );
 
+export const deleteEvent = (id) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/events/${id}`
+  })
+);
+
 export const getMilitaryTime = (time) => {
   return moment(time, "h : mm A").format('HHmm');
 };

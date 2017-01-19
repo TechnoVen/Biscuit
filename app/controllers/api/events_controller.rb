@@ -1,6 +1,8 @@
 class Api::EventsController < ApplicationController
   def index
-    @current_events = Event.find_current_user_events(current_user.id)
+    @current_events = Event
+                        .includes(:attendances)
+                        .find_current_user_events(current_user.id)
     @past_events = Event.find_past_user_events(current_user.id)
   end
 
@@ -13,6 +15,18 @@ class Api::EventsController < ApplicationController
     else
       render json: { errors: @events.errors.full_messages }, status: 422
     end
+  end
+
+  def destroy
+    event = Event.find_by_id(params[:id])
+    event.destroy!
+
+    @current_events = Event
+                        .includes(:attendances)
+                        .find_current_user_events(current_user.id)
+    @past_events = Event.find_past_user_events(current_user.id)
+
+    render :index
   end
 
   private

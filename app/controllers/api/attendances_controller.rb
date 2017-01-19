@@ -14,8 +14,8 @@ class Api::AttendancesController < ApplicationController
 
   def destroy
     attendance = Attendance.find_by_id(params[:id])
-    attendance.destroy
-    @current_events = Event.find_current_user_events(current_user.id)
+    attendance.destroy!
+    @current_events = Event.includes(:attendances).find_current_user_events(current_user.id)
     render '/api/events/index.json.jbuilder'
   end
 

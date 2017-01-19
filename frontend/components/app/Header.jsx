@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import HeaderNavLinks from './HeaderNavLinks';
 import {BiscuitLogo, BiscuitLogoColor1, BiscuitLogoColor2} from '../../svg/svg_graphics';
 
-const Header = ({signedIn, handleSignOut}) => {
+const Header = ({signedIn, userCity, handleSignOut}) => {
   return (
     <header>
       <div className="header-container">
@@ -27,7 +27,11 @@ const Header = ({signedIn, handleSignOut}) => {
             biscuit
           </div>
         </Link>
-        <HeaderNavLinks signedIn={signedIn} handleSignOut={handleSignOut}/>
+        <HeaderNavLinks
+          signedIn={signedIn}
+          userCity={userCity}
+          handleSignOut={handleSignOut}
+        />
       </div>
     </header>
   );

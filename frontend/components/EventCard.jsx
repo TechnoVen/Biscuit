@@ -1,5 +1,5 @@
 import React from 'react';
-import {getLocalTime, getWeekDay} from '../util/event_api_util';
+import {getLocalTime, getWeekDay, isPastEvent} from '../util/event_api_util';
 
 const EventCard = ({event, profileImage}) => {
   const {date, location, description, time} = event;
@@ -9,9 +9,17 @@ const EventCard = ({event, profileImage}) => {
     backgroundImage: 'url(' + 'https://res.cloudinary.com/dmmcusgxy/image/upload/v1484678989/dog_rxhbvr.png' + ')'
   };
 
-  let toggleButtonElement = <button type="button">join biscuit meet</button>;
+  let toggleButtonElement, noButtonClass;
+
+    if (isPastEvent(date, time)) {
+      toggleButtonElement = "";
+      noButtonClass = " no-event-button";
+    } else {
+      toggleButtonElement = <button type="button">join biscuit meet</button>;
+      noButtonClass = "";
+    }
   return (
-    <div className={`event-card`}>
+    <div className={`event-card${noButtonClass}`}>
       <div>
         <span className="event-card-weekday">
           {weekDay}

@@ -6,7 +6,6 @@ json.events(
   :date,
   :description,
   :host_id,
-  :archived,
   :location,
   :time
 )

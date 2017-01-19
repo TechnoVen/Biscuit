@@ -7,7 +7,6 @@
 #  description :string
 #  host_id     :integer          not null
 #  city_id     :integer          not null
-#  archived    :boolean          default("false")
 #  location    :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

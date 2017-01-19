@@ -65,8 +65,8 @@ Host.create!(
 
 
 Event.create!([
-  {date: "January 24, 2017", time: "1030", host_id: 1, city_id: 1, location: "somewhere only we know", description: "a blast from the past!"},
-  {date: "January 28, 2017", time: "1130", host_id: 1, city_id: 1, location: "fun place", description: "wow so fun with pets"},
+  {date: "January 10, 2017", time: "1030", host_id: 1, city_id: 1, location: "somewhere only we know", description: "a blast from the past!"},
+  {date: "January 15, 2017", time: "1130", host_id: 1, city_id: 1, location: "fun place", description: "wow so fun with pets"},
   {date: "February 14, 2017", time: "1230", host_id: 1, city_id: 1, location: "really fun place", description: "come join our event!"},
   {date: "February 28, 2017", time: "1630", host_id: 3, city_id: 1, location: "state beach", description: "watch the sunset and play with cute puppies!!"},
   {date: "May 19, 2017", time: "1730", host_id: 2, city_id: 1, location: "pacifica", description: "waves, charcuterie, and most importantly, huskies!!"},

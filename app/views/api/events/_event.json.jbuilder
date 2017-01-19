@@ -7,5 +7,4 @@ json.extract!(
   :location,
   :host_id,
   :city_id,
-  :archived
 )

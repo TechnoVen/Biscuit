@@ -27,15 +27,16 @@ export default class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const {email, password, first_name, Pet, City} = this.state;
+    const {formType, processForm, createHost} = this.props;
     const user = {};
     user.email = email;
     user.password = password;
-    if (this.props.formType !== 'signin') {
+    if (formType !== 'signin') {
       user.first_name = first_name;
       user.pet_type = Pet;
       user.city_id = cities.indexOf(City) + 1;
     }
-    this.props.processForm(user)
+    processForm(user)
       .then(() => hashHistory.push('/'));
   }
 

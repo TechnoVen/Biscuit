@@ -22,6 +22,7 @@ class City < ApplicationRecord
       .where([
         'attendances.user_id IS NULL OR attendances.user_id != ?', "#{user_id}"
       ])
+      .where(['city_id = ?', "#{self.id}"])
 
     Event.sort_by_date!(events)
   end

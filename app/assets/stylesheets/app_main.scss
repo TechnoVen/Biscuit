@@ -113,8 +113,12 @@ header {
 }
 
 .header-nav-links > li > *:hover,
-.header-nav-links > li > *:focus,
-.header-nav-links > li > *:active {
+.header-nav-links > li > *:focus {
+  background-color: #ffffff;
+  color: $color-accent-1;
+}
+
+.header-nav-links > li > .header-active-link {
   background-color: #ffffff;
   color: $color-accent-1;
 }

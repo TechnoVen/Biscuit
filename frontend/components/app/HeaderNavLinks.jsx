@@ -16,19 +16,46 @@ const HeaderNavLinks = ({signedIn, userCity, handleSignOut}) => {
     navLinks = (
       <ul className="header-nav-links">
         <li>
-          <Link className="hvr-fade" to={`/cities/${userCity}`}>{cities[userCity]}</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to={`/cities/${userCity}`}>{cities[userCity]}</Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/cities">cities</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/cities"
+          >
+            cities
+          </Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/hosting">hosting</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/hosting"
+          >
+            hosting
+          </Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/dashboard">dashboard</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/dashboard"
+          >
+            dashboard
+          </Link>
         </li>
         <li>
-          <span className="hvr-fade" onClick={handleSignOut}>sign out</span>
+          <span
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            onClick={handleSignOut}
+          >
+            sign out
+          </span>
         </li>
       </ul>
     );
@@ -36,16 +63,40 @@ const HeaderNavLinks = ({signedIn, userCity, handleSignOut}) => {
     navLinks = (
       <ul className="header-nav-links">
         <li>
-          <Link className="hvr-fade" to="/cities">cities</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/cities"
+          >
+            cities
+          </Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/">about</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/"
+          >
+            about
+          </Link>
         </li>
         <li>
-          <Link className="hvr-fade" to="/signin">sign in</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/signin"
+          >
+            sign in
+          </Link>
         </li>
         <li>
-          <Link className="hvr-fade"  to="/signup">sign up</Link>
+          <Link
+            activeClassName="header-active-link"
+            className="hvr-fade"
+            to="/signup"
+          >
+            sign up
+          </Link>
         </li>
       </ul>
     );

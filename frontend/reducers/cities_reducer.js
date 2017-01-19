@@ -3,7 +3,10 @@ import merge from 'lodash/merge';
 
 const defaultState = {
   all: [],
-  currentCity: {}
+  currentCity: {
+    events: [],
+    hosts: []
+  }
 };
 
 const citiesReducer = (oldState = defaultState, action) => {

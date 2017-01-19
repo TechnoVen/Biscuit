@@ -9,7 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = {
       session: {
         currentUser: window.currentUser,
-        hostProfile: null,
+        hostProfile: {
+          detail1: "",
+          detail2: "",
+          detail3: "",
+          id: null
+        },
         events: {
           current: [],
           past: []

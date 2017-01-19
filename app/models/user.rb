@@ -64,6 +64,6 @@ class User < ApplicationRecord
   end
 
   def create_matching_host
-    Host.create!(user_id: self.id)
+    Host.create!(user_id: self.id, detail1: "", detail2: "", detail3: "")
   end
 end

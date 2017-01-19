@@ -12,7 +12,12 @@ import merge from 'lodash/merge';
 
 const _nullSession = {
   currentUser: null,
-  hostProfile: null,
+  hostProfile: {
+    detail1: "",
+    detail2: "",
+    detail3: "",
+    id: null
+  },
   events: {
     current: [],
     past: []

@@ -34,6 +34,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
+  after_create :create_matching_host
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
@@ -60,5 +61,9 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def create_matching_host
+    Host.create!(user_id: self.id)
   end
 end

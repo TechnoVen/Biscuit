@@ -41,18 +41,18 @@ export default class SessionImageUpload extends React.Component {
   }
 
   render() {
+    const {image_url} = this.state;
     return (
         <div className="session-image-upload">
           <Dropzone
             className="session-dropzone"
+            activeClassName="session-dropzone-active"
             multiple={false}
             accept="image/*"
             onDrop={this.onImageDrop}
             maxSize={1000000}>
-            <p>Upload Profile Image</p>
-            {this.state.image_url === '' ? null :
-              <div>
-                <img src={this.state.image_url} />
+            {image_url === '' ? <p>Upload Profile Image</p> :
+              <div style={{backgroundImage: 'url(' + image_url + ')'}}>
               </div>}
           </Dropzone>
         </div>

@@ -54,12 +54,12 @@
   margin-bottom: 14px;
 }
 
-.session-form > button:last-of-type {
+.session-form > .demo-button {
   background: $color-accent-1;
   border: $color-accent-1;
 }
 
-.session-form > button:last-of-type:hover {
+.session-form > .demo-button:hover {
   background: $color-accent-1-highlight;
   border: $color-accent-1-highlight;
 }
@@ -97,4 +97,22 @@
 
 .session-dropdown > div.dropdown-container > div.dropdown-list > div > div.selected {
   background: $color-accent-1;
+}
+
+.session-form > .session-image-upload {
+  align-self: center;
+  margin-bottom: 14px;
+}
+
+.session-dropzone {
+  width: 200px;
+  height: 200px;
+  border: 3px dashed #ddd;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
+  text-align: center;
+  color: #333;
 }

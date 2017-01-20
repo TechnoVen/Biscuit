@@ -28,7 +28,7 @@ const SessionFormItem = ({
   const demoAccountButton = () => {
     if (formType !== 'signin') {
       return (
-        <button type="button" onClick={enterDemoAccount}>
+        <button className="demo-button" type="button" onClick={enterDemoAccount}>
           i'd rather use the demo account
         </button>
       );

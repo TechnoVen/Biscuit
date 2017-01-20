@@ -3,7 +3,6 @@ user,
 :id,
 :first_name,
 :last_name,
-:nickname,
 :pet_type,
 :city_id,
 :email

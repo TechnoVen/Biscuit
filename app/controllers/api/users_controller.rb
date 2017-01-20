@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(new_user_params)
 
-    if @user.save!
+    if @user.save
       sign_in(@user)
       render '/api/users/show.json.jbuilder'
     else

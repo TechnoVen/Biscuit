@@ -1,10 +1,106 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+PROFILE_SENTENCES = [
+  "Compliment someone today! ",
+  "Let someone know how much you appreciate them ",
+  "See someone struggling with lots of bags? Offer to help them ",
+  "Someone wronged you? Forgive them ",
+  "Say good morning/afternoon/evening to a stranger ",
+  "Life can get really busy - take some time out to spend with a family member ",
+  "Someone looking lost? Help them with directions ",
+  "Help an elderly person cross the road or up the stairs ",
+  "Be someone’s shoulder to cry on ",
+  "Go the day without complaining ",
+  "Leave someone flowers anonymously ",
+  "Make an effort to get to know someone you don’t usually talk to ",
+  "Know someone going through something you’ve been through? Give them advice ",
+  "Help someone academically – lend them your study notes ",
+  "Old laptop or mobile lying around? Donate it ",
+  "Be eco-friendly – unplug electronics when you’re finished using them ",
+  "Plant a seed ",
+  "Apologise to someone you may have hurt ",
+  "Answer the phone in a cheerful voice – even if it is a sales person ",
+  "We rarely listen to others - ask someone about their day ",
+  "We all love surprises! Buy someone an unexpected gift ",
+  "Bake something for your family/friends ",
+  "We all need help sometimes; offer someone a helping hand ",
+  "Make a hot beverage for a friend/family ",
+  "Surprise your parents with flowers ",
+  "Give up your seat on the tube/bus ",
+  "Help a younger student with their work ",
+  "Write a complimentary note for someone ",
+  "Bake for your neighbour ",
+  "Offer to help your neighbours/friends with chores ",
+  "Reconnect with your grandparents or an elderly person you know – give them a call! ",
+  "It’s hard to stay connected – reach out to an elderly person you know ",
+  "House chores can be tiring – offer a helping hand ",
+  "Pay for someone else’s meal today ",
+  "Save your family some time and buy their groceries ",
+  "Wardrobe overflowing? Donate clothes to a charity ",
+  "Have lunch with a homeless person ",
+  "Surroundings looking messy? Tidy up the area around you ",
+  "Make a conscious effort to recycle ",
+  "Purchase ethical goods ",
+  "Open the door for someone ",
+  "Smile at a stranger ",
+  "Help someone struggling with heavy bags ",
+  "Read a good book recently? Pass it on to someone else ",
+  "Send flowers to a friend or a family member! ",
+  "Feeling inspired? Make a meal for your family or roommates ",
+  "Surprise your siblings with their favourite sweets/chocolate ",
+  "Know someone who is not coping very well? Give them a call ",
+  "Send a thank you card to someone who has made a difference in your life (a friend, family member, teacher etc.) ",
+  "Offer to babysit your siblings/cousins/nephews/nieces etc ",
+  "Share today’s food with your neighbour! ",
+  "Gift someone something they complimented you for ",
+  "Leave a kind message anywhere (in a library book, on a computer etc.) ",
+  "Buy someone a coffee ",
+  "Visit a friend who’s sick ",
+  "Buy more ethically sourced foods ",
+  "We walk past homeless people every day; can you spare them 5 minutes of your time? ",
+  "Feeling brave? Give blood ",
+  "Make amends with someone you may have wronged ",
+  "Smile at 3 people today ",
+  "Is that litter on the floor? Pick it up and bin it ",
+  "Share something interesting you’ve learnt today ",
+  "Make your voice count - sign a petition for a good cause ",
+  "Make someone a cup of coffee ",
+  "Tell a friend about ARK/World Kindness Day ",
+  "Neighbour’s lawn looking messy? Offer to mow it ",
+  "Remember that family member you haven’t seen for a while? See how they are doing ",
+  "Taking public transport? Offer your seat to someone else ",
+  "Forgive someone who has wronged you ",
+  "Make someone’s day – tell a friend why you appreciate them ",
+  "Help someone carry their pushchair up/down the stairs ",
+  "Treat a friend – buy them lunch! ",
+  "Know someone who’s feeling under the weather? Pay them a visit! ",
+  "Lend a friend a book you think they’d like ",
+  "Go green – don’t waste paper ",
+  "Feed a stray animal if you spot one ",
+  "Remember to turn the lights off when you leave a room! ",
+  "Save water – turn the tap off when brushing your teeth! ",
+  "Save water – take a shorter shower today ",
+  "Fight climate change – go vegetarian for today! ",
+  "Recycle 3 things today ",
+  "Put your phone down and have a conversation with a friend ",
+  "Hug your parents ",
+  "Google 'survey for charity' and complete one. They receive money for every one you fill out! ",
+  "Who will be making dinner for your family today? Tag, you’re it! ",
+  "Help somebody with a chore they need done! ",
+  "Go out of your way to thank someone today! ",
+  "Pick up somebody else’ tab next time you go for a coffee ",
+  "Support a small, local business as a customer ",
+  "Oooh wait! There’s somebody behind you; hold the door open! ",
+  "Pay for someone’s bus ticket ",
+  "Volunteer your time for a good cause ",
+  "Empty your wallet for charity ",
+  "Good servicing requires a lot of effort; tip them! ",
+  "No matter how annoying they can be, tell your siblings how much you appreciate them ",
+  "Help someone improve, give them constructive feedback ",
+  "Share your lunch with a friend ",
+  "It can get lonely when you are old, pay your grandparents a visit ",
+  "Remember that friend you haven’t seen for ages? Give them a call ",
+  "Start the day right – make breakfast for everyone ",
+  "Be proactive – sign a petition for a good cause "
+]
 
 
 City.create!([
@@ -121,38 +217,21 @@ end
     time: dateTime.strftime('%H%M'),
     host_id: num + 2,
     city_id: cityId(num),
-    location: Faker::Address.street_address
+    location: Faker::Address.street_address,
+    description: PROFILE_SENTENCES[rand(0..100)]
   )
 end
 
-# Host.find(1).update(
-#   detail1: 'i like cats',
-#   detail2: 'i like dogs',
-#   detail3: 'i like bunnies'
-# )
-# Host.find(2).update(
-#   detail1: 'i like running with my dogs',
-#   detail2: 'i like traveling with my dogs',
-#   detail3: 'i like hiking with my pups'
-# )
-# Host.find(3).update(
-#   detail1: 'i like playing with my cat',
-#   detail2: 'i like skating with my cat',
-#   detail3: 'i like excercising with my cat'
-# )
-#
-#
-# Event.create!([
-#   {date: "January 10, 2017", time: "1030", host_id: 1, city_id: 1, location: "somewhere only we know", description: "a blast from the past!"},
-#   {date: "January 15, 2017", time: "1130", host_id: 1, city_id: 1, location: "fun place", description: "wow so fun with pets"},
-#   {date: "February 14, 2017", time: "1230", host_id: 1, city_id: 1, location: "really fun place", description: "come join our event!"},
-#   {date: "February 28, 2017", time: "1630", host_id: 3, city_id: 1, location: "state beach", description: "watch the sunset and play with cute puppies!!"},
-#   {date: "May 19, 2017", time: "1730", host_id: 2, city_id: 1, location: "pacifica", description: "waves, charcuterie, and most importantly, huskies!!"},
-#   {date: "April 22, 2017", time: "1630", host_id: 3, city_id: 1, location: "san bruno coffee shop", description: "new litter of kittens!!"}
-#   ])
-#
-# Attendance.create!([
-#   {user_id: 2, event_id: 1},
-#   {user_id: 3, event_id: 1},
-#   {user_id: 1, event_id: 5}
-# ])
+hosts = Host.all
+
+hosts[0].detail1 = PROFILE_SENTENCES[rand(0..100)]
+hosts[0].detail2 = PROFILE_SENTENCES[rand(0..100)]
+hosts[0].detail3 = PROFILE_SENTENCES[rand(0..100)]
+hosts[0].save
+
+(1..48).each do |num|
+  hosts[num].detail1 = PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)]
+  hosts[num].detail2 = PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)]
+  hosts[num].detail3 = PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)]
+  hosts[num].save
+end

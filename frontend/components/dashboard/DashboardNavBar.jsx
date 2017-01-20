@@ -23,16 +23,18 @@ export default class DashboardNavBar extends React.Component {
 
   render() {
     const {selected} = this.state;
-    const indexClass = selected === '/dashboard/' ? 'selected-link ' : "";
-    const historyClass = selected === '/dashboard/history' ? 'selected-link ' : "";
+    const activeD = selected === '/dashboard' ? 'dashboard-link-active' : '';
+    const activeH = selected === '/dashboard/history' ? 'dashboard-link-active' : '';
+
     return (
       <div className="dashboard-nav-container">
         <div className="container dashboard-nav">
           <ul className="dashboard-nav-links">
             <li>
               <Link
-                to="/dashboard/"
-                className={indexClass + "hvr-fade"}
+                to="/dashboard"
+                activeClassName={activeD}
+                className={"hvr-fade"}
                 onClick={() => this.selectedNavigation('/dashboard')}
                 >
                 current events
@@ -41,8 +43,9 @@ export default class DashboardNavBar extends React.Component {
             <li>
               <Link
                 to="/dashboard/history"
+                activeClassName={activeH}
                 onClick={() => this.selectedNavigation('/dashboard/history')}
-                className={historyClass + "hvr-fade"}
+                className={"hvr-fade"}
               >
               history
             </Link>

@@ -3,10 +3,16 @@ import {fetchEvents, deleteEvent} from '../../actions/event_actions';
 import {deleteAttendance} from '../../actions/attendance_actions';
 import DashboardEvents from './DashboardEvents';
 
-const mapStateToProps = ({session}) => ({
-  events: session.events.current,
-  userId: session.currentUser.id
-});
+const mapStateToProps = ({session}) => {
+  let userId = null;
+  if (session.currentUser) {
+    userId = session.currentUser.id;
+  }
+  return {
+    events: session.events.current,
+    userId: userId
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchEvents: () => dispatch(fetchEvents()),

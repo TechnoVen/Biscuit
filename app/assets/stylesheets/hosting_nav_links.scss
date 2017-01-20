@@ -18,7 +18,7 @@
   color: white;
 }
 
-.hosting-nav-links > li > a {
+.hosting-nav-links > li > * {
   color: inherit;
   font-size: 1.125em;
   font-weight: 500;
@@ -29,9 +29,13 @@
   border-radius: 3px;
 }
 
-.hosting-nav-links > li > a:hover,
-.hosting-nav-links > li > a:focus,
-.hosting-nav-links > li > a:active {
+.hosting-nav-links > li > *:hover,
+.hosting-nav-links > li > *:focus{
+  background-color: #ffffff;
+  color: $color-accent-1;
+}
+
+.hosting-nav-links > li > .hosting-active-link {
   background-color: #ffffff;
   color: $color-accent-1;
 }

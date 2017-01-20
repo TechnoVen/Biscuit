@@ -6,7 +6,7 @@ json.extract!(
   :description,
   :location,
   :host_id,
-  :city_id,
+  :city_id
 )
 
 json.host_image event.host.user.image_url

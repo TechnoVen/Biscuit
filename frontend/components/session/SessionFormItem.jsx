@@ -13,65 +13,62 @@ const SessionFormItem = ({
   handleSelectChange,
   setUserImageUrl
 }) => {
-  let nameField = () => {
-    if (formType !== "signin") {
-      return <input
-              type="text"
-              value={user.first_name}
-              placeholder="First name"
-              onChange={handleUpdate('first_name')}
-            />;
-    }
-  };
 
-  const submitButton = formType === 'signin' ? 'sign in' : 'meet kibble friends';
-  const demoAccountButton = () => {
-    if (formType !== 'signin') {
-      return (
-        <button className="demo-button" type="button" onClick={enterDemoAccount}>
-          i'd rather use the demo account
-        </button>
-      );
-    }
-  };
+  let nameField, demoAccBtn, paramDropdown, submitBtn = 'sign in';
 
-  const signUpSelectables = () => {
-    if (formType !== 'signin') {
-      return (
-        <div className="session-dropdown">
-          <Dropdown
-            list={petTypes}
-            listType='Pet'
-            handleSelectChange={handleSelectChange}
-          />
-          <Dropdown
-            list={cities}
-            listType='City'
-            handleSelectChange={handleSelectChange}
-          />
-        </div>
-      );
-    }
-  };
+  if (formType !== 'signin') {
+    nameField = (
+      <input
+        type="text"
+        value={user.first_name}
+        placeholder="First name"
+        onChange={handleUpdate('first_name')}
+      />
+    );
+
+    submitBtn = 'join biscuit';
+
+    demoAccBtn = (
+      <button className="demo-button" type="button" onClick={enterDemoAccount}>
+        demo account
+      </button>
+    );
+
+    paramDropdown = (
+      <div className="session-dropdown">
+        <Dropdown
+          list={petTypes}
+          listType='Pet'
+          handleSelectChange={handleSelectChange}
+        />
+        <Dropdown
+          list={cities}
+          listType='City'
+          handleSelectChange={handleSelectChange}
+        />
+      </div>
+    );
+  }
+
   return (
     <form className="session-form" onSubmit={handleSubmit}>
       <SessionImageUpload setUserImageUrl={setUserImageUrl}/>
-      {nameField()}
+      {nameField}
       <input
         type="text"
         placeholder="Email address"
         value={user.email}
         onChange={handleUpdate('email')}
       />
-      {signUpSelectables()}
+      {paramDropdown}
       <input
         type="password"
         placeholder="Password (at least 8 characters long!)"
         value={user.password}
         onChange={handleUpdate('password')}
       />
-      <button type="submit">{submitButton}</button>
-      {demoAccountButton()}
+      <button type="submit">{submitBtn}</button>
+      {demoAccBtn}
     </form>
   );
 };

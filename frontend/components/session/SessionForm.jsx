@@ -18,7 +18,6 @@ export default class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.navLink = this.navLink.bind(this);
     this.setUserImageUrl = this.setUserImageUrl.bind(this);
   }
 
@@ -31,14 +30,17 @@ export default class SessionForm extends React.Component {
     const {email, password, first_name, Pet, City, image_url} = this.state;
     const {formType, processForm, createHost} = this.props;
     const user = {};
+
     user.email = email;
     user.password = password;
+
     if (formType !== 'signin') {
       user.first_name = first_name;
       user.pet_type = Pet;
       user.image_url = image_url;
       user.city_id = cities.indexOf(City) + 1;
     }
+
     processForm(user)
       .then(() => hashHistory.push('/'));
   }
@@ -47,60 +49,36 @@ export default class SessionForm extends React.Component {
     this.setState({[listType]: selection});
   }
 
-  navLink() {
-    if (this.props.formType === 'signin') {
-			return (
-        <Link
-          to="/signup"
-        >
-          Click here if you have never signed up before
-        </Link>
-      );
-		} else {
-			return (
-        <Link to="/signin">Click here to log into an existing account</Link>
-      );
-		}
-  }
-
   setUserImageUrl(image_url) {
     this.setState({image_url});
   }
 
   render() {
     const {formType, errors, enterDemoAccount} = this.props;
-    const formErrors = () => {
-      if (errors[0]) {
-        return <p className="form-errors">{errors[0]}</p>;
-      }
-    };
-    const sessionSplash = () => {
-      if (formType === 'signin') {
-        return (
-          <div>
-            <h2>Sign into your account</h2>
-            <p>
-              We're glad to have you back.
-            </p>
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            <h2>Join a playdate with the cutest pets</h2>
-            <p>
-              Thousands of strangers across the world have set up playdates with
-              friendly and playful pets. We can't wait for you to experience this.
-            </p>
-          </div>
-        );
-      }
-    };
+
+    const formErrors = errors[0] ? <p className="form-errors">{errors[0]}</p> : "";
+
+    let formHeading = "Sign into your account",
+        formDescription = "We're glad to have you back",
+        formSwitchLink = "/signup",
+        formSwitchText = "Click here if you have never signed up before";
+
+    if (formType !== 'signin') {
+      formHeading = "Join biscuit and meet your newest friends";
+      formDescription = "Thousands of strangers across the world have joined " +
+      "Biscuit to play with friendly and adorable pets. You also get to meet " +
+      "some cool people too.";
+      formSwitchLink = "/signin";
+      formSwitchText = "Click here to log into an existing account";
+    }
     return (
       <section className="container">
         <div className="session-container">
-          {sessionSplash()}
-          {formErrors()}
+          <div>
+            <h2>{formHeading}</h2>
+            <p>{formDescription}</p>
+          </div>
+          {formErrors}
           <SessionFormItem
             handleSubmit={this.handleSubmit}
             handleUpdate={this.handleUpdate}
@@ -110,7 +88,7 @@ export default class SessionForm extends React.Component {
             handleSelectChange={this.handleSelectChange}
             setUserImageUrl={this.setUserImageUrl}
             />
-          {this.navLink()}
+          <Link to={formSwitchLink}>{formSwitchText}</Link>
         </div>
       </section>
     );

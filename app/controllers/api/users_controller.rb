@@ -38,7 +38,8 @@ class Api::UsersController < ApplicationController
         :email,
         :first_name,
         :city_id,
-        :pet_type
+        :pet_type,
+        :image_url
       )
   end
 
@@ -47,7 +48,6 @@ class Api::UsersController < ApplicationController
       .require(:user)
       .permit(
         :password,
-        :nickname,
         :first_name,
         :last_name,
         :pet_type,

@@ -6,7 +6,7 @@ const EventCard = ({event, eventAction, userId}) => {
   const localTime = getLocalTime(time);
   const weekDay = getWeekDay(date);
   const eventImageStyle = {
-    backgroundImage: 'url(' +'https://res.cloudinary.com/dmmcusgxy/image/upload/v1484678989/dog_rxhbvr.png' + ')'
+    backgroundImage: `url('${event.host_image}')`
   };
 
   let toggleButtonElement, noButtonClass = "";

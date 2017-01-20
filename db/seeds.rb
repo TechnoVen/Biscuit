@@ -23,7 +23,8 @@ User.create!(
   pet_type: 'dog',
   city_id: 1,
   email: 'guest_user@kibblewstrangers.com',
-  password: 'guest_kibble'
+  password: 'guest_kibble',
+  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg'
 )
 User.create!(
   nickname: 'Serenity',
@@ -32,7 +33,8 @@ User.create!(
   pet_type: 'dog',
   city_id: 1,
   email: 'lss@gmail.com',
-  password: 'password'
+  password: 'password',
+  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_300/v1484931518/SEED/cead0f63-cee3-4a45-af56-97b93d9b9189.jpg'
 )
 User.create!(
   nickname: 'Penny',
@@ -41,7 +43,8 @@ User.create!(
   pet_type: 'cat',
   city_id: 1,
   email: 'pz@gmail.com',
-  password: 'password'
+  password: 'password',
+  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_300/v1484931518/SEED/cead0f63-cee3-4a45-af56-97b93d9b9189.jpg'
 )
 
 Host.find(1).update(

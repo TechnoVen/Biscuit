@@ -37,7 +37,7 @@ export default class SessionForm extends React.Component {
     if (formType !== 'signin') {
       user.first_name = first_name;
       user.pet_type = Pet;
-      user.image_url = image_url;
+      user.image_url = image_url.length > 0 ? image_url : 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_300/v1484931518/SEED/cead0f63-cee3-4a45-af56-97b93d9b9189.jpg';
       user.city_id = cities.indexOf(City) + 1;
     }
 

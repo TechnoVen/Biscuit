@@ -38,18 +38,11 @@ export const signin = user => dispatch => {
 
 export const signout = () => dispatch => {
   return SessionAPIUtil.signout()
-  .then(() => dispatch(clearUser()),
-  errors => dispatch(receiveErrors(errors.responseJSON)));
+    .then(() => dispatch(clearUser()));
 };
 
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user)
     .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
-    errors => dispatch(receiveErrors(errors.responseJSON)));
-};
-
-export const update = user => dispatch => {
-  return SessionAPIUtil.update(user)
-    .then(currentUser => dispatch(receiveCurrentUser(currentUser)),
     errors => dispatch(receiveErrors(errors.responseJSON)));
 };

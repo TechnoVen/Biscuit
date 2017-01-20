@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Dropdown from '../hosting/Dropdown';
 import { petTypes, cities } from '../hosting/time_constants';
+import SessionImageUpload from './SessionImageUpload';
 
 const SessionFormItem = ({
   handleSubmit,
@@ -9,7 +10,8 @@ const SessionFormItem = ({
   formType,
   user,
   enterDemoAccount,
-  handleSelectChange
+  handleSelectChange,
+  setUserImageUrl
 }) => {
   let nameField = () => {
     if (formType !== "signin") {
@@ -53,6 +55,7 @@ const SessionFormItem = ({
   };
   return (
     <form className="session-form" onSubmit={handleSubmit}>
+      <SessionImageUpload setUserImageUrl={setUserImageUrl}/>
       {nameField()}
       <input
         type="text"

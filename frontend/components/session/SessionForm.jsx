@@ -11,13 +11,15 @@ export default class SessionForm extends React.Component {
       password: "",
       first_name: "",
       Pet: "",
-      City: ""
+      City: "",
+      image_url: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.navLink = this.navLink.bind(this);
+    this.setUserImageUrl = this.setUserImageUrl.bind(this);
   }
 
   handleUpdate(field) {
@@ -26,7 +28,7 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const {email, password, first_name, Pet, City} = this.state;
+    const {email, password, first_name, Pet, City, image_url} = this.state;
     const {formType, processForm, createHost} = this.props;
     const user = {};
     user.email = email;
@@ -34,6 +36,7 @@ export default class SessionForm extends React.Component {
     if (formType !== 'signin') {
       user.first_name = first_name;
       user.pet_type = Pet;
+      user.image_url = image_url;
       user.city_id = cities.indexOf(City) + 1;
     }
     processForm(user)
@@ -58,6 +61,10 @@ export default class SessionForm extends React.Component {
         <Link to="/signin">Click here to log into an existing account</Link>
       );
 		}
+  }
+
+  setUserImageUrl(image_url) {
+    this.setState({image_url});
   }
 
   render() {
@@ -101,6 +108,7 @@ export default class SessionForm extends React.Component {
             formType={formType}
             enterDemoAccount={enterDemoAccount}
             handleSelectChange={this.handleSelectChange}
+            setUserImageUrl={this.setUserImageUrl}
             />
           {this.navLink()}
         </div>

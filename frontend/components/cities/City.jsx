@@ -7,6 +7,10 @@ export default class City extends React.Component {
   constructor() {
     super();
 
+    this.state = {
+      myCity: true
+    };
+
     this.updateUserCity = this.updateUserCity.bind(this);
     this.createAttendance = this.createAttendance.bind(this);
   }
@@ -19,7 +23,12 @@ export default class City extends React.Component {
   }
 
   createAttendance(eventId) {
-    const {currentUser, createAttendance} = this.props;
+    const {currentUser, currentCity, createAttendance} = this.props;
+
+    if (currentCity.id !== currentUser.city_id) {
+      return this.setState({myCity: false});
+    }
+
     const attendance = {
       user_id: currentUser.id,
       event_id: eventId
@@ -56,6 +65,7 @@ export default class City extends React.Component {
           signedIn={signedIn}
           cityId={currentCity.id}
           userCity={currentUser.city_id}
+          myCity={this.state.myCity}
           />
         <div className="city-events-container">
           {renderEventCards}
@@ -65,7 +75,7 @@ export default class City extends React.Component {
   }
 }
 
-const CitySetHome = ({updateUserCity, signedIn, cityId, userCity}) => {
+const CitySetHome = ({updateUserCity, signedIn, cityId, userCity, myCity}) => {
   const cities = {
     1: 'bay area / sf',
     2: 'los angeles',
@@ -74,6 +84,8 @@ const CitySetHome = ({updateUserCity, signedIn, cityId, userCity}) => {
     5: 'philadelphia',
     6: 'san diego',
   };
+
+  const validateCity = myCity ? '' : 'You must set this as your home city first!';
 
   if (signedIn) {
     if (userCity === cityId) {
@@ -92,11 +104,14 @@ const CitySetHome = ({updateUserCity, signedIn, cityId, userCity}) => {
     } else {
       return (
         <div className="city-set-home">
-          <h2>This is not your home city!</h2>
+          <h2>Set your new home city below</h2>
           <div>
-            You cannot join any events that are not in your home city... That's
-            okay because you can click below to set this as your home city so
-            you can join in a biscuit meet.
+            You cannot join any events that are not in your home city.
+            Click below to set this as your home city soyou can join biscuit
+            meets here.
+          </div>
+          <div className="city-attendance-validation">
+            {validateCity}
           </div>
           <button onClick={updateUserCity}>
             {`Set ${cities[cityId]} as my home city`}

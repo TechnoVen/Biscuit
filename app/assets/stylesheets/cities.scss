@@ -36,6 +36,10 @@
 
 .city-wrapper {
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .city-splash {
     width: 100%;
     height: 350px;
@@ -73,6 +77,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1020px;
+    padding: 28px;
+
+    div:first-of-type {
+      font-size: 1.125em;
+      padding: 14px 28px;
+    }
+
+    .city-attendance-validation {
+      color: $error-accent;
+      font-size: 1.25em;
+      font-weight: 600;
+    }
+
 
     button {
       padding-right: 18px;

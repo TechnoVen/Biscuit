@@ -42,7 +42,7 @@ export default class DashboardEvents extends React.Component {
     }));
     return (
       <div className="dashboard-events container">
-        <h2>Dashboard Events</h2>
+        <h2>Upcoming Events</h2>
         <ul>
           {renderEvents}
         </ul>

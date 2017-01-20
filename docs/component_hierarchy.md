@@ -1,57 +1,43 @@
 ## Component Hierarchy
 
-**AuthFormContainer**
- - AuthForm
+**SessionForm Container**
+ - SessionForm
 
 **AppContainer**
  - App
-  + NavBar
-  + HomeIndex
+  + Header
   + Footer
 
+**HomeContainer**
+  - Home
+
 **Dashboard Container**
- - DashboardMain
-  + DashboardHeader
-  - DashboardHistory
-
-**User Container**
- - UserEdit
-
-**City Container**
- - City
-  + CityChange
-  + EventCard
-  + EventHost
+ - Dashboard
+  + Dashboard Events Container
+    * Dashboard Events
+  + Dashboard History Container
+    * Dashboard History
 
 **Cities Container**
  - Cities
-  + CityCard
+ - City Container
+  + City
 
-**Hosting Container**
+**Hosting/Event Container**
  - Hosting
-  + HostingProfileForm
-  + NewEventForm
-
-**Host Container**
- - HostProfile
-
-**Event Container**
- - Event
-
+   + Hosting Profile Container
+   + Event Form Container
 
 ## Routes
 
 |Path   | Component   |
 |-------|-------------|
-| "/signup" | "AuthFormContainer" |
-| "/signin" | "AuthFormContainer" |
+| "/signup" | "SessionFormContainer" |
+| "/signin" | "SessionFormContainer" |
 | "/" | "AppContainer" |
-| "/dashboard" | "DashboardContainer" |
-| "/dashboard/history" | "DashboardContainer" |
-| "/users/edit" | "UserContainer" |
+| "/dashboard" | "DashboardEventsContainer" |
+| "/dashboard/history" | "DashboardHistoryContainer" |
 | "/cities" | "CitiesContainer" |
-| "/cities/:cityName" | "CityContainer" |
-| "/cities/:cityName/host/:hostId" | "HostContainer" |
-| "/hosting" | "HostingContainer"
-| "/hosting/new" | "NewEventForm" |
-| "/kibble_meets/:meetId" | "EventContainer" |
+| "/cities/:cityId" | "CityContainer" |
+| "/hosting" | "HostingProfileContainer"
+| "/hosting/new" | "EventFormContainer" |

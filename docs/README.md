@@ -42,7 +42,7 @@ sufficient CSS styling:
 
 ### Phase 2: Events Model, API, and Hosting components (2 days)
 
-**Objective:** Events can be created, read, edited and destroyed through
+**Objective:** Events can be created, read, and destroyed through
 the API.
 
 ### Phase 3: Cities API, and components (2 days, W2 Tue 6pm)
@@ -51,11 +51,10 @@ the API.
 
 ### Phase 4:  Dashboard of Joined/Past Events(2 days, W2 Thur 6pm)
 
-**Objective:** Toggle between past and currently joined events.
+**Objective:** Toggle between past and currently joined events. Users can leave attending or remove hosted events.
 
 ### Bonus Features (TBD)
 - [ ] Google Map API & Event Highlighting
 - [ ] Mobile-friendly
 - [ ] Set reminders on events
-- [ ] Hosting opt-in
 - [ ] Suggestions based on events and profile details

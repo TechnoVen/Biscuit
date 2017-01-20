@@ -20,25 +20,25 @@
 
 ### Events
 
-- `GET /api/events/:id`
-  - Single event
-  - Host
-  - All joined members
+- `GET /api/events`
+  - All session events
 - `POST /api/events`
-- `PATCH /api/events/:id`
 - `DELETE /api/events/:id`
 
 ### Cities
 
 - `GET /api/cities/`
-  - All cities
 - `GET /api/cities/:id`
-  - All events
-  - All hosts
+  - Current events
 
 ### Hosts
 
+- `GET /api/hosts/`
 - `POST /api/hosts/`
-- `GET /api/hosts/:id`
 - `PATCH /api/hosts/:id`
-- `DELETE /api/hosts/:id`
+- `DELETE /api/hosts/:id
+
+### Attendances
+
+- `POST /api/attendances/`
+- `DELETE /api/attendances/:id`

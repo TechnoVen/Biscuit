@@ -4,48 +4,36 @@
     currentUser: {
       id: 1,
       email: "guest_user@email.com",
-      nickname: "jack",
-      firstname: "jackson",
-      lastname: "law",
+      first_name: "John",
+      last_name: "Smith",
       pet_type: "dog",
-      attended_events: [ //... ],
-      hosted_events: [ //... ],
-      host: {
-        desc1: "i like cats",
-        // ....
-      }
+      city_id: 1
     },
-    errors: [ //... ]
+    profile: {
+      detail_1: "Lorem ipsum...",
+      // ...
+    },
+    events : {
+      current: [ { eventObject } ...],
+      past: [ { eventObject } ...]
+    },
+    errors: [ 'errorString' ...]
   },
   cities: {
-    1: {
-      name: "SF/Bay Area",
-      image_url: "app/assets/images.."
-    },
-      //...
+    all: [ { cityObject } ...],
+    currentCity: {
+      events: [ {eventObject} ...],
+      hosts: [ { hostObject } ...]
     }
   },
-  currentCity: {
-    splash_image: "app/assets/images..",
-    hosts: {
-      2: {
-        host_id: 5,
-        user_id: 18,
-        profile_img: "app/assets/images.."
-      },
-        //...
-    },
-    events: [ //.. ]
-  }
 }
 
 events: {
-  date: '2/14/17',
-  time: '18:30',
-  max_guests: 6m
-  description: '',
+  date: "January 29, 2016",
+  time: "1830",
+  location: "1234 Main Street",
+  description: "Lorem ipsum...",
   host_id: 1,
-  city_id: 1,
-  archived: false
+  city_id: 1
 }
 ```

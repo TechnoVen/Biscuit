@@ -74,15 +74,6 @@ const HeaderNavLinks = ({signedIn, userCity, handleSignOut}) => {
           <Link
             activeClassName="header-active-link"
             className="hvr-fade"
-            to="/about"
-          >
-            about
-          </Link>
-        </li>
-        <li>
-          <Link
-            activeClassName="header-active-link"
-            className="hvr-fade"
             to="/signin"
           >
             sign in

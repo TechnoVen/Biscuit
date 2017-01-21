@@ -3,7 +3,7 @@
 ![Biscuit home page: www.biscuit-app.com][home]
 [home]: ./docs/screenshots/home.png
 
-[Biscuit link] is a full-stack web application for unifying strangers together with the help of the furry friends we already welcome in our homes--pets. Inspired by Tea With Strangers, Biscuit allows users to join communities and the events hosted by other members and their friendly pets. It utilizes PostgreSQL, Ruby on Rails, and React.js + Redux. Biscuit is a 'SPA': single-page-application with content delivered via ajax requests to static page.
+[Biscuit][Biscuit] is a full-stack web application for unifying strangers together with the help of the furry friends we already welcome in our homes--pets. Inspired by Tea With Strangers, Biscuit allows users to join communities and the events hosted by other members and their friendly pets. It utilizes PostgreSQL, Ruby on Rails, and React.js + Redux. Biscuit is a 'SPA': single-page-application with content delivered via ajax requests to static page.
 
 [Biscuit]: http://www.biscuit-app.com
 

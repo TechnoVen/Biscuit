@@ -10,8 +10,8 @@
 
 ## Features & Implementation
 
-![Biscuit home page: www.biscuit-app.com][home]
-[home]: ./docs/screenshots/home.png
+![Biscuit session page: www.biscuit-app.com/signup][session]
+[session]: ./docs/screenshots/session.png
 
 - User accounts with secure authentication with optional profile image upload.
 

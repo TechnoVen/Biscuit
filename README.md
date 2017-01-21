@@ -6,15 +6,13 @@
 
 
 ## Features & Implementation
+![Biscuit home page: www.biscuit-app.com][home]
+[home]: ./docs/screenshots/home.jpeg
 
-- User accounts with secure authentication
-- Create and save detailed host profile
-- Browse available cities
-- Join and change your respective city to access events
-- Host new events immediately available to the community
-- View current and past events in events dashboard
-- Remove attended and hosted events from your dashboard
+- User accounts with secure authentication with optional profile image upload.
 
-# Project Design
+- Browse available cities, join and change your respective city to access events. Newly created events are immediately available to the community to join.
 
-- Biscuit was designed and built in two weeks
+- The Dashboard has access to current and past events in events. Options to remove attended and hosted events is available at the bottom of each event card.
+
+# Future Directions

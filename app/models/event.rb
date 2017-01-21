@@ -16,10 +16,17 @@
 class Event < ApplicationRecord
   validates(
     :date,
+    :time,
+    :location,
     :host_id,
     :city_id,
     presence: true
   )
+
+  belongs_to :host, foreign_key: :host_id, class_name: :User
+  belongs_to :city, foreign_key: :city_id, class_name: :City
+  has_many :attendances, dependent: :destroy
+  has_many :attendees, through: :attendances, source: :attendee
 
   def self.find_current_user_events(user_id)
     reject_if_past!(self.find_all_user_events(user_id))
@@ -68,8 +75,4 @@ class Event < ApplicationRecord
     end
   end
 
-  belongs_to :host
-  belongs_to :city
-  has_many :attendances, dependent: :destroy
-  has_many :attendees, through: :attendance
 end

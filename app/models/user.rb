@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  nickname        :string
 #  first_name      :string           not null
 #  last_name       :string
 #  pet_type        :string
@@ -13,6 +12,10 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  image_url       :string
+#  profile_1       :text
+#  profile_2       :text
+#  profile_3       :text
 #
 
 class User < ApplicationRecord
@@ -27,9 +30,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8, allow_nil: true }
 
   has_many :attendances, foreign_key: :user_id, class_name: :Attendance
-  has_one :host
-  has_many :attended_events, through: :attendances
-  has_many :hosted_events, through: :host
+  has_many :attended_events, through: :attendances, source: :attended_event
+  has_many :hosted_events, foreign_key: :host_id, class_name: :Event
 
   attr_reader :password
 

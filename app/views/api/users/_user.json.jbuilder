@@ -1,3 +1,7 @@
+user = User
+  .preload(attended_events: [:host], hosted_events: [:host])
+  .find_by_id(user.id)
+
 json.extract!(
 user,
 :id,

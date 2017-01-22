@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show]
     resource :sessions, only: [:create, :destroy]
     resources :events, only: [:show, :index, :create, :update, :destroy]
-    resources :hosts, only: [:create, :index, :update]
     resources :cities, only: [:show, :index]
     resources :attendances, only: [:create, :destroy]
   end

@@ -4,7 +4,6 @@ import {
   RECEIVE_ERRORS,
   CLEAR_ERRORS
 } from '../actions/session_actions';
-import {RECEIVE_HOST_PROFILE} from '../actions/host_actions';
 import {RECEIVE_EVENTS} from '../actions/event_actions';
 
 

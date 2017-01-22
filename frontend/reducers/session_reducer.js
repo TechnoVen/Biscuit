@@ -4,7 +4,7 @@ import {
   RECEIVE_ERRORS,
   CLEAR_ERRORS
 } from '../actions/session_actions';
-import {RECEIVE_EVENTS} from '../actions/event_actions';
+import {RECEIVE_EVENT, REMOVE_EVENT} from '../actions/event_actions';
 
 
 import merge from 'lodash/merge';
@@ -28,8 +28,13 @@ const SessionReducer = (state = _nullSession, action) => {
       return merge({}, _nullSession, errors);
     case CLEAR_ERRORS:
       return merge ({}, state, {errors: []});
-    case RECEIVE_EVENTS:
-      newState.events = action.events;
+    case RECEIVE_EVENT:
+      const event = action.event;
+      debugger
+      newState.currentUser.current_events[event.id] = event;
+      return newState;
+    case REMOVE_EVENT:
+      delete newState.currentUser.current_events[action.event.id];
       return newState;
     default:
       return state;

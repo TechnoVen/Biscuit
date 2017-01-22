@@ -1,5 +1,5 @@
 import * as AttendanceAPIUtil from '../util/attendance_api_util';
-import {receiveEvents} from './event_actions';
+import {removeEvent} from './event_actions';
 import {receiveCity} from './city_actions';
 
 export const createAttendance = (attendance) => (dispatch) => (
@@ -9,5 +9,5 @@ export const createAttendance = (attendance) => (dispatch) => (
 
 export const deleteAttendance = (id) => (dispatch) => (
   AttendanceAPIUtil.deleteAttendance(id)
-    .then(response => dispatch(receiveEvents(response)))
+    .then(response => dispatch(removeEvent(response)))
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Dropdown from '../hosting/Dropdown';
-import { petTypes, cities } from '../hosting/time_constants';
+import { petTypes, cities } from '../../util/constants';
 import SessionImageUpload from './SessionImageUpload';
 
 const SessionFormItem = ({

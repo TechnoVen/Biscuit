@@ -12,11 +12,6 @@ export default class DashboardEvents extends React.Component {
     this.removeEvent = this.removeEvent.bind(this);
   }
 
-  componentDidMount() {
-    const {fetchEvents} = this.props;
-    fetchEvents();
-  }
-
   unattendEvent(id) {
     const {deleteAttendance} = this.props;
     deleteAttendance(id);
@@ -31,7 +26,7 @@ export default class DashboardEvents extends React.Component {
     const {events, userId} = this.props;
     const renderEvents = events.map((event => {
       let eventAction = this.unattendEvent;
-      if (event.host_id === userId) {
+      if (event.host.id === userId) {
         eventAction = this.removeEvent;
       }
       return (

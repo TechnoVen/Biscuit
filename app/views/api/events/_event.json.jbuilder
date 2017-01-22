@@ -1,17 +1,5 @@
-json.extract!(
-  event,
-  :id,
-  :date,
-  :time,
-  :description,
-  :location,
-  :host_id,
-  :city_id
-)
-
-json.host_image event.host.user.image_url
-
-my_attendance = event.attendances.where(user_id: current_user.id)
-unless my_attendance.empty?
-  json.attendanceId my_attendance.first.id
+json.extract! event, :id, :date, :time, :description, :city_id, :location
+json.host event.host, :id, :first_name, :last_name, :image_url
+unless event.host_id == user.id
+  json.set! :attend_id, user.attendances.where(event_id: event.id).first.id
 end

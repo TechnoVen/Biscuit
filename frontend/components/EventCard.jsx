@@ -1,37 +1,50 @@
 import React from 'react';
-import {getLocalTime, getWeekDay, isPastEvent} from '../util/event_api_util';
+import {getLocalTime, getWeekday} from '../util/store_util';
 
 const EventCard = ({event, eventAction, userId}) => {
-  const {date, location, description, time, host_id} = event;
+  const {
+    id,
+    date,
+    location,
+    description,
+    time,
+    host,
+    archived,
+    attendanceId
+  } = event;
+
   const localTime = getLocalTime(time);
-  const weekDay = getWeekDay(date);
+  const weekday = getWeekday(date);
   const eventImageStyle = {
-    backgroundImage: `url('${event.host_image}')`
+    backgroundImage: `url('${host.image_url}')`
   };
 
   let toggleButtonElement, noButtonClass = "";
 
-  if (isPastEvent(date, time)) {
+  if (!archived) {
     noButtonClass = " no-event-button";
     toggleButtonElement = "";
-  } else if (event.attendanceId) {
+  }
+  else if (attendanceId) {
     toggleButtonElement = (
       <button
-        onClick={() => eventAction(event.attendanceId)}
+        onClick={() => eventAction(attendanceId)}
         type="button"
       >
         leave event
       </button>
     );
-  } else if (host_id === userId) {
+  }
+  else if (host.id === userId) {
     toggleButtonElement = (
-      <button onClick={() => eventAction(event.id)} type="button">
+      <button onClick={() => eventAction(id)} type="button">
         remove event
       </button>
     );
-  } else {
+  }
+  else {
     toggleButtonElement = (
-      <button onClick={() => eventAction(event.id)} type="button">
+      <button onClick={() => eventAction(id)} type="button">
         join event
       </button>
     );
@@ -41,7 +54,7 @@ const EventCard = ({event, eventAction, userId}) => {
     <div className={`event-card${noButtonClass}`}>
       <div>
         <span className="event-card-weekday">
-          {weekDay}
+          {weekday}
         </span>
         <div className="event-card-date-time">
           <span>
@@ -53,12 +66,12 @@ const EventCard = ({event, eventAction, userId}) => {
         </div>
       </div>
       <div className="event-card-location">
-        {event.location}
+        {location}
       </div>
       <div className="event-card-profile-image" style={eventImageStyle}>
       </div>
       <span className="event-card-description">
-        {event.description}
+        {description}
       </span>
       {toggleButtonElement}
     </div>

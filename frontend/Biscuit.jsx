@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  window.store = store;
+
   const main = document.getElementById('main');
   ReactDOM.render(<Root store={store}/>, main);
 });

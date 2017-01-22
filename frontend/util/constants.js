@@ -1,24 +1,32 @@
-export const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
+import moment from 'moment';
 
-const shortMonths = [
-  'April',
-  'June',
-  'September',
-  'November'
-];
+export const months = () => {
+  let dateStart = moment().add(1, 'day');
+  const nextYear = dateStart.add(1, 'years').year();
+  const result = [];
+  while (dateStart.year() === nextYear) {
+    result.push(dateStart.format('MMMM'));
+    dateStart.add(1, 'month');
+  }
+  return result;
+};
+
+export const days = (month) => {
+  let day = 1;
+  const mFormat = moment(month, 'MMMM');
+
+  if (moment().format('MMMM') === month) {
+    day = moment().add(1, 'days').date();
+  }
+  const daysInMonth = mFormat.daysInMonth();
+  const result = [];
+
+  for (let i = day; i <= daysInMonth; i++) {
+    result.push(i);
+  }
+
+  return result;
+};
 
 export const time = (() => {
   const ha = [];
@@ -45,18 +53,6 @@ export const time = (() => {
   return ha.concat(hp);
 })();
 
-export const days = (month) => {
-  const d = [];
-  for (let i = 1; i <= 31; i++) {
-    d.push(`${i}`);
-    if (month === 'February' && i === 28) {
-      break;
-    } else if (shortMonths.indexOf(month) !== -1 && i === 30) {
-      break;
-    }
-  }
-  return d;
-};
 
 export const petTypes = [
   'dog',

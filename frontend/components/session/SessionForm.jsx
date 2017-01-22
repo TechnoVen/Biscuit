@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import SessionFormItem from './SessionFormItem';
-import {cities} from '../hosting/time_constants';
+import {cities} from '../../util/constants';
 
 export default class SessionForm extends React.Component {
   constructor(props) {

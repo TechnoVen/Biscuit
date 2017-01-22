@@ -3,14 +3,9 @@ import {filterPastEvents} from '../../util/event_api_util';
 import EventCard from '../EventCard.jsx';
 import {generate} from 'shortid';
 
-
 export default class DashboardHistory extends React.Component {
   constructor() {
     super();
-  }
-
-  componentDidMount() {
-    this.props.fetchEvents();
   }
 
   render() {

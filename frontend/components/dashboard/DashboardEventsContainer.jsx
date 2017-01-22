@@ -1,21 +1,15 @@
 import {connect} from 'react-redux';
-import {fetchEvents, deleteEvent} from '../../actions/event_actions';
+import {deleteEvent} from '../../actions/event_actions';
 import {deleteAttendance} from '../../actions/attendance_actions';
+import {sortByDate} from '../../util/store_util';
 import DashboardEvents from './DashboardEvents';
 
-const mapStateToProps = ({session}) => {
-  let userId = null;
-  if (session.currentUser) {
-    userId = session.currentUser.id;
-  }
-  return {
-    events: session.events.current,
-    userId: userId
-  };
-};
+const mapStateToProps = ({session}) => ({
+  events: sortByDate(session.currentUser.current_events),
+  userId: session.currentUser.id
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchEvents: () => dispatch(fetchEvents()),
   deleteEvent: (id) => dispatch(deleteEvent(id)),
   deleteAttendance: (id) => dispatch(deleteAttendance(id))
 });

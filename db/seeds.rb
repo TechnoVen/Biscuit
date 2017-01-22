@@ -243,16 +243,16 @@ end
   )
 end
 
-8.times do |num|
+3.times do |num|
   Attendance.create!(
     user_id: 1,
-    event_id: num
+    event_id: num + 1
   )
 end
 
-10.times do
+5.times do
   date_time = Faker::Time
-    .between(10.days.ago, 20.days.from_now, :day)
+    .between(5.days.ago, 5.days.from_now, :day)
     .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
 
   Event.create!(

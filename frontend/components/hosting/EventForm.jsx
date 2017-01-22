@@ -1,8 +1,8 @@
 import React from 'react';
 import Dropdown from './Dropdown';
-import {days, months, time} from './time_constants';
+import {days, months, time} from '../../util/constants';
 import {hashHistory} from 'react-router';
-import {getMilitaryTime} from '../../util/event_api_util';
+import {getMilitaryTime} from '../../util/store_util';
 
 export default class EventForm extends React.Component {
   constructor(props) {
@@ -72,17 +72,17 @@ export default class EventForm extends React.Component {
           <h3>Date</h3>
           <div className="event-form-dt-input">
             <Dropdown
-              list={months}
+              list={months()}
               listType='Month'
               handleSelectChange={this.handleSelectChange}
               />
             <Dropdown
-              list={days(this.state.month)}
+              list={days(Month)}
               listType='Day'
               handleSelectChange={this.handleSelectChange}
               />
             <div>
-              {this.state.year}
+              {year}
             </div>
             <Dropdown
               list={time}
@@ -96,7 +96,7 @@ export default class EventForm extends React.Component {
           <input
             type="text"
             onChange={this.handleUpdate('location')}
-            value={this.state.location}
+            value={location}
           />
         </div>
         <div className="event-form-description">
@@ -104,7 +104,7 @@ export default class EventForm extends React.Component {
           <textarea
             type="text"
             onChange={this.handleUpdate('description')}
-            value={this.state.description}
+            value={description}
             />
         </div>
         <button

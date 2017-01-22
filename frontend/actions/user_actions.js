@@ -6,7 +6,7 @@ export const fetchUser = (id) => (dispatch) => (
     .then(response => dispatch(receiveCurrentUser(response)))
 );
 
-export const updateUser = (id) => (dispatch) => (
-  UserAPIUtil.updateUser(id)
+export const updateUser = (user) => (dispatch) => (
+  UserAPIUtil.updateUser(user)
     .then(response => dispatch(receiveCurrentUser(response)))
 );

@@ -6,11 +6,10 @@ export default class HostingProfile extends React.Component {
   constructor() {
     super();
     this.state = {
-      hostProfile: {
-        detail1: "",
-        detail2: "",
-        detail3: "",
-        id: null
+      profile: {
+        profile_1: "",
+        profile_2: "",
+        profile_3: ""
       },
       editing: null,
       saved: false
@@ -19,30 +18,24 @@ export default class HostingProfile extends React.Component {
     this.renderEditOrDisplay = this.renderEditOrDisplay.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
     this.updateInput = this.updateInput.bind(this);
-    this.updateHostProfile = this.updateHostProfile.bind(this);
+    this.updateProfile = this.updateProfile.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchHostProfile();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const hostProfile = nextProps.hostProfile;
-    if (hostProfile) {
-      this.setState({hostProfile});
-    }
+    const {profile} = this.props;
+    this.setState({profile});
   }
 
   updateInput(field) {
     return e => {
-      const {hostProfile} = this.state;
-      hostProfile[field] = e.target.value;
-      this.setState({hostProfile, saved: false});
+      const {profile} = this.state;
+      profile[field] = e.target.value;
+      this.setState({profile, saved: false});
     };
   }
 
   renderEditOrDisplay(key, num) {
-    const {hostProfile} = this.state;
+    const {profile} = this.state;
     if (this.state.editing === key) {
       return (
         <HostingProfileEditItem
@@ -50,7 +43,7 @@ export default class HostingProfile extends React.Component {
           item={key}
           toggleEditing={this.toggleEditing}
           question={`Profile Question ${num}:`}
-          description={hostProfile[key]}
+          description={profile[key]}
           updateInput={this.updateInput}
         />
       );
@@ -61,7 +54,7 @@ export default class HostingProfile extends React.Component {
           item={key}
           toggleEditing={this.toggleEditing}
           question={`Profile Question ${num}:`}
-          description={hostProfile[key]}
+          description={profile[key]}
         />
       );
     }
@@ -76,15 +69,20 @@ export default class HostingProfile extends React.Component {
     };
   }
 
-  updateHostProfile() {
-    const host = Object.assign({}, this.state.hostProfile);
-    this.props.updateHostProfile(host);
+  updateProfile() {
+    const {updateUser, userId} = this.props;
+    const {profile} = this.state;
+    const user = Object.assign({}, profile, {id: userId});
+    console.log(user);
+
+    updateUser(user);
+
     this.setState({saved: true});
   }
 
   render() {
-    const {hostProfile, saved} = this.state;
-    const renderHostProfile = Object.keys(hostProfile).reduce((acc, key, idx) => {
+    const {profile, saved} = this.state;
+    const renderProfile = Object.keys(profile).reduce((acc, key, idx) => {
       if (key === 'id') {
         return acc;
       }
@@ -113,12 +111,12 @@ export default class HostingProfile extends React.Component {
           </p>
         </div>
         <ul>
-          {renderHostProfile}
+          {renderProfile}
         </ul>
         <div>
           {savedAlert}
         </div>
-        <button onClick={this.updateHostProfile}>Save</button>
+        <button onClick={this.updateProfile}>Save</button>
       </div>
     );
   }

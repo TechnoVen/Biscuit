@@ -49,10 +49,6 @@ class Api::UsersController < ApplicationController
     params
       .require(:user)
       .permit(
-        :password,
-        :first_name,
-        :last_name,
-        :pet_type,
         :profile_1,
         :profile_2,
         :profile_3,

@@ -7,10 +7,13 @@ json.extract!(
 :city_id,
 :email,
 :image_url,
-:profile_1,
-:profile_2,
-:profile_3,
 )
+
+json.profile do
+  json.profile_1 @user.profile_1
+  json.profile_2 @user.profile_2
+  json.profile_3 @user.profile_3
+end
 
 date_time = Proc.new { |a, b| a.date.to_time <=> b.date.to_time }
 

@@ -12,16 +12,6 @@ import merge from 'lodash/merge';
 
 const _nullSession = {
   currentUser: null,
-  hostProfile: {
-    detail1: "",
-    detail2: "",
-    detail3: "",
-    id: null
-  },
-  events: {
-    current: [],
-    past: []
-  },
   errors: []
 };
 
@@ -39,9 +29,6 @@ const SessionReducer = (state = _nullSession, action) => {
       return merge({}, _nullSession, errors);
     case CLEAR_ERRORS:
       return merge ({}, state, {errors: []});
-    case RECEIVE_HOST_PROFILE:
-      newState.hostProfile = action.hostProfile;
-      return newState;
     case RECEIVE_EVENTS:
       newState.events = action.events;
       return newState;

@@ -100,16 +100,34 @@ PROFILE_SENTENCES = [
   "Remember that friend you haven’t seen for ages? Give them a call ",
   "Start the day right – make breakfast for everyone ",
   "Be proactive – sign a petition for a good cause "
-]
+].freeze
 
 
 City.create!([
-  {name: 'San Francisco, CA', image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705965/san_francisco.jpg"},
-  {name: 'Los Angeles, CA', image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_2000/v1484705951/los_angeles.jpg"},
-  {name: 'New York City, NY', image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/v1484705942/new_york.jpg"},
-  {name: 'Chicago', image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705957/chicago_bar1ny.jpg"},
-  {name: 'Philadelphia', image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/q_auto:eco/v1484705958/philadelphia-skyline-background-image2-1800vp_ckziky.jpg"},
-  {name: 'San Diego, CA', image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_2000/v1484706363/o85agquk55e-robert-lamb_clbamb.jpg"}
+  {
+    name: 'San Francisco, CA',
+    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705965/san_francisco.jpg"
+  },
+  {
+    name: 'Los Angeles, CA',
+    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_2000/v1484705951/los_angeles.jpg"
+  },
+  {
+    name: 'New York City, NY',
+    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/v1484705942/new_york.jpg"
+  },
+  {
+    name: 'Chicago',
+    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705957/chicago_bar1ny.jpg"
+  },
+  {
+    name: 'Philadelphia',
+    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/q_auto:eco/v1484705958/philadelphia-skyline-background-image2-1800vp_ckziky.jpg"
+  },
+  {
+    name: 'San Diego, CA',
+    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_2000/v1484706363/o85agquk55e-robert-lamb_clbamb.jpg"
+  }
 ])
 
 PET_TYPES = [
@@ -117,7 +135,7 @@ PET_TYPES = [
   'cat',
   'rabbit',
   'other'
-]
+].freeze
 
 User.create!(
   first_name: 'Guest',
@@ -126,7 +144,10 @@ User.create!(
   city_id: 1,
   email: 'guest_user@kibblewstrangers.com',
   password: 'guest_kibble',
-  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg'
+  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg',
+  profile_1: PROFILE_SENTENCES[rand(0..100)],
+  profile_2: PROFILE_SENTENCES[rand(0..100)],
+  profile_3: PROFILE_SENTENCES[rand(0..100)]
 )
 
 USER_IMAGES = [
@@ -178,16 +199,16 @@ USER_IMAGES = [
   'http://res.cloudinary.com/dmmcusgxy/image/upload/h_400,w_400,c_fit/v1484903502/SEED/2015_september_dogvacay_highres-138.jpg',
   'http://res.cloudinary.com/dmmcusgxy/image/upload/h_400,w_400,c_fit/v1484902904/SEED/16682584145_2dd5e59bfc_k-990x620.jpg',
   'http://res.cloudinary.com/dmmcusgxy/image/upload/h_400,w_400,c_fit/v1484903744/SEED/01-vet-visit-dogvacay.jpg'
-]
+].freeze
 
-def cityId(num)
+def get_city_id(num)
   case num
-    when 0..7 then 1
-    when 8..15 then 2
-    when 16..23 then 3
-    when 24..31 then 4
-    when 32..39 then 5
-    when 40..47 then 6
+  when 0..7 then 1
+  when 8..15 then 2
+  when 16..23 then 3
+  when 24..31 then 4
+  when 32..39 then 5
+  when 40..47 then 6
   end
 end
 
@@ -195,43 +216,57 @@ end
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
 
-  User.create!(
+  date_time = Faker::Time
+    .between(2.days.from_now, 4.months.from_now, :day)
+    .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
+
+  user = User.create!(
     first_name: first_name,
     last_name: last_name,
     pet_type: PET_TYPES[rand(4)],
-    city_id: cityId(num),
+    city_id: get_city_id(num),
     email: Faker::Internet.safe_email("#{first_name} #{last_name}"),
     password: Faker::Internet.password(8),
-    image_url: USER_IMAGES[num]
+    image_url: USER_IMAGES[num],
+    profile_1: PROFILE_SENTENCES[rand(0..100)],
+    profile_2: PROFILE_SENTENCES[rand(0..100)],
+    profile_3: PROFILE_SENTENCES[rand(0..100)]
   )
-end
-
-(0..47).each do |num|
-  dateTime = Faker::Time
-              .between(2.days.from_now, 4.months.from_now, :day)
-              .at_beginning_of_hour + ([15,30,45,60].sample).minutes
 
   Event.create!(
-
-    date: dateTime.strftime('%B %-m, %Y'),
-    time: dateTime.strftime('%H%M'),
-    host_id: num + 2,
-    city_id: cityId(num),
+    date: date_time.strftime('%B %-m, %Y'),
+    time: date_time.strftime('%H%M'),
+    host_id: user.id,
+    city_id: user.city_id,
     location: Faker::Address.street_address,
     description: PROFILE_SENTENCES[rand(0..100)]
   )
 end
 
-hosts = Host.all
+Attendance.create!(
+  user_id: 1,
+  event_id: 2
+)
+Attendance.create!(
+  user_id: 1,
+  event_id: 3
+)
+Attendance.create!(
+  user_id: 1,
+  event_id: 4
+)
 
-hosts[0].detail1 = PROFILE_SENTENCES[rand(0..100)]
-hosts[0].detail2 = PROFILE_SENTENCES[rand(0..100)]
-hosts[0].detail3 = PROFILE_SENTENCES[rand(0..100)]
-hosts[0].save
+3.times do
+  date_time = Faker::Time
+    .between(2.days.from_now, 4.months.from_now, :day)
+    .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
 
-(1..48).each do |num|
-  hosts[num].detail1 = PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)]
-  hosts[num].detail2 = PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)]
-  hosts[num].detail3 = PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)] + PROFILE_SENTENCES[rand(0..100)]
-  hosts[num].save
+  Event.create!(
+  date: date_time.strftime('%B %-m, %Y'),
+  time: date_time.strftime('%H%M'),
+  host_id: 1,
+  city_id: 1,
+  location: Faker::Address.street_address,
+  description: PROFILE_SENTENCES[rand(0..100)]
+  )
 end

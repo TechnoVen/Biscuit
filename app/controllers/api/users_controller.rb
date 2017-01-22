@@ -51,9 +51,9 @@ class Api::UsersController < ApplicationController
         :first_name,
         :last_name,
         :pet_type,
-        :detail_1,
-        :detail_2,
-        :detail_3,
+        :profile_1,
+        :profile_2,
+        :profile_3,
         :city_id
       )
   end

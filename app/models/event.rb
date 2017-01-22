@@ -49,6 +49,10 @@ class Event < ApplicationRecord
     self.sort_by_date!(events)
   end
 
+  def is_past?
+    Time.new >= self.date.to_time.next_day
+  end
+
   def self.select_if_past!(events)
     current_time = Time.new
     events.select do |a|

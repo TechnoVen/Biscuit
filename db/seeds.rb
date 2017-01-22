@@ -234,7 +234,7 @@ end
   )
 
   Event.create!(
-    date: date_time.strftime('%B %-m, %Y'),
+    date: date_time.strftime('%B %-d, %Y'),
     time: date_time.strftime('%H%M'),
     host_id: user.id,
     city_id: user.city_id,
@@ -243,26 +243,20 @@ end
   )
 end
 
-Attendance.create!(
-  user_id: 1,
-  event_id: 2
-)
-Attendance.create!(
-  user_id: 1,
-  event_id: 3
-)
-Attendance.create!(
-  user_id: 1,
-  event_id: 4
-)
+8.times do |num|
+  Attendance.create!(
+    user_id: 1,
+    event_id: num
+  )
+end
 
-3.times do
+10.times do
   date_time = Faker::Time
-    .between(2.days.from_now, 4.months.from_now, :day)
+    .between(10.days.ago, 20.days.from_now, :day)
     .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
 
   Event.create!(
-  date: date_time.strftime('%B %-m, %Y'),
+  date: date_time.strftime('%B %-d, %Y'),
   time: date_time.strftime('%H%M'),
   host_id: 1,
   city_id: 1,

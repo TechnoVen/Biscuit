@@ -11,7 +11,9 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User
+      .preload(attended_events: [:host], hosted_events: [:host])
+      .find_by_id(params[:id])
   end
 
   def update

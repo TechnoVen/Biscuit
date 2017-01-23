@@ -13,18 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       cities: {
         all: [],
-        currentCity: {
-          events: [],
-          hosts: []
-        }
+        currentCity: {}
       }
     };
     store = configureStore(preloadedState);
   } else {
     store = configureStore();
   }
-
-  window.store = store;
 
   const main = document.getElementById('main');
   ReactDOM.render(<Root store={store}/>, main);

@@ -21,7 +21,7 @@ const EventCard = ({event, eventAction, userId}) => {
 
   let toggleButtonElement, noButtonClass = "";
 
-  if (!archived) {
+  if (archived) {
     noButtonClass = " no-event-button";
     toggleButtonElement = "";
   }

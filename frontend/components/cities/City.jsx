@@ -2,6 +2,7 @@ import React from 'react';
 import EventCard from '../EventCard';
 import CitySetHome from './CitySetHome';
 import {generate} from 'shortid';
+import {filterAttended} from '../../util/store_util';
 
 export default class City extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ export default class City extends React.Component {
   render() {
     const {currentCity, signedIn, currentUser} = this.props;
     const splashStyle = {};
+    const events = filterAttended(currentCity.events, currentUser.id);
 
     if (currentCity.id) {
       splashStyle.backgroundImage = `linear-gradient(to bottom,\
@@ -47,7 +49,7 @@ export default class City extends React.Component {
         url('${currentCity.image_url}')`;
     }
 
-    const renderEventCards = currentCity.events.map((event) => (
+    const renderEventCards = events.map((event) => (
       <EventCard
         key={`city-event-${generate()}`}
         event={event}

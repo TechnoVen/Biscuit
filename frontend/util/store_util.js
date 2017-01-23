@@ -1,4 +1,4 @@
-import values from 'lodash/values';
+import {values, filter} from 'lodash';
 import moment from 'moment';
 
 export const sortByDate = (events) => (
@@ -12,6 +12,23 @@ export const sortByDate = (events) => (
     } else return 0;
   })
 );
+
+export const filterAttended = (events, userId) => {
+  let filtered = events;
+  if (userId && events) {
+    filtered = filter(filtered, (obj) => {
+      if (obj.host.id === userId) {
+        return false;
+      }
+      else if (!obj.attendances || !obj.attendances[userId]) {
+        return true;
+      }
+      return false;
+    });
+  }
+
+  return sortByDate(filtered);
+};
 
 export const getMilitaryTime = (time) => {
   return moment(time, "h : mm A").format('HHmm');

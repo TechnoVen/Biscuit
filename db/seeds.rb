@@ -144,10 +144,7 @@ User.create!(
   city_id: 1,
   email: 'guest_user@kibblewstrangers.com',
   password: 'guest_kibble',
-  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg',
-  profile_1: PROFILE_SENTENCES[rand(0..100)],
-  profile_2: PROFILE_SENTENCES[rand(0..100)],
-  profile_3: PROFILE_SENTENCES[rand(0..100)]
+  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg'
 )
 
 USER_IMAGES = [
@@ -227,10 +224,7 @@ end
     city_id: get_city_id(num),
     email: Faker::Internet.safe_email("#{first_name} #{last_name}"),
     password: Faker::Internet.password(8),
-    image_url: USER_IMAGES[num],
-    profile_1: PROFILE_SENTENCES[rand(0..100)],
-    profile_2: PROFILE_SENTENCES[rand(0..100)],
-    profile_3: PROFILE_SENTENCES[rand(0..100)]
+    image_url: USER_IMAGES[num]
   )
 
   Event.create!(

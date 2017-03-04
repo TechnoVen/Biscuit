@@ -30,11 +30,10 @@ const SessionReducer = (state = _nullSession, action) => {
       return merge ({}, state, {errors: []});
     case RECEIVE_EVENT:
       const event = action.event;
-      debugger
-      newState.currentUser.current_events[event.id] = event;
+      newState.currentUser.events[event.id] = event;
       return newState;
     case REMOVE_EVENT:
-      delete newState.currentUser.current_events[action.event.id];
+      delete newState.currentUser.events[action.event.id];
       return newState;
     default:
       return state;

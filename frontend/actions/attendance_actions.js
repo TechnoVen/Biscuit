@@ -1,10 +1,9 @@
 import * as AttendanceAPIUtil from '../util/attendance_api_util';
-import {removeEvent} from './event_actions';
-import {receiveCity} from './city_actions';
+import {removeEvent, receiveEvent} from './event_actions';
 
 export const createAttendance = (attendance) => (dispatch) => (
   AttendanceAPIUtil.createAttendance(attendance)
-    .then(response => dispatch(receiveCity(response)))
+    .then(response => dispatch(receiveEvent(response)))
 );
 
 export const deleteAttendance = (id) => (dispatch) => (

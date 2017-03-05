@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  first_name      :string           not null
 #  last_name       :string
 #  pet_type        :string
 #  city_id         :integer
@@ -23,11 +22,10 @@ class User < ApplicationRecord
     :email,
     :password_digest,
     :session_token,
-    :first_name,
     presence: true
   )
   validates :email, uniqueness: :true
-  validates :password, length: { minimum: 8, allow_nil: true }
+  validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :attendances, foreign_key: :user_id, class_name: :Attendance
   has_many :attended_events, through: :attendances, source: :attended_event

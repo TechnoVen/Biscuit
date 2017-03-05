@@ -8,11 +8,12 @@ export default class Home extends React.Component {
     this.state = {
       email: "",
       password: "",
-      login: false
+      login: true
     };
 
     this.handleUpdate = this.handleUpdate.bind(this);
     this.toggleSession = this.toggleSession.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleUpdate(field) {
@@ -25,22 +26,22 @@ export default class Home extends React.Component {
   }
 
   handleSubmit() {
+    event.preventDefault();
     const {signin, signup} = this.props;
     const {email, password, login} = this.state;
     const submitForm = this.state.login ? signin : signup;
 
-    submitForm({email: email, password: password})
-      .then(() => hashHistory.push('/dashboard'));
+    submitForm({email: email, password: password});
   }
 
   render() {
-    const currentType = !this.state.login ? 'Log in' : 'Sign up';
-    const otherType = this.state.login ? 'Log in' : 'Sign up';
+    const currentType = this.state.login ? 'Log in' : 'Sign up';
+    const otherType = !this.state.login ? 'Log in' : 'Sign up';
     return (
       <div className="home-container">
         <div className="login-container">
           <h1>Biscuit</h1>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="Email" onChange={this.handleUpdate('email')} value={this.state.email} />
             <input type="password" placeholder="Password" onChange={this.handleUpdate('password')} value={this.state.password} />
             <button type="submit">{currentType}</button>

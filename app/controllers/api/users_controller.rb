@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(new_user_params)
-
     if @user.save
       sign_in(@user)
       render '/api/users/show.json.jbuilder'
@@ -37,11 +36,7 @@ class Api::UsersController < ApplicationController
       .require(:user)
       .permit(
         :password,
-        :email,
-        :first_name,
-        :city_id,
-        :pet_type,
-        :image_url
+        :email
       )
   end
 

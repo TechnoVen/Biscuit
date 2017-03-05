@@ -138,9 +138,6 @@ PET_TYPES = [
 ].freeze
 
 User.create!(
-  first_name: 'Guest',
-  last_name: 'User',
-  pet_type: 'dog',
   city_id: 1,
   email: 'guest_user@kibblewstrangers.com',
   password: 'guest_kibble',
@@ -218,9 +215,6 @@ end
     .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
 
   user = User.create!(
-    first_name: first_name,
-    last_name: last_name,
-    pet_type: PET_TYPES[rand(4)],
     city_id: get_city_id(num),
     email: Faker::Internet.safe_email("#{first_name} #{last_name}"),
     password: Faker::Internet.password(8),

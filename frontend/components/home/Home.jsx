@@ -60,6 +60,11 @@ export default class Home extends React.Component {
             Just want to look around? <span>Try the demo</span>
           </div>
         </div>
+        <div className="dev-links-container">
+          <a href="https://github.com/laed37" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/edwinla" target="_blank">LinkedIn</a>
+          <a href="https://edwinla.com/" target="_blank">Portfolio</a>
+        </div>
       </div>
     );
   }

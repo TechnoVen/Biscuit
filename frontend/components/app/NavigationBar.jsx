@@ -7,9 +7,9 @@ export default class NavigationBar extends React.Component {
 
   render() {
     return (
-      <section>
+      <nav>
         This is the navbar!
-      </section>
+      </nav>
     );
   }
 }

@@ -5,14 +5,10 @@ import IndexContent from './IndexContent';
 
 const App = ({navbar, content}) => {
   return (
-    <section className="wrapper">
-      <article>
-        {navbar || <NavigationBar />}
-      </article>
-      <article className="content-container">
-        {content || <IndexContent />}
-      </article>
-    </section>
+    <main className="wrapper">
+      {navbar || <NavigationBar />}
+      {content || <IndexContent />}
+    </main>
   );
 };
 

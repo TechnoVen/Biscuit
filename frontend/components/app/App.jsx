@@ -1,25 +1,18 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
-import Header from './Header';
-import Footer from './Footer';
+import NavigationBar from './NavigationBar';
+import IndexContent from './IndexContent';
 
-const App = ({signout, signedIn, userCity, children}) => {
-  const handleSignOut = () => {
-    signout().then(() => hashHistory.push('/signin'));
-  };
-
+const App = ({navbar, content}) => {
   return (
-    <div className="wrapper">
-      <Header
-        signedIn={signedIn}
-        userCity={userCity}
-        handleSignOut={handleSignOut}
-      />
-      <div className="content-container">
-        {children}
-      </div>
-      <Footer />
-    </div>
+    <section className="wrapper">
+      <article>
+        {navbar || <NavigationBar />}
+      </article>
+      <article className="content-container">
+        {content || <IndexContent />}
+      </article>
+    </section>
   );
 };
 

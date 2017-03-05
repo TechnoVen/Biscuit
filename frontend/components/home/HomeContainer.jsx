@@ -1,19 +1,20 @@
 import {connect} from 'react-redux';
+import { signin, signup, clearErrors } from '../../actions/session_actions';
 import Home from './Home.jsx';
 
 const mapStateToProps = ({session}) => {
   const signedIn = Boolean(session.currentUser);
-  let userCity = "";
-  if (signedIn) {
-    userCity = session.currentUser.city_id;
-  }
   return {
-    signedIn: signedIn,
-    userCity: userCity
+    signedIn: signedIn
   };
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  signin: (user) => dispatch(signin(user)),
+  signup: (user) => dispatch(signup(user))
+});
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Home);

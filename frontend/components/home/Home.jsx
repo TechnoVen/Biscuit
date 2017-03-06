@@ -30,8 +30,8 @@ export default class Home extends React.Component {
     const {signin, signup} = this.props;
     const {email, password, login} = this.state;
     const submitForm = this.state.login ? signin : signup;
-
-    submitForm({email: email, password: password});
+    submitForm({email: email, password: password})
+      .then(() => hashHistory.push("/"));
   }
 
   render() {

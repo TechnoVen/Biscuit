@@ -7,7 +7,7 @@ export default class IndexContent extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="index-content content">
         CONTENT GOES HERE.
       </section>
     );

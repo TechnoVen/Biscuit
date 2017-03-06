@@ -153,6 +153,10 @@ html, body {
     background-color: #fafafa;
   }
 
+  .wrapper {
+    flex-direction: row;
+  }
+
   .home-container {
     .login-container, .demo-container {
       width: 400px;

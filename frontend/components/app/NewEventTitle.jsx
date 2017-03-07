@@ -6,12 +6,9 @@ export default class NewEventTitle extends React.Component {
   }
 
   handleDisplay() {
+    const {nav, mobile} = this.props;
     let eventClass = "nav-newevent-title";
-    switch(this.props.nav) {
-      case 3:
-        eventClass += " selected";
-        break;
-    }
+    if (!mobile || nav === 3) eventClass += " selected";
     return eventClass;
   }
 

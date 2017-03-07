@@ -22,13 +22,10 @@ export default class Searchbar extends React.Component {
   }
 
   handleDisplay() {
-    let navClass = "nav-searchbar";
-    switch(this.props.nav) {
-      case 1:
-        navClass += " selected";
-        break;
-    }
-    return navClass;
+    const {nav, mobile} = this.props;
+    let searchClass = "nav-searchbar";
+    if (!mobile || nav === 1) searchClass += " selected";
+    return searchClass;
   }
 
   render() {

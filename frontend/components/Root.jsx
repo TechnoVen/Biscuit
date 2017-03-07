@@ -4,8 +4,6 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 import AppContainer from './app/AppContainer';
 import HomeContainer from './home/HomeContainer';
-import IndexContent from './app/IndexContent';
-import NavigationBar from './app/NavigationBar';
 
 const Root = ({store}) => {
   const _requireAuth = (nextState, replace) => {

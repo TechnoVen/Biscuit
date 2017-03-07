@@ -149,6 +149,10 @@
         width: auto;
         height: auto;
         order: 0;
+
+        &::before {
+          content: "Find events nearby";
+        }
       }
 
       .nav-newevent {
@@ -156,9 +160,27 @@
         margin: 0;
       }
 
+      .nav-newevent::after {
+        content: "Create New Event";
+      }
+
+      .nav-newevent-title {
+        display: none;
+      }
+
       .nav-dashboard {
         order: 0;
         margin: 0;
+
+        &::after {
+          content: "Dashboard";
+        }
+      }
+
+      .nav-dashboard-links {
+        order: 0;
+        flex-direction: column;
+        height: auto;
       }
     }
   }

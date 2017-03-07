@@ -9,7 +9,7 @@ export default class NavigationBar extends React.Component {
   }
 
   render() {
-    const {nav, handleNavigate} = this.props;
+    const {mobile, nav, handleNavigate, handleDashNav} = this.props;
 
     return (
       <nav className="navigation-main">
@@ -20,21 +20,21 @@ export default class NavigationBar extends React.Component {
           >
             Biscuit
           </div>
-          <Searchbar nav={nav}/>
+          <Searchbar nav={nav} mobile={mobile}/>
           <div
             className="nav-newevent"
             onClick={() => handleNavigate(3)}
           >
             <i className="fa fa-plus"></i>
           </div>
-          <NewEventTitle nav={nav}/>
+          <NewEventTitle nav={nav} mobile={mobile}/>
           <div
             className="nav-dashboard"
             onClick={() => handleNavigate(2)}
           >
             <i className="fa fa-tachometer"></i>
           </div>
-          <DashboardLinks nav={nav}/>
+          <DashboardLinks nav={nav} mobile={mobile} handleDashNav={handleDashNav}/>
         </div>
       </nav>
     );

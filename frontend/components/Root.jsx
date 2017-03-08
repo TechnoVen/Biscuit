@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 import AppContainer from './app/AppContainer';
-import HomeContainer from './home/HomeContainer';
+import SessionContainer from './home/SessionContainer';
 
 const Root = ({store}) => {
   const _requireAuth = (nextState, replace) => {
@@ -35,7 +35,7 @@ const Root = ({store}) => {
       <Router history={hashHistory}>
         <Route path="/" component={AppContainer}>
           <IndexRoute onEnter={_requireAuth} />
-          <Route path="session" components={{navbar: emptyDiv, content: HomeContainer}} onEnter={_redirectIfSignedIn}/>
+          <Route path="session" components={{navbar: emptyDiv, content: SessionContainer}} onEnter={_redirectIfSignedIn}/>
         </Route>
       </Router>
     </Provider>

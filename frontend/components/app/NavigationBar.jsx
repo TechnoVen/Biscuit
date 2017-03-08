@@ -9,7 +9,7 @@ export default class NavigationBar extends React.Component {
   }
 
   render() {
-    const {mobile, nav, handleNavigate, handleDashNav} = this.props;
+    const {mobile, nav, handleNavigate, handleDashNav, handleSignOut} = this.props;
 
     return (
       <nav className="navigation-main">
@@ -32,9 +32,9 @@ export default class NavigationBar extends React.Component {
             className="nav-dashboard"
             onClick={() => handleNavigate(2)}
           >
-            <i className="fa fa-tachometer"></i>
+            <i className="fa fa-bars"></i>
           </div>
-          <DashboardLinks nav={nav} mobile={mobile} handleDashNav={handleDashNav}/>
+          <DashboardLinks nav={nav} mobile={mobile} handleDashNav={handleDashNav} handleSignOut={handleSignOut}/>
         </div>
       </nav>
     );

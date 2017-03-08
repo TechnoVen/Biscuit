@@ -1,9 +1,11 @@
 .navigation-main {
-  // width: 100%;
+  width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   height: 126px;
+  position: fixed;
+  z-index: 10;
   flex-shrink: 0;
 
   .navigation-header {

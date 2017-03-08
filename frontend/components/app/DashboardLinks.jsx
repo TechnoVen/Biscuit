@@ -13,12 +13,12 @@ export default class DashboardLinks extends React.Component {
   }
 
   render() {
-    const {handleDashNav} = this.props;
+    const {handleDashNav, handleSignOut} = this.props;
     return (
       <div className={this.handleDisplay()}>
         <div onClick={() => handleDashNav(1)}>My Events</div>
-        <div onClick={() => handleDashNav(2)}>Profile</div>
-        <div onClick={() => handleDashNav(3)}>Settings</div>
+        <div onClick={() => handleDashNav(2)}>Account</div>
+        <div onClick={handleSignOut}>Sign Out</div>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Settings extends React.Component {
+export default class Account extends React.Component {
   constructor() {
     super();
   }
@@ -8,7 +8,7 @@ export default class Settings extends React.Component {
   render() {
     return(
       <section className="content">
-        Settings
+        Account
       </section>
     );
   }

@@ -3,8 +3,8 @@ import { Link, hashHistory } from 'react-router';
 import NavigationBar from './NavigationBar';
 import IndexContent from './IndexContent';
 import UserEventsContainer from './UserEventsContainer';
-import UserProfile from './UserProfile';
-import Settings from './Settings';
+import Account from './Account';
+import ViewEvent from './ViewEvent';
 
 export default class App extends React.Component {
   constructor() {
@@ -13,19 +13,35 @@ export default class App extends React.Component {
     this.state = {
       mobile: false,
       nav: 1,
-      dashboard: 1
+      dashboard: 1,
+      viewEvent: null
     };
 
     this.handleNavigate = this.handleNavigate.bind(this);
     this.handleDashNav = this.handleDashNav.bind(this);
     this.toggleScreenChange = this.toggleScreenChange.bind(this);
     this.handleRenderContent = this.handleRenderContent.bind(this);
+    this.handleSignOut = this.handleSignOut.bind(this);
+    this.handleViewEvent = this.handleViewEvent.bind(this);
   }
 
   componentDidMount() {
     this.toggleScreenInst = this.toggleScreenChange.bind(this);
     this.toggleScreenInst();
     window.addEventListener('resize', this.toggleScreenInst);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.viewEvent && !nextState.viewEvent) {
+      return false;
+    }
+    return true;
+  }
+
+  componentDidUpdate(nextProps, nextState) {
+    if (this.state.viewEvent) {
+      this.setState({viewEvent: null});
+    }
   }
 
   componentWillUnmount() {
@@ -38,6 +54,10 @@ export default class App extends React.Component {
     this.setState({mobile});
   }
 
+  handleViewEvent(viewEvent) {
+    this.setState({viewEvent});
+  }
+
   handleNavigate(nav) {
     this.setState({nav});
   }
@@ -46,8 +66,16 @@ export default class App extends React.Component {
     this.setState({dashboard});
   }
 
+  handleSignOut() {
+    this.props.signout()
+      .then(() => hashHistory.replace("session"));
+  }
+
   handleRenderContent() {
-    const {dashboard, nav, mobile} = this.state;
+    const {dashboard, nav, mobile, viewEvent} = this.state;
+
+    if (viewEvent) return <ViewEvent event={viewEvent} />;
+
     switch (nav) {
       case 3:
       case 1:
@@ -55,21 +83,25 @@ export default class App extends React.Component {
       case 2:
         switch (dashboard) {
           case 1:
-            return <UserEventsContainer nav={nav} mobile={mobile} />;
+            return <UserEventsContainer handleViewEvent={this.handleViewEvent} nav={nav} mobile={mobile} />;
           case 2:
-            return <UserProfile nav={nav} mobile={mobile} />;
-          case 3:
-            return <Settings nav={nav} mobile={mobile} />;
+            return <Account nav={nav} mobile={mobile} />;
         }
     }
   }
 
   render() {
-    const {navbar, content} = this.props;
+    const {navbar, content, signOut} = this.props;
     const {nav, mobile} = this.state;
     return (
       <main className="wrapper">
-        {navbar || <NavigationBar nav={nav} mobile={mobile} handleNavigate={this.handleNavigate} handleDashNav={this.handleDashNav}/>}
+        {navbar || <NavigationBar
+          nav={nav}
+          mobile={mobile}
+          handleNavigate={this.handleNavigate}
+          handleDashNav={this.handleDashNav}
+          handleSignOut={this.handleSignOut}
+        />}
         {content || this.handleRenderContent()}
       </main>
     );

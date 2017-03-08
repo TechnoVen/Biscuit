@@ -5,6 +5,7 @@ import IndexContent from './IndexContent';
 import UserEventsContainer from './UserEventsContainer';
 import Account from './Account';
 import ViewEvent from './ViewEvent';
+import EventForm from './EventForm';
 
 export default class App extends React.Component {
   constructor() {
@@ -78,6 +79,7 @@ export default class App extends React.Component {
 
     switch (nav) {
       case 3:
+        return <EventForm nav={nav} mobile={mobile} />;
       case 1:
         return <IndexContent nav={nav} mobile={mobile} />;
       case 2:

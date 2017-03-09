@@ -3,8 +3,6 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  last_name       :string
-#  pet_type        :string
 #  city_id         :integer
 #  email           :string           not null
 #  password_digest :string           not null
@@ -12,9 +10,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  image_url       :string
-#  profile_1       :text
-#  profile_2       :text
-#  profile_3       :text
+#  first_name      :string
+#  last_name       :string
 #
 
 class User < ApplicationRecord

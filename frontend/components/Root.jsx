@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 import AppContainer from './app/AppContainer';
-import SessionContainer from './home/SessionContainer';
+import SessionContainer from './session/SessionContainer';
 
 const Root = ({store}) => {
   const _requireAuth = (nextState, replace) => {

@@ -117,11 +117,11 @@ City.create!([
     image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/v1484705942/new_york.jpg"
   },
   {
-    name: 'Chicago',
+    name: 'Chicago, IL',
     image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705957/chicago_bar1ny.jpg"
   },
   {
-    name: 'Philadelphia',
+    name: 'Philadelphia, PA',
     image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/q_auto:eco/v1484705958/philadelphia-skyline-background-image2-1800vp_ckziky.jpg"
   },
   {
@@ -138,7 +138,6 @@ PET_TYPES = [
 ].freeze
 
 User.create!(
-  city_id: 1,
   email: 'guest_user@kibblewstrangers.com',
   first_name: "Guest",
   last_name: "",
@@ -214,10 +213,9 @@ end
 
   date_time = Faker::Time
     .between(2.days.from_now, 4.months.from_now, :day)
-    .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
+    .at_beginning_of_hour + [30, 60].sample.minutes
 
   user = User.create!(
-    city_id: get_city_id(num),
     first_name: first_name,
     last_name: last_name,
     email: Faker::Internet.safe_email("#{first_name} #{last_name}"),
@@ -226,10 +224,10 @@ end
   )
 
   Event.create!(
+    title: 'Fun event with my new pups!',
     date: date_time.strftime('%B %-d, %Y'),
-    time: date_time.strftime('%H%M'),
+    time: date_time.strftime('%l:%M %P'),
     host_id: user.id,
-    city_id: user.city_id,
     location: Faker::Address.street_address,
     description: PROFILE_SENTENCES[rand(0..100)]
   )
@@ -245,13 +243,12 @@ end
 5.times do
   date_time = Faker::Time
     .between(5.days.ago, 5.days.from_now, :day)
-    .at_beginning_of_hour + [15, 30, 45, 60].sample.minutes
+    .at_beginning_of_hour + [30, 60].sample.minutes
 
   Event.create!(
   date: date_time.strftime('%B %-d, %Y'),
-  time: date_time.strftime('%H%M'),
+  time: date_time.strftime('%l:%M %P'),
   host_id: 1,
-  city_id: 1,
   location: Faker::Address.street_address,
   description: PROFILE_SENTENCES[rand(0..100)]
   )

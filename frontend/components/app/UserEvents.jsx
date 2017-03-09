@@ -24,6 +24,7 @@ const Event = ({event, handleViewEvent}) => {
   return (
     <div className="event-list-item" onClick={() => handleViewEvent(event)}>
       <div className="event-list-item-date">{event.date}</div>
+      <div className="event-list-item-title">{event.title}</div>
       <div className="event-list-item-time">{event.time}</div>
       <div className="event-list-item-location">{event.location}</div>
       <div className="event-list-item-name">

@@ -5,7 +5,7 @@ import IndexContent from './IndexContent';
 import UserEventsContainer from './UserEventsContainer';
 import Account from './Account';
 import ViewEvent from './ViewEvent';
-import EventForm from './EventForm';
+import EventFormContainer from './EventFormContainer';
 
 export default class App extends React.Component {
   constructor() {
@@ -56,7 +56,7 @@ export default class App extends React.Component {
   }
 
   handleViewEvent(viewEvent) {
-    this.setState({viewEvent});
+    this.setState({viewEvent, nav: 2});
   }
 
   handleNavigate(nav) {
@@ -79,15 +79,15 @@ export default class App extends React.Component {
 
     switch (nav) {
       case 3:
-        return <EventForm nav={nav} mobile={mobile} />;
+        return <EventFormContainer handleViewEvent={this.handleViewEvent} />;
       case 1:
-        return <IndexContent nav={nav} mobile={mobile} />;
+        return <IndexContent />;
       case 2:
         switch (dashboard) {
           case 1:
-            return <UserEventsContainer handleViewEvent={this.handleViewEvent} nav={nav} mobile={mobile} />;
+            return <UserEventsContainer handleViewEvent={this.handleViewEvent}/>;
           case 2:
-            return <Account nav={nav} mobile={mobile} />;
+            return <Account />;
         }
     }
   }

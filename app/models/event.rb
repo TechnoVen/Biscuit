@@ -6,11 +6,11 @@
 #  date        :string           not null
 #  description :string
 #  host_id     :integer          not null
-#  city_id     :integer          not null
 #  location    :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  time        :string           not null
+#  title       :string
 #
 
 class Event < ApplicationRecord
@@ -19,12 +19,10 @@ class Event < ApplicationRecord
     :time,
     :location,
     :host_id,
-    :city_id,
     presence: true
   )
 
   belongs_to :host, foreign_key: :host_id, class_name: :User
-  belongs_to :city, foreign_key: :city_id, class_name: :City
   has_many :attendances, dependent: :destroy
   has_many :attendees, through: :attendances, source: :attendee
 

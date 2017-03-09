@@ -1,4 +1,4 @@
-json.extract! event, :id, :date, :time, :description, :city_id, :location
+json.extract! event, :id, :title, :date, :time, :description, :location, :updated_at
 json.host event.host, :id, :first_name, :last_name, :image_url
 
 json.attendances do

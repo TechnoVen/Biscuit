@@ -1,5 +1,6 @@
 import values from 'lodash/values';
 import findIndex from 'lodash/findIndex';
+import trimEnd from 'lodash/trimEnd';
 import Moment from 'moment';
 
 export const isNotPastEvent = (event) => {
@@ -48,6 +49,10 @@ export const findEventByTitle = (events, title) => {
   if (idx !== -1) {
     return events[idx];
   } else return null;
+};
+
+export const trimLocation = (location) => {
+  return trimEnd(location, ', United States');
 };
 
 //

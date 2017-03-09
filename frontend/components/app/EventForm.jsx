@@ -1,13 +1,12 @@
 import React from 'react';
 import Moment from 'moment';
 import ReactModal from 'react-modal';
+import PlacesAutocomplete from 'react-places-autocomplete';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import 'react-widgets/lib/scss/react-widgets.scss';
-import {findEventByTitle} from '../../util/store_util';
-
-window.Moment = Moment;
+import {findEventByTitle, trimLocation} from '../../util/store_util';
 
 momentLocalizer(Moment);
 
@@ -25,25 +24,13 @@ export default class EventForm extends React.Component {
       title: "",
       date: this.minDate,
       time: this.minTime,
-      city: "San Francisco, CA",
-      location: "",
+      location: "San Francisco, CA",
       description: ""
     };
-
-    this.cities = [
-      'San Francisco, CA',
-      'Los Angeles, CA',
-      'San Diego, CA',
-      'New York City, NY',
-      'Chicago, IL',
-      'Philadelphia, PA',
-      'Sann Diego,  CA'
-    ];
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
-    this.handleCityChange = this.handleCityChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handlePostEventForm = this.handlePostEventForm.bind(this);
@@ -77,12 +64,8 @@ export default class EventForm extends React.Component {
     this.setState({time});
   }
 
-  handleCityChange(city) {
-    this.setState({city});
-  }
-
-  handleLocationChange(e) {
-    const location = e.target.value;
+  handleLocationChange(location) {
+    location = trimLocation(location);
     this.setState({location});
   }
 
@@ -92,13 +75,12 @@ export default class EventForm extends React.Component {
   }
 
   handlePostEventForm() {
-    let {title, time, date, city, location, description} = this.state;
+    let {title, time, date, location, description} = this.state;
 
     const event = {
       title: title,
       date: date.format('MMMM D, YYYY'),
       time: time.format('h:mm a'),
-      city: city,
       location: location,
       description: description
     };
@@ -118,17 +100,24 @@ export default class EventForm extends React.Component {
     return findEventByTitle(events, this.state.title);
   }
 
+  handleAutoCompleteErrors(status) {
+    return;
+  }
+
   render() {
     const {
       title,
       time,
       date,
-      city,
       location,
       description,
       show,
       event
     } = this.state;
+
+    const options = {
+      componentRestrictions: {country: "us"}
+    };
     return (
       <section className="content event-form">
         <ReactModal
@@ -182,11 +171,13 @@ export default class EventForm extends React.Component {
             />
         </div>
         <div>
-          <div>Location</div>
-          <input
-            type='text'
-            onChange={this.handleLocationChange}
+          <PlacesAutocomplete
             value={location}
+            onChange={this.handleLocationChange}
+            typeAhead={false}
+            clearItemsOnError={true}
+            onError={this.handleAutoCompleteErrors.bind(this)}
+            options={options}
           />
         </div>
         <div>

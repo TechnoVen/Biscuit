@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'moment';
 import ReactModal from 'react-modal';
-import PlacesAutocomplete from 'react-places-autocomplete';
+import PlacesAutocomplete, {geocodeByPlaceId} from 'react-places-autocomplete';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import DropdownList from 'react-widgets/lib/DropdownList';
@@ -27,7 +27,11 @@ export default class EventForm extends React.Component {
       date: this.minDate,
       time: this.minTime,
       location: "San Francisco, CA",
-      description: ""
+      description: "",
+      geolocation: {
+        lat: 37.791305,
+        lng: -122.3937352
+      }
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -79,13 +83,16 @@ export default class EventForm extends React.Component {
   }
 
   handlePostEventForm() {
-    let {title, time, date, location, description} = this.state;
+    let {title, time, date, location, description, geolocation} = this.state;
+
+    geolocation = `lat:${geolocation.lat} lng:${geolocation.lng}`;
 
     const event = {
       title: title,
       date: date.format('MMMM D, YYYY'),
       time: time.format('h:mm a'),
       location: location,
+      geolocation: geolocation,
       description: description
     };
 
@@ -108,8 +115,13 @@ export default class EventForm extends React.Component {
     return;
   }
 
-  handleValidLocation(address, placeId) {
-    console.log(address, placeId);
+  handleValidLocation(location, placeId) {
+    location = trimLocation(location);
+
+    geocodeByPlaceId(placeId, (error, {lat, lng}, results) => {
+      const geolocation = {lat, lng};
+      this.setState({geolocation, location});
+    });
   }
 
   render() {
@@ -126,12 +138,6 @@ export default class EventForm extends React.Component {
     const options = {
       componentRestrictions: {country: "us"}
     };
-
-    const center = {
-      lat: 37.7936684,
-      lng: -122.3957547
-    };
-
     return (
       <section className="content event-form">
         <ReactModal
@@ -160,10 +166,10 @@ export default class EventForm extends React.Component {
               key: 'AIzaSyC6qcNk83qudrUWhS_80zHRsvlTXevjf6k',
               language: 'en'
             }}
-            defaultCenter={center}
-            defaultZoom={11}
+            center={this.state.geolocation}
+            defaultZoom={14}
           >
-            <Marker {...center}/>
+            <Marker {...this.state.geolocation}/>
           </GoogleMapReact>
         </div>
         <div>

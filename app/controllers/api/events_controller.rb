@@ -30,7 +30,8 @@ class Api::EventsController < ApplicationController
       :date,
       :time,
       :location,
-      :description
+      :description,
+      :geolocation
     )
   end
 end

@@ -19,6 +19,7 @@ class Event < ApplicationRecord
     :time,
     :location,
     :host_id,
+    :geolocation,
     presence: true
   )
 

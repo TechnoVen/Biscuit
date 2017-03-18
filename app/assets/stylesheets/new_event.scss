@@ -1,0 +1,16 @@
+.event-form {
+  .create-event-map {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .event-form {
+    .create-event-map {
+      height: 600px;
+    }
+  }
+
+}

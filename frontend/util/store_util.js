@@ -52,7 +52,11 @@ export const findEventByTitle = (events, title) => {
 };
 
 export const trimLocation = (location) => {
-  return trimEnd(location, ', United States');
+  if (location.indexOf(', United States') !== -1) {
+    return trimEnd(location, ', United States');
+  }
+
+  return location;
 };
 
 //

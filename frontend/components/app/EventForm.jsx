@@ -7,6 +7,8 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import 'react-widgets/lib/scss/react-widgets.scss';
 import {findEventByTitle, trimLocation} from '../../util/store_util';
+import Marker from './Marker';
+import GoogleMapReact from 'google-map-react';
 
 momentLocalizer(Moment);
 
@@ -36,6 +38,8 @@ export default class EventForm extends React.Component {
     this.handlePostEventForm = this.handlePostEventForm.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleAutoCompleteErrors = this.handleAutoCompleteErrors.bind(this);
+    this.handleValidLocation = this.handleValidLocation.bind(this);
   }
 
   componentWillMount() {
@@ -104,6 +108,10 @@ export default class EventForm extends React.Component {
     return;
   }
 
+  handleValidLocation(address, placeId) {
+    console.log(address, placeId);
+  }
+
   render() {
     const {
       title,
@@ -118,6 +126,12 @@ export default class EventForm extends React.Component {
     const options = {
       componentRestrictions: {country: "us"}
     };
+
+    const center = {
+      lat: 37.7936684,
+      lng: -122.3957547
+    };
+
     return (
       <section className="content event-form">
         <ReactModal
@@ -140,6 +154,18 @@ export default class EventForm extends React.Component {
             Close
           </button>
         </ReactModal>
+        <div className="create-event-map">
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: 'AIzaSyC6qcNk83qudrUWhS_80zHRsvlTXevjf6k',
+              language: 'en'
+            }}
+            defaultCenter={center}
+            defaultZoom={11}
+          >
+            <Marker {...center}/>
+          </GoogleMapReact>
+        </div>
         <div>
           <div>Event Title</div>
           <input
@@ -175,9 +201,10 @@ export default class EventForm extends React.Component {
             value={location}
             onChange={this.handleLocationChange}
             typeAhead={false}
-            clearItemsOnError={true}
-            onError={this.handleAutoCompleteErrors.bind(this)}
+            clearItemsOnError={false}
+            onError={this.handleAutoCompleteErrors}
             options={options}
+            onSelect={this.handleValidLocation}
           />
         </div>
         <div>

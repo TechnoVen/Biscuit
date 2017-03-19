@@ -1,4 +1,8 @@
 class Api::EventsController < ApplicationController
+  def index
+    @events = Event.all
+  end
+
   def create
     @event = Event.new(event_params)
     @event.host_id = current_user.id

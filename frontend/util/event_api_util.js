@@ -1,5 +1,12 @@
 import moment from 'moment';
 
+export const fetchEvents = (events) => (
+  $.ajax({
+    method: 'GET',
+    url: '/api/events'
+  })
+);
+
 export const createEvent = (event) => (
   $.ajax({
     method: 'POST',

@@ -13,6 +13,7 @@ export default class Searchbar extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleValidLocation = this.handleValidLocation.bind(this);
+    this.handleAutoCompleteErrors = this.handleAutoCompleteErrors.bind(this);
   }
 
   handleSearch(query) {
@@ -38,6 +39,10 @@ export default class Searchbar extends React.Component {
     });
   }
 
+  handleAutoCompleteErrors(status) {
+    return;
+  }
+
   render() {
     const classNames = {
       root: 'searchbar-root',
@@ -52,6 +57,7 @@ export default class Searchbar extends React.Component {
             value={this.state.query}
             onChange={this.handleSearch}
             onSelect={this.handleValidLocation}
+            onError={this.handleAutoCompleteErrors}
           />
         </form>
       </div>

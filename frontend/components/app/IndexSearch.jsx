@@ -6,15 +6,13 @@ import {getCurrentEvents} from '../../util/store_util';
 import {generate} from 'shortid';
 
 export default class IndexSearch extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const {geolocation} = this.props;
 
     this.state = {
-      query: "San Francisco, CA",
-      geolocation: {
-        lat: 37.791305,
-        lng: -122.3937352
-      },
+      geolocation,
       bounds: {
         nw: "",
         ne: "",

@@ -3,7 +3,7 @@ import PlacesAutocomplete, {geocodeByPlaceId} from 'react-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 
-export default class IndexContent extends React.Component {
+export default class IndexSearch extends React.Component {
   constructor() {
     super();
 

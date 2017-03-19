@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import NavigationBar from './NavigationBar';
-import IndexContent from './IndexContent';
+import IndexSearch from './IndexSearch';
 import UserEventsContainer from './UserEventsContainer';
 import Account from './Account';
 import ViewEvent from './ViewEvent';
@@ -86,7 +86,7 @@ export default class App extends React.Component {
       case 3:
         return <EventFormContainer handleViewEvent={this.handleViewEvent} />;
       case 1:
-        return <IndexContent geolocation={geolocation} />;
+        return <IndexSearch geolocation={geolocation} />;
       case 2:
         switch (dashboard) {
           case 1:

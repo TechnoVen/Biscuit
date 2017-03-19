@@ -4,7 +4,7 @@ import {
   RECEIVE_ERRORS,
   CLEAR_ERRORS
 } from '../actions/session_actions';
-import {RECEIVE_EVENT, REMOVE_EVENT} from '../actions/event_actions';
+import {RECEIVE_EVENTS, RECEIVE_EVENT, REMOVE_EVENT} from '../actions/event_actions';
 
 
 import merge from 'lodash/merge';

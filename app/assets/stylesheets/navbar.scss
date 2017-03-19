@@ -60,12 +60,12 @@
       flex-direction: column;
       justify-content: center;
 
-      div {
-        display: none;
-      }
-
       form {
         position: relative;
+
+        .searchbar-root {
+
+        }
 
         input {
           box-sizing: border-box;
@@ -87,6 +87,7 @@
           background-color: #fff;
           border: 0;
           position: absolute;
+          z-index: 20;
           top: 5px;
           right: 14px;
           font-size: 20px;

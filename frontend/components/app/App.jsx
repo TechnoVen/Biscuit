@@ -15,7 +15,11 @@ export default class App extends React.Component {
       mobile: false,
       nav: 1,
       dashboard: 1,
-      viewEvent: null
+      viewEvent: null,
+      geolocation: {
+        lat: 37.791305,
+        lng: -122.3937352
+      }
     };
 
     this.handleNavigate = this.handleNavigate.bind(this);
@@ -24,6 +28,7 @@ export default class App extends React.Component {
     this.handleRenderContent = this.handleRenderContent.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleViewEvent = this.handleViewEvent.bind(this);
+    this.handleChangeGeolocation = this.handleChangeGeolocation.bind(this);
   }
 
   componentDidMount() {
@@ -73,7 +78,7 @@ export default class App extends React.Component {
   }
 
   handleRenderContent() {
-    const {dashboard, nav, mobile, viewEvent} = this.state;
+    const {dashboard, nav, mobile, viewEvent, geolocation} = this.state;
 
     if (viewEvent) return <ViewEvent event={viewEvent} />;
 
@@ -81,7 +86,7 @@ export default class App extends React.Component {
       case 3:
         return <EventFormContainer handleViewEvent={this.handleViewEvent} />;
       case 1:
-        return <IndexContent />;
+        return <IndexContent geolocation={geolocation} />;
       case 2:
         switch (dashboard) {
           case 1:
@@ -92,6 +97,10 @@ export default class App extends React.Component {
     }
   }
 
+  handleChangeGeolocation(geolocation) {
+    this.setState({geolocation});
+  }
+
   render() {
     const {navbar, content, signOut} = this.props;
     const {nav, mobile} = this.state;
@@ -100,6 +109,7 @@ export default class App extends React.Component {
         {navbar || <NavigationBar
           nav={nav}
           mobile={mobile}
+          handleChangeGeolocation={this.handleChangeGeolocation}
           handleNavigate={this.handleNavigate}
           handleDashNav={this.handleDashNav}
           handleSignOut={this.handleSignOut}

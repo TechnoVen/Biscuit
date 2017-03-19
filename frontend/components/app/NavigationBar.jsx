@@ -9,7 +9,7 @@ export default class NavigationBar extends React.Component {
   }
 
   render() {
-    const {mobile, nav, handleNavigate, handleDashNav, handleSignOut} = this.props;
+    const {mobile, nav, handleChangeGeolocation, handleNavigate, handleDashNav, handleSignOut} = this.props;
 
     return (
       <nav className="navigation-main">
@@ -20,7 +20,7 @@ export default class NavigationBar extends React.Component {
           >
             Biscuit
           </div>
-          <Searchbar nav={nav} mobile={mobile}/>
+          <Searchbar handleChangeGeolocation={handleChangeGeolocation}  nav={nav} mobile={mobile}/>
           <div
             className="nav-newevent"
             onClick={() => handleNavigate(3)}

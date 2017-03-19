@@ -44,6 +44,7 @@ export default class EventForm extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleAutoCompleteErrors = this.handleAutoCompleteErrors.bind(this);
     this.handleValidLocation = this.handleValidLocation.bind(this);
+    this.handleMapChange = this.handleMapChange.bind(this);
   }
 
   componentWillMount() {
@@ -85,14 +86,13 @@ export default class EventForm extends React.Component {
   handlePostEventForm() {
     let {title, time, date, location, description, geolocation} = this.state;
 
-    geolocation = `lat:${geolocation.lat} lng:${geolocation.lng}`;
-
     const event = {
       title: title,
       date: date.format('MMMM D, YYYY'),
       time: time.format('h:mm a'),
       location: location,
-      geolocation: geolocation,
+      lat: geolocation.lat,
+      lng: geolocation.lng,
       description: description
     };
 
@@ -122,6 +122,10 @@ export default class EventForm extends React.Component {
       const geolocation = {lat, lng};
       this.setState({geolocation, location});
     });
+  }
+
+  handleMapChange({center, zoom, bounds, marginBounds, size}) {
+    console.log(bounds, marginBounds);
   }
 
   render() {
@@ -168,6 +172,7 @@ export default class EventForm extends React.Component {
             }}
             center={this.state.geolocation}
             defaultZoom={14}
+            onChange={this.handleMapChange}
           >
             <Marker {...this.state.geolocation}/>
           </GoogleMapReact>

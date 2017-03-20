@@ -103,13 +103,7 @@ export default class HostingProfile extends React.Component {
         <h2>Hosting Profile</h2>
         <div className="hosting-profile-about">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-            in culpa qui officia deserunt mollit anim id est laborum.
+            Hosting a Biscuit meet can make your life feel more fulfilling, more magical, and it might even make you a better person. Every time you bring out your pets to enjoy with others, you're practicing being inclusive, attentive, and curious without inhibition. Your pets also get to have new friends too. You wouldn't want to deprive them of that now would you? Hosting a meet is an awesome challenge, and in it is huge opportunity to grow as a person with your companion.
           </p>
         </div>
         <ul>

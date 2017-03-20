@@ -60,13 +60,7 @@ export default class EventForm extends React.Component {
       <div className="event-form-container container">
         <h2>Host a new Biscuit meet</h2>
         <div className="event-form-info">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          You're just one step away from new stories, amazing people, friendly animals, smiles, and real conversations with alike people. As you fill out the form below, remember that the biscuit community is an incredibly supportive, dynamic and exciting group of people that likes to hang together, share love with our pets across the globe and support each other on our journeys through our neighborhoods. Imagine joining a new family of awesome people with pets that’s both local and global and is as loving and caring as you are. That’s the Biscuit fam.
         </div>
         <div className="event-form-date-time">
           <h3>Date</h3>

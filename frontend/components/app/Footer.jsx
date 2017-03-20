@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 const Footer = () => (
   <footer>
@@ -7,33 +6,22 @@ const Footer = () => (
       <div className="footer-container">
         <ul className="footer-links">
           <li>
-            <Link to="/">about</Link>
+            <a href="https://github.com/laed37" target="_blank">GitHub</a>
           </li>
           <li>
-            <Link to="/">hosting</Link>
+            <a href="https://linkedin.com/in/edwinla" target="_blank">LinkedIn</a>
           </li>
           <li>
-            <Link to="/">cities</Link>
-          </li>
-          <li>
-            <Link to="/">facebook</Link>
-          </li>
-          <li>
-            <Link to="/">twitter</Link>
+            <a href="http://www.edwinla.com" target="_blank">Portfolio</a>
           </li>
         </ul>
         <div className="footer-app-desc">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.
+            Biscuit is all about making our cities feel more like neighborhoods. We're more "connected" than ever before, but we're also more alone. And all we want to do is bring people together using our furry little friends because, well, our pets will always make us smile.
           </p>
           <br />
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            While we're not doing anything groundbreaking. It's easy to forget the value of a conversation as we go about our lives under the same pretenses week after week. A conversation that's intentionally unintentional.
           </p>
         </div>
       </div>

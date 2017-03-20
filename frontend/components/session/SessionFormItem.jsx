@@ -14,7 +14,7 @@ const SessionFormItem = ({
   setUserImageUrl
 }) => {
 
-  let nameField, demoAccBtn, paramDropdown, submitBtn = 'sign in';
+  let nameField, demoAccBtn, paramDropdown, imageUpload, submitBtn = 'sign in';
 
   if (formType !== 'signin') {
     nameField = (
@@ -48,11 +48,13 @@ const SessionFormItem = ({
         />
       </div>
     );
+
+    imageUpload = <SessionImageUpload setUserImageUrl={setUserImageUrl}/>;
   }
 
   return (
     <form className="session-form" onSubmit={handleSubmit}>
-      <SessionImageUpload setUserImageUrl={setUserImageUrl}/>
+      {imageUpload}
       {nameField}
       <input
         type="text"

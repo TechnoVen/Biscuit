@@ -1,7 +1,8 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 import {getLocalTime, getWeekDay, isPastEvent} from '../util/event_api_util';
 
-const EventCard = ({event, eventAction, userId}) => {
+const EventCard = ({event, eventAction, userId, signedIn}) => {
   const {date, location, description, time, host_id} = event;
   const localTime = getLocalTime(time);
   const weekDay = getWeekDay(date);
@@ -33,6 +34,14 @@ const EventCard = ({event, eventAction, userId}) => {
     toggleButtonElement = (
       <button onClick={() => eventAction(event.id)} type="button">
         join event
+      </button>
+    );
+  }
+
+  if (!signedIn) {
+    toggleButtonElement = (
+      <button onClick={() => hashHistory.replace("/signin")} type="button">
+        Sign in to join
       </button>
     );
   }

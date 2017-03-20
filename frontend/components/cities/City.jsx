@@ -51,6 +51,7 @@ export default class City extends React.Component {
       <EventCard
         key={`city-event-${generate()}`}
         event={event}
+        signeddIn={signedIn}
         eventAction={this.createAttendance}
       />
     ));

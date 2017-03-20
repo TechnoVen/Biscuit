@@ -86,7 +86,7 @@ export default class App extends React.Component {
       case 3:
         return <EventFormContainer handleViewEvent={this.handleViewEvent} />;
       case 1:
-        return <IndexSearchContainer geolocation={geolocation} />;
+        return <IndexSearchContainer handleViewEvent={this.handleViewEvent} geolocation={geolocation} />;
       case 2:
         switch (dashboard) {
           case 1:

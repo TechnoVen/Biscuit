@@ -41,9 +41,15 @@ export default class IndexSearch extends React.Component {
   }
 
   render() {
-    const {events} = this.props;
+    const {events, handleViewEvent} = this.props;
     const eventMarkers = getCurrentEvents(events).map((event) => (
-      <Marker key={generate()} lat={event.lat} lng={event.lng} />
+      <Marker
+        key={generate()}
+        handleViewEvent={handleViewEvent}
+        event={event}
+        lat={event.lat}
+        lng={event.lng}
+      />
     ));
 
     return (

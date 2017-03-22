@@ -22,6 +22,13 @@ const Header = ({signedIn, userCity, handleSignOut}) => {
           handleSignOut={handleSignOut}
         />
       </div>
+      <div className="header-nav-mobile">
+        <HeaderNavLinks
+          signedIn={signedIn}
+          userCity={userCity}
+          handleSignOut={handleSignOut}
+        />
+      </div>
     </header>
   );
 };

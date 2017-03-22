@@ -5,6 +5,7 @@
 [Biscuit][Biscuit] is a full-stack web application for unifying strangers together with the help of the furry friends we already welcome in our homes--pets. Inspired by Tea With Strangers, Biscuit allows users to join communities and the events hosted by other members and their friendly pets.
 
 ## Features
+- Mobile friendly styling
 - User creation and authentication, with persistent credentials
 - Fast site loading times due to database indexing and preloading associated data tables
 - Users can browse and join a city's events
@@ -29,11 +30,10 @@
 ## Project Design
 Biscuit was designed and built within two weeks. A sample of the development timeline is available in the [proposal][Proposal]. A database [schema][Schema] was also prepared alongside the design proposal.
 
-[Proposal]:(docs/README.md)
-[Schema]:(docs/schema.md)
+[Proposal]:docs/README.md
+[Schema]:docs/schema.md
 
-# Future Directions
-
+## Future Directions
 - [ ] Google Map API & Event Highlighting
-- [ ] Mobile-friendly
-- [ ] Set reminders on events
+- [ ] Non-restricted events based on any location user inputs
+- [ ] Email/SMS reminders on events

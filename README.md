@@ -10,13 +10,13 @@
 
 ## Features & Implementation
 
-![Biscuit session page: www.biscuit-app.com/signup][session]
-[session]: ./docs/screenshots/session.png
+![Biscuit session page: www.biscuit-app.com/signin][session]
+[session]: ./docs/screenshots/signin.png
 
 - User accounts with secure authentication with optional profile image upload.
 
 ![Biscuit city page: www.biscuit-app.com/cities/1][city]
-[city]: ./docs/screenshots/city.png
+[city]: ./docs/screenshots/city_sf.png
 
 - Browse available cities, join and change your respective city to access events. Newly created events are immediately available to the community to join.
 

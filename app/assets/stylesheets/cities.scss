@@ -98,3 +98,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .city-wrapper {
+    .city-splash {
+      font-size: 2em;
+    }
+
+    .city-set-home {
+      h2 {
+        font-size: 1.25em;
+      }
+    }
+  }
+}

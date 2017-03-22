@@ -16,7 +16,7 @@ export default class Cities extends React.Component {
     ));
     return (
       <div className="cities-container container">
-        <h2>Browse cities for Biscuit meets</h2>
+        <h2>Browse cities</h2>
         <div>
           {renderCityCards}
         </div>

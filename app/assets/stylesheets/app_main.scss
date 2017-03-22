@@ -237,7 +237,6 @@ button:focus {
   color: $color-accent-1 !important;
 }
 
-
 .header-nav-mobile {
   display: none;
   justify-content: center;
@@ -248,6 +247,10 @@ button:focus {
 @media only screen and (max-width: 768px) {
   .display-header-links {
     display: flex;
+  }
+
+  .header-nav-links {
+    display: none;
   }
 
   .home-splash {

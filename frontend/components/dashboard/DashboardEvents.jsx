@@ -28,24 +28,28 @@ export default class DashboardEvents extends React.Component {
   }
 
   render() {
-    const {events, userId} = this.props;
+    const {events, userId, signedIn} = this.props;
     const renderEvents = events.map((event => {
       let eventAction = this.unattendEvent;
       if (event.host_id === userId) {
         eventAction = this.removeEvent;
       }
       return (
-        <li key={`db-current-event-${generate()}`}>
-          <EventCard event={event} eventAction={eventAction} userId={userId} />
-        </li>
+        <EventCard
+          key={`dashboard-event-${generate()}`}
+          event={event}
+          eventAction={eventAction}
+          userId={userId}
+          signedIn={signedIn}
+        />
       );
     }));
     return (
-      <div className="dashboard-events container">
+      <div className="dashboard-wrapper container">
         <h2>Upcoming Events</h2>
-        <ul>
+        <div className="dashboard-events-container">
           {renderEvents}
-        </ul>
+        </div>
       </div>
     );
   }

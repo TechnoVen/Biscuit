@@ -4,13 +4,15 @@ import {deleteAttendance} from '../../actions/attendance_actions';
 import DashboardEvents from './DashboardEvents';
 
 const mapStateToProps = ({session}) => {
+  const signedIn = Boolean(session.currentUser);
   let userId = null;
   if (session.currentUser) {
     userId = session.currentUser.id;
   }
   return {
     events: session.events.current,
-    userId: userId
+    userId: userId,
+    signedIn: signedIn
   };
 };
 

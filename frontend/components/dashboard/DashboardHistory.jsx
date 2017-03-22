@@ -14,18 +14,19 @@ export default class DashboardHistory extends React.Component {
   }
 
   render() {
-    const {events} = this.props;
+    const {events, signedIn} = this.props;
     const renderEvents = events.map((event => (
-      <li key={`db-past-event-${generate()}`}>
-        <EventCard event={event} />
-      </li>
+      <EventCard
+        event={event}
+        signedIn={signedIn}
+      />
     )));
     return (
-      <div className="dashboard-events container">
+      <div className="dashboard-wrapper container">
         <h2>Past Events</h2>
-        <ul>
+        <div className="dashboard-events-container">
           {renderEvents}
-        </ul>
+        </div>
       </div>
     );
   }

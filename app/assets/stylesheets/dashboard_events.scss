@@ -1,21 +1,29 @@
-.dashboard-events {
+.dashboard-wrapper {
   flex-direction: column;
   align-items: center;
   padding: 38px;
   box-sizing: border-box;
-}
 
-.dashboard-events > h2 {
-  align-self: flex-start;
-}
+  h2 {
+    align-self: flex-start;
+  }
 
-.dashboard-events > ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: 950px;
-  margin-top: 20px;
-}
+  .dashboard-events-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
-.dashboard-events > ul > li {
-  margin: 0 8px 8px 8px;
+    padding-top: 28px;
+
+    div.event-card {
+      margin-right: 14px;
+      margin-bottom: 24px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
 }

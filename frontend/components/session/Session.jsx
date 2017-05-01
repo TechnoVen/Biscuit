@@ -1,5 +1,4 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
 
 export default class Session extends React.Component {
   constructor() {
@@ -50,8 +49,8 @@ export default class Session extends React.Component {
         <div className="login-container">
           <h1>Biscuit</h1>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Email" onChange={this.handleUpdate('email')} value={this.state.email} />
-            <input type="password" placeholder="Password" onChange={this.handleUpdate('password')} value={this.state.password} />
+            <input type="text" placeholder="Email" name="email" onChange={this.handleUpdate} value={this.state.email} />
+            <input type="password" placeholder="Password" name="password" onChange={this.handleUpdate} value={this.state.password} />
             <button type="submit">{currentType}</button>
             <div className="login-divider">
               <div className="divider-line"></div>

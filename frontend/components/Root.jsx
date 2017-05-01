@@ -1,6 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 import AppContainer from './app/AppContainer';
 import SessionContainer from './session/SessionContainer';
@@ -32,10 +36,9 @@ const Root = ({store}) => {
 
   return (
     <Provider store={store}>
-      <Router history={hashHistory}>
+      <Router>
         <Route path="/" component={AppContainer}>
-          <IndexRoute onEnter={_requireAuth} />
-          <Route path="session" components={{navbar: emptyDiv, content: SessionContainer}} onEnter={_redirectIfSignedIn}/>
+          <Route path="/session" components={SessionContainer}/>
         </Route>
       </Router>
     </Provider>

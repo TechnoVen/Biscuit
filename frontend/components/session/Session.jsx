@@ -40,7 +40,7 @@ export default class Session extends React.Component {
     const {pathname} = this.props.location;
     const otherPath = pathname === '/login' ? '/signup' : '/login';
     const currentType = pathname === '/login' ? 'Log in' : 'Sign up';
-    const otherType = !pathname ? 'Log in' : 'Sign up';
+    const otherType = pathname === '/login' ? 'Sign up' : 'Log in';
 
     console.log(this.props);
     return (

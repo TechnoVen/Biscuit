@@ -8,6 +8,7 @@ import {
 
 import AppContainer from './app/AppContainer';
 import PublicRouteContainer from './routes/PublicRouteContainer';
+import PrivateRouteContainer from './routes/PrivateRouteContainer';
 import SessionContainer from './session/SessionContainer';
 
 const Root = ({store}) => {
@@ -15,7 +16,7 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path="/" component={AppContainer} />
+          <PrivateRouteContainer exact path="/" component={AppContainer} />
           <PublicRouteContainer path="/login" component={SessionContainer}/>
           <PublicRouteContainer path="/signup" component={SessionContainer}/>
         </div>

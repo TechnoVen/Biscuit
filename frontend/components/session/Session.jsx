@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default class Session extends React.Component {
   constructor() {
@@ -6,8 +7,7 @@ export default class Session extends React.Component {
 
     this.state = {
       email: "",
-      password: "",
-      login: true
+      password: ""
     };
 
     this.handleUpdate = this.handleUpdate.bind(this);
@@ -21,29 +21,28 @@ export default class Session extends React.Component {
   }
 
   toggleSession() {
-    const {login} = this.state;
-    this.setState({login: !login, email: "", password: ""});
+    this.setState({email: "", password: ""});
   }
 
   handleSubmit() {
     event.preventDefault();
-    const {signin, signup} = this.props;
-    const {email, password, login} = this.state;
-    const submitForm = this.state.login ? signin : signup;
-    submitForm({email: email, password: password})
-      .then(() => hashHistory.replace("/"));
+    this.props.processForm({...this.state});
   }
 
   enterDemoAccount() {
-    this.props.signin({
+    this.props.processForm({
       email: 'guest_user@kibblewstrangers.com',
       password: 'guest_kibble'
-    }).then(() => hashHistory.replace("/"));
+    });
   }
 
   render() {
-    const currentType = this.state.login ? 'Log in' : 'Sign up';
-    const otherType = !this.state.login ? 'Log in' : 'Sign up';
+    const {pathname} = this.props.location;
+    const otherPath = pathname === '/login' ? '/signup' : '/login';
+    const currentType = pathname === '/login' ? 'Log in' : 'Sign up';
+    const otherType = !pathname ? 'Log in' : 'Sign up';
+
+    console.log(this.props);
     return (
       <div className="home-container">
         <div className="login-container">
@@ -57,8 +56,8 @@ export default class Session extends React.Component {
               <div className="divider-or">or</div>
               <div className="divider-line"></div>
             </div>
-            <div className="session-other" onClick={this.toggleSession}>
-              {otherType + ' instead'}
+            <div className="session-other">
+              <Link to={otherPath}>{otherType + ' instead'}</Link>
             </div>
           </form>
         </div>

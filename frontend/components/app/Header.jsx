@@ -1,29 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router';
-import HeaderNavLinks from './HeaderNavLinks';
-import {BiscuitLogoColor2} from '../../svg/svg_graphics';
+import React, {Component} from 'react';
 
-const Header = ({signedIn, userCity, handleSignOut}) => {
-  return (
-    <header>
-      <div className="header-container">
-        <Link className="header-logo-link" to='/'>
-          <div className="logo-container">
-            <BiscuitLogoColor2
-                height="50px"
-                width="50px"
-            />
-            biscuit
-          </div>
-        </Link>
-        <HeaderNavLinks
-          signedIn={signedIn}
-          userCity={userCity}
-          handleSignOut={handleSignOut}
-        />
-      </div>
-    </header>
-  );
-};
+export default class Header extends Component {
+    constructor() {
+        super();
+    }
 
-export default Header;
+    render() {
+        return (
+            <div className="header-container">
+                <div className="header-left">
+                    <h1>Biscuit</h1>
+                </div>
+                <div className="header-right">
+                    <a href="#">Dashboard</a>
+                    <a href="#">Account</a>
+                </div>
+            </div>
+        );
+    }
+}

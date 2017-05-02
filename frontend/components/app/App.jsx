@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 export default class App extends React.Component {
   constructor() {
@@ -12,7 +13,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <main className="wrapper">
+      <main className="app-container">
+        <Header />
         <h2>Homepage!</h2>
         <div className="logout-button" onClick={this.signout}>Sign out</div>
       </main>

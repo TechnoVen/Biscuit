@@ -1,0 +1,33 @@
+@import 'palette';
+@import url('https://fonts.googleapis.com/css?family=Yellowtail|Work+Sans:400,500,600');
+
+
+.header-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 65px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    padding: 0 20px;
+
+    .header-left {
+        h1 {
+            font-size: 32px;
+            font-family: Yellowtail, cursive;
+        }
+    }
+
+    .header-right {
+        a {
+            margin-right: 10px;
+
+            &:nth-last-of-type(1) {
+                margin-right: 0;
+            }
+        }
+    }
+
+
+
+}

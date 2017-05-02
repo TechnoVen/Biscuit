@@ -16,8 +16,9 @@ export default class Session extends React.Component {
     this.enterDemoAccount = this.enterDemoAccount.bind(this);
   }
 
-  handleUpdate(field) {
-    return (e) => this.setState({[field]: e.target.value});
+  handleUpdate(event) {
+    const {name, value} = event.target;
+    this.setState({[name]: value});
   }
 
   toggleSession() {
@@ -42,7 +43,6 @@ export default class Session extends React.Component {
     const currentType = pathname === '/login' ? 'Log in' : 'Sign up';
     const otherType = pathname === '/login' ? 'Sign up' : 'Log in';
 
-    console.log(this.props);
     return (
       <div className="home-container">
         <div className="login-container">
@@ -65,11 +65,6 @@ export default class Session extends React.Component {
           <div>
             Just want to look around? <span onClick={this.enterDemoAccount}>Try the demo</span>
           </div>
-        </div>
-        <div className="dev-links-container">
-          <a href="https://github.com/laed37" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/edwinla" target="_blank">LinkedIn</a>
-          <a href="https://edwinla.com/" target="_blank">Portfolio</a>
         </div>
       </div>
     );

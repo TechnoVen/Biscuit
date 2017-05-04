@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170319002953) do
     t.datetime "updated_at",  null: false
     t.string   "time",        null: false
     t.string   "title"
-    t.string   "lat",         null: false
-    t.string   "lng",         null: false
+    t.string   "lat"
+    t.string   "lng"
     t.index ["host_id"], name: "index_events_on_host_id", using: :btree
   end
 

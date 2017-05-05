@@ -1,6 +1,8 @@
 import React from 'react';
 import EventCard from '../EventCard';
 import CitySetHome from './CitySetHome';
+import ReactModal from 'react-modal';
+import EventShow from '../EventShow';
 import {generate} from 'shortid';
 
 export default class City extends React.Component {
@@ -8,11 +10,20 @@ export default class City extends React.Component {
     super();
 
     this.state = {
-      myCity: true
+      myCity: true,
+      openModal: true,
+      eventShowed: null
     };
 
     this.updateUserCity = this.updateUserCity.bind(this);
     this.createAttendance = this.createAttendance.bind(this);
+    this.toggleEvent = this.toggleEvent.bind(this);
+    this.showEvent = this.showEvent.bind(this);
+    this.closeEvent = this.closeEvent.bind(this);
+  }
+
+  componentWillMount() {
+    ReactModal.setAppElement('body');
   }
 
   updateUserCity() {
@@ -37,6 +48,14 @@ export default class City extends React.Component {
     createAttendance(attendance);
   }
 
+  showEvent() {
+    console.log(event.target);
+  }
+
+  toggleEvent() {
+    this.setState({openModal: false, eventShowed: null});
+  }
+
   render() {
     const {currentCity, signedIn, currentUser} = this.props;
     const splashStyle = {};
@@ -53,11 +72,21 @@ export default class City extends React.Component {
         event={event}
         signedIn={signedIn}
         eventAction={this.createAttendance}
+        showEvent={this.showEvent}
       />
     ));
 
     return (
       <div className="city-wrapper">
+        <ReactModal
+          isOpen={this.state.openModal}
+          contentLabel="Modal"
+        >
+          <EventShow
+            toggleEvent={this.toggleEvent}
+            event={this.state.eventShowed}
+          />
+        </ReactModal>
         <div style={splashStyle} className="city-splash">
           {currentCity.name}
         </div>

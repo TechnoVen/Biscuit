@@ -3,7 +3,7 @@ import {signout, signin} from '../../actions/session_actions';
 import App from './App';
 
 const mapStateToProps = ({session}) => ({
-  signedIn: Boolean(session.currentUser)
+  currentUser: session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

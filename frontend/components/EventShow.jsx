@@ -6,13 +6,13 @@ export default class EventShow extends Component {
   }
 
   render() {
-    const {event, toggleEvent} = this.props;
+    const {event, closeEvent} = this.props;
     return (
       <div className="event-show-container">
         <div>
           This is the event show page
         </div>
-        <button onClick={toggleEvent}>Close</button>
+        <button onClick={closeEvent}>Close</button>
       </div>
     );
   }

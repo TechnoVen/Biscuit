@@ -2,7 +2,7 @@ import React from 'react';
 import {hashHistory} from 'react-router';
 import {getLocalTime, getWeekDay, isPastEvent} from '../util/event_api_util';
 
-const EventCard = ({event, eventAction, userId, signedIn}) => {
+const EventCard = ({event, showEvent, userId, signedIn}) => {
   const {date, location, description, time, host_id} = event;
   const localTime = getLocalTime(time);
   const weekDay = getWeekDay(date);
@@ -11,40 +11,6 @@ const EventCard = ({event, eventAction, userId, signedIn}) => {
   };
 
   let toggleButtonElement, noButtonClass = "";
-
-  if (isPastEvent(date, time)) {
-    noButtonClass = " no-event-button";
-    toggleButtonElement = "";
-  } else if (event.attendanceId) {
-    toggleButtonElement = (
-      <button
-        onClick={() => eventAction(event.attendanceId)}
-        type="button"
-      >
-        leave event
-      </button>
-    );
-  } else if (host_id === userId) {
-    toggleButtonElement = (
-      <button onClick={() => eventAction(event.id)} type="button">
-        remove event
-      </button>
-    );
-  } else {
-    toggleButtonElement = (
-      <button onClick={() => eventAction(event.id)} type="button">
-        join event
-      </button>
-    );
-  }
-
-  if (!signedIn) {
-    toggleButtonElement = (
-      <button onClick={() => hashHistory.replace("/signin")} type="button">
-        Sign in to join
-      </button>
-    );
-  }
 
   return (
     <div className={`event-card${noButtonClass}`}>
@@ -69,7 +35,9 @@ const EventCard = ({event, eventAction, userId, signedIn}) => {
       <span className="event-card-description">
         {event.description}
       </span>
-      {toggleButtonElement}
+      <button onClick={() => console.log(event)} type="button">
+        Show Event
+      </button>
     </div>
   );
 };

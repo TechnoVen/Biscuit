@@ -17,7 +17,6 @@ export default class City extends React.Component {
 
     this.updateUserCity = this.updateUserCity.bind(this);
     this.createAttendance = this.createAttendance.bind(this);
-    this.toggleEvent = this.toggleEvent.bind(this);
     this.showEvent = this.showEvent.bind(this);
     this.closeEvent = this.closeEvent.bind(this);
   }
@@ -52,8 +51,8 @@ export default class City extends React.Component {
     console.log(event.target);
   }
 
-  toggleEvent() {
-    this.setState({openModal: false, eventShowed: null});
+  closeEvent() {
+    this.setState({openModal: false});
   }
 
   render() {
@@ -71,7 +70,6 @@ export default class City extends React.Component {
         key={`city-event-${generate()}`}
         event={event}
         signedIn={signedIn}
-        eventAction={this.createAttendance}
         showEvent={this.showEvent}
       />
     ));
@@ -83,8 +81,8 @@ export default class City extends React.Component {
           contentLabel="Modal"
         >
           <EventShow
-            toggleEvent={this.toggleEvent}
             event={this.state.eventShowed}
+            closeEvent={this.closeEvent}
           />
         </ReactModal>
         <div style={splashStyle} className="city-splash">

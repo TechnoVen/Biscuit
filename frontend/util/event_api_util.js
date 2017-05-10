@@ -9,10 +9,26 @@ export const createEvent = (event) => (
   })
 );
 
-export const fetchEvents = () => (
+export const fetchUpcomingEvents = () => (
   $.ajax({
     method: 'GET',
     url: '/api/events'
+  })
+);
+
+export const fetchCityEvents = (cityId) => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/events',
+    data: {cityId}
+  })
+);
+
+export const fetchPastEvents = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/events',
+    data: {'past': true}
   })
 );
 

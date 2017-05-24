@@ -142,9 +142,11 @@ User.create!(
   first_name: "Guest",
   last_name: "",
   password: 'guest_kibble',
-  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg'
+  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg',
+  breed: 'Husky',
+  pet_name: 'Buddy'
 )
-# 
+#
 # USER_IMAGES = [
 #   'https://res.cloudinary.com/dmmcusgxy/image/upload/h_400,w_400,c_fit/v1484903016/SEED/valeria-c.jpg',
 #   'http://res.cloudinary.com/dmmcusgxy/image/upload/h_400,w_400,c_fit/v1484901716/SEED/theme-candid-portraits-smile-woman-girl-40064.jpg',

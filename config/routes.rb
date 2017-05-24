@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :events, only: [:show, :index, :create, :update, :destroy]
     resources :cities, only: [:show, :index]
     resources :attendances, only: [:create, :destroy]
+    resources :likes, only: [:index]
   end
 end

@@ -103,49 +103,46 @@ PROFILE_SENTENCES = [
 ].freeze
 
 
-City.create!([
-  {
-    name: 'San Francisco, CA',
-    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705965/san_francisco.jpg"
-  },
-  {
-    name: 'Los Angeles, CA',
-    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_2000/v1484705951/los_angeles.jpg"
-  },
-  {
-    name: 'New York City, NY',
-    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/v1484705942/new_york.jpg"
-  },
-  {
-    name: 'Chicago, IL',
-    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_1920/v1484705957/chicago_bar1ny.jpg"
-  },
-  {
-    name: 'Philadelphia, PA',
-    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/q_auto:eco/v1484705958/philadelphia-skyline-background-image2-1800vp_ckziky.jpg"
-  },
-  {
-    name: 'San Diego, CA',
-    image_url: "https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_1000,q_auto:eco,w_2000/v1484706363/o85agquk55e-robert-lamb_clbamb.jpg"
-  }
-])
-
 PET_TYPES = [
-  'dog',
-  'cat',
-  'rabbit',
-  'other'
+  'labrador',
+  'cocker spaniel',
+  'german shepherd',
+  'golden retriever',
+  'boxer',
+  'terrier',
+  'beagle',
+  'daschund',
+  'poodle',
+  'shih tzu',
+  'chihuahua',
+  'pomeranian',
+  'bulldog',
+  'pug',
+  'rottweiler',
+  'maltese',
+  'sheepdog'
 ].freeze
 
 User.create!(
   email: 'guest_user@kibblewstrangers.com',
   first_name: "Guest",
-  last_name: "",
+  last_name: "User",
   password: 'guest_kibble',
-  image_url: 'https://res.cloudinary.com/dmmcusgxy/image/upload/c_scale,h_264,w_385/v1484931280/SEED/Stocksy_txpa5f790c5D3S000_Small_538332.jpg',
+  image_url: 'http://res.cloudinary.com/dmmcusgxy/image/upload/v1495666623/dogs/husky_1.jpg',
   breed: 'Husky',
-  pet_name: 'Buddy'
+  pet_name: 'Sesame'
 )
+
+User.create!(
+  email: 'abc123@email.com',
+  first_name: 'Tiffany',
+  last_name: 'Lee',
+  password: 'password',
+  image_url: 'http://res.cloudinary.com/dmmcusgxy/image/upload/v1495666642/dogs/labrador_1.jpg',
+  breed: 'Labrador',
+  pet_name: 'Mochi'
+)
+
 #
 # USER_IMAGES = [
 #   'https://res.cloudinary.com/dmmcusgxy/image/upload/h_400,w_400,c_fit/v1484903016/SEED/valeria-c.jpg',

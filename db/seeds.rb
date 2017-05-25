@@ -128,7 +128,7 @@ User.create!(
   first_name: "Guest",
   last_name: "User",
   password: 'guest_kibble',
-  image_url: 'http://res.cloudinary.com/dmmcusgxy/image/upload/v1495666623/dogs/husky_1.jpg',
+  image_url: 'http://res.cloudinary.com/dmmcusgxy/image/upload/c_fill,h_400,w_400/v1495666623/dogs/husky_1.jpg',
   breed: 'Husky',
   pet_name: 'Sesame'
 )
@@ -138,7 +138,7 @@ User.create!(
   first_name: 'Tiffany',
   last_name: 'Lee',
   password: 'password',
-  image_url: 'http://res.cloudinary.com/dmmcusgxy/image/upload/v1495666642/dogs/labrador_1.jpg',
+  image_url: 'http://res.cloudinary.com/dmmcusgxy/image/upload/c_fill,h_400,w_400/v1495666642/dogs/labrador_1.jpg',
   breed: 'Labrador',
   pet_name: 'Mochi'
 )

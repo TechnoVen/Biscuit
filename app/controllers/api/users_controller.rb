@@ -1,12 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :require_signed_in!, only: [:index]
   def index
-    match = params[:match]
-    @matches = nil
-
-    if match
-      @matches = current_user.find_nearby(match[:distance], match[:breed])
-    end
+    @matches = current_user.find_nearby(match_params)
 
     render '/api/users/index.json.jbuilder'
   end
@@ -42,6 +37,10 @@ class Api::UsersController < ApplicationController
   end
 
   private
+
+  def match_params
+    params.require(:match).permit(:breed, :distance)
+  end
 
   def new_user_params
     params

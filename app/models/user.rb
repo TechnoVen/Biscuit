@@ -66,10 +66,13 @@ class User < ActiveRecord::Base
     likes_me + likes_them
   end
 
-  def find_nearby(distance, breed = nil)
-    User.within(distance, origin: [self.lat, self.lng])
+  def find_nearby(match_params)
+    default = { distance: 25, breed: "" }
+    match_params = default.merge!(match_params.to_h)
+
+    User.within(match_params[:distance], origin: [self.lat, self.lng])
       .where('users.id != :user_id', user_id: self.id)
-      .where("users.breed LIKE :breed", breed: "%#{breed}%")
+      .where("users.breed LIKE :breed", breed: "%#{match_params[:breed]}%")
   end
 
   def add_geocode_by_zipcode(zip_code)

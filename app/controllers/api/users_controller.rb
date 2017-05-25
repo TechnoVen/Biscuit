@@ -1,4 +1,16 @@
 class Api::UsersController < ApplicationController
+  before_action :require_signed_in!, only: [:index]
+  def index
+    match = params[:match]
+    @matches = nil
+
+    if match
+      @matches = current_user.find_nearby(match[:distance], match[:breed])
+    end
+
+    render '/api/users/index.json.jbuilder'
+  end
+
   def create
     @user = User.new(new_user_params)
     if @user.save

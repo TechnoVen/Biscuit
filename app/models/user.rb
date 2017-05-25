@@ -14,7 +14,9 @@
 #  last_name       :string
 #
 
-class User < ApplicationRecord
+class User < ActiveRecord::Base
+  acts_as_mappable
+
   validates(
     :email,
     :password_digest,
@@ -28,9 +30,16 @@ class User < ApplicationRecord
   has_many :attended_events, through: :attendances, source: :attended_event
   has_many :hosted_events, foreign_key: :host_id, class_name: :Event
 
+  has_many :likes, foreign_key: :likee_id, class_name: Like
+  has_many :liked, foreign_key: :liker_id, class_name: Like
+
+  has_many :likes_me, through: :likes, source: :Likee
+  has_many :likes_them, through: :liked, source: :Liker
+
   attr_reader :password
 
   after_initialize :ensure_session_token
+  before_save :ensure_downcase_breed
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
@@ -53,7 +62,27 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def matches
+    likes_me + likes_them
+  end
+
+  def find_nearby(distance, breed = nil)
+    User.within(distance, origin: [self.lat, self.lng])
+      .where('users.id != :user_id', user_id: self.id)
+      .where("users.breed LIKE :breed", breed: "%#{breed}%")
+  end
+
+  def add_geocode_by_zipcode(zip_code)
+    gc = Geokit::Geocoders::GoogleGeocoder.geocode zip_code
+    self.lat, self.lng = gc.lat, gc.lng
+    self.save!
+  end
+
   private
+
+  def ensure_downcase_breed
+    self.breed == self.breed.downcase ? nil : self.breed.downcase!
+  end
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)

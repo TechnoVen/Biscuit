@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   before_action :require_signed_in!, only: [:index]
   def index
+    match_params ||= {}
     @matches = current_user.find_nearby(match_params)
 
     render '/api/users/index.json.jbuilder'

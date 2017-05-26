@@ -1,0 +1,116 @@
+.match-listings-container {
+  display: flex;
+  justify-content: center;
+  width: 900px;
+  margin: 0 auto;
+}
+
+
+.match-card-container {
+  width: 280px;
+  height: 385px;
+  margin: 0 10px 40px 10px;
+
+  .match-card {
+    position: relative;
+    width: 280px;
+    height: 385px;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    background-color: #fff;
+
+    .match-card-image-wrapper {
+      display: block;
+      height: 225px;
+      width: 100%;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-color: #ccd0d9;
+      overflow: hidden;
+      z-index: 1;
+
+      .match-card-image {
+        width: 100%;
+        position: relative;
+        top: -10px;
+        height: auto;
+      }
+    }
+
+    .match-card-desc {
+      position: absolute;
+      top: 237px;
+      width: 100%;
+      z-index: 3;
+
+      .match-card-profile {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+
+        .pet-name {
+          font-size: 22px;
+          color: #1e1e1e;
+        }
+
+        .pet-info {
+          color: #949aa6;
+          margin-top: 8px;
+
+          span {
+            margin-right: 4px;
+            font-size: 15px;
+          }
+
+          .breed {
+            text-transform: capitalize;
+          }
+
+          .dot {
+            width: 12px;
+          }
+
+          .location {
+            margin-right: 0;
+          }
+
+        }
+
+      }
+
+      .match-card-like {
+        margin-top: 10px;
+        text-align: center;
+
+        .match-card-button-like {
+          border: 1px solid #ccd0d9;
+          border-radius: 3px;
+          background-color: #fff;
+          color: #2a2f35;
+          height: 42px;
+          width: 128px;
+          outline: none;
+
+          i {
+            color: #ccd0d9;
+            font-size: 20px;
+            vertical-align: middle;
+            display: inline-block;
+            margin: -6px 5px 0 -6px;
+          }
+
+          span {
+            text-transform: capitalize;
+            font-size: 15px;
+            line-height: 30px;
+          }
+
+          &:hover {
+            background-color: rgba(174,180,191,0.1);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

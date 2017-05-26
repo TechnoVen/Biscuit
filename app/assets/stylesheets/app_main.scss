@@ -11,6 +11,7 @@ html, body {
   width: 100%;
   font-family: 'Work Sans', sans-serif;
   font-size: 14px;
+  background-color: #f3f5f9;
 }
 
 .wrapper {
@@ -147,10 +148,13 @@ html, body {
   }
 }
 
+.app-container {
+
+}
 
 @media only screen and (min-width: 600px) {
   #main {
-    background-color: #fafafa;
+    background-color: #f3f5f9;
   }
 
   .wrapper {

@@ -10,7 +10,8 @@
     box-sizing: border-box;
     border-bottom: 1px solid #eee;
     padding: 0 20px;
-    color: $color-accent-2;
+    color: #fff;
+    background-color: #104da1;
 
     .header-left {
       display: flex;
@@ -21,6 +22,7 @@
       h1 {
           font-size: 35px;
           font-family: Yellowtail, cursive;
+          color: #fff;
       }
     }
 

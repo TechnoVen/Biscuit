@@ -9,16 +9,21 @@ html, body {
 #main {
   height: 100%;
   width: 100%;
+}
+
+.root-container {
+  height: inherit;
+  width: inherit;
   font-family: 'Work Sans', sans-serif;
   font-size: 14px;
   background-color: #f3f5f9;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+.app-container {
+  min-height: 100%;
+  padding: 0 0 170px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .home-container {
@@ -146,10 +151,6 @@ html, body {
       }
     }
   }
-}
-
-.app-container {
-
 }
 
 @media only screen and (min-width: 600px) {

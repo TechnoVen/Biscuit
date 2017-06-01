@@ -16,7 +16,7 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router>
         <div className="root-container">
-          <PrivateRouteContainer exact path="/" component={AppContainer} />
+          <PrivateRouteContainer path="/" component={AppContainer} />
           <PublicRouteContainer path="/login" component={SessionContainer}/>
           <PublicRouteContainer path="/signup" component={SessionContainer}/>
         </div>

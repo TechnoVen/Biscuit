@@ -1,0 +1,137 @@
+.profile-container {
+  .profile-header {
+    padding: 50px 0 0;
+    margin: 0 0 30px;
+    background-color: #104da1;
+
+    .profile-header-inner {
+      position: relative;
+      width: 1000px;
+      margin: 0 auto;
+      padding: 0 60px;
+
+      &::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .profile-desc {
+        float: left;
+        margin: 0 0 -30px -30px;
+
+        // &::after {
+        //   content: "";
+        //   display: table;
+        //   clear: both;
+        // }
+
+        .profile-image {
+          float: left;
+          img {
+            width: 180px;
+            height: auto;
+            border-radius: 100%;
+          }
+        }
+
+        .profile-info {
+          float: left;
+          margin: 53px 23px;
+          color: white;
+          font-weight: 300;
+
+          .profile-username {
+            font-size: 32px;
+            margin-bottom: 8px;
+          }
+
+          .profile-petinfo {
+            font-size: 18px;
+
+            span {
+              margin-right: 8px;
+
+              &:last-of-type {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .profile-like-message {
+        float: right;
+        margin-top: 67px;
+
+        button {
+          width: 132px;
+          height: 46px;
+          line-height: 45px;
+          border-radius: 3px;
+          background-color: inherit;
+          font-size: 17px;
+          font-weight: 300;
+          cursor: pointer;
+          outline: none;
+          transition: all 200ms ease;
+        }
+
+        .profile-like-button {
+          background: none;
+          color: #e4edfd;
+          border: 1px solid rgba(228,237,253,0.75);
+          margin-right: 8px;
+          text-transform: capitalize;
+
+          i {
+            margin-left: -6px;
+            margin-right: 6px;
+          }
+
+          &:hover {
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.85);
+          }
+        }
+
+        .profile-message-button {
+          background-color: #4c7bd9;
+          color: #fff;
+          border: 1px solid rgba(76,123,217,0.75);
+          text-transform: capitalize;
+
+          &:hover {
+            background-color: #3260c7;
+            border: 1px solid rgba(50,96,199,0.85);
+          }
+        }
+      }
+    }
+  }
+
+
+  .profile-body {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 30px 0 60px;
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .profile-main {
+      float: left;
+      width: 560px;
+      padding: 0 0 0 50px;
+    }
+
+
+    .profile-sidebar {
+      float: right;
+      width: 320px;
+    }
+  }
+}
